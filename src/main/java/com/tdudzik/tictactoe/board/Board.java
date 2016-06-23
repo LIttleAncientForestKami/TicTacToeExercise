@@ -22,4 +22,11 @@ public class Board {
         return marksByPosition.containsKey(position);
     }
 
+    public boolean isOccupied(Position position) {
+        if (!positionExists(position)) {
+            throw new IllegalArgumentException("Position does not exists.");
+        }
+        return !marksByPosition.get(position).equals(Mark.NONE);
+    }
+
 }

@@ -14,12 +14,8 @@ public class BoardDimensions {
         return new BoardDimensions(x, y);
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
+    public int numberOfPositions() {
+        return x * y;
     }
 
 }

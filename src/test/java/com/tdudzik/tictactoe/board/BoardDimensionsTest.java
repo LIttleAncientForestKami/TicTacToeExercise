@@ -7,13 +7,15 @@ import static org.testng.Assert.*;
 public class BoardDimensionsTest {
 
     @Test
-    public void createBoardDimensions() {
+    public void calculateNumberOfPositions() {
+        // Given
+        BoardDimensions boardDimensions = BoardDimensions.of(3, 3);
+
         // When
-        BoardDimensions boardDimensions = BoardDimensions.of(3, 4);
+        int numberOfPositions = boardDimensions.numberOfPositions();
 
         // Then
-        assertEquals(3, boardDimensions.getX());
-        assertEquals(4, boardDimensions.getY());
+        assertEquals(9, numberOfPositions);
     }
 
 }

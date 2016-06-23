@@ -1,18 +1,19 @@
 package epam.ja.krk.tictactoe.map;
 
-/**
- * Created by ehsan on 23.06.16.
- */
 public class TicTacToeSimpleField implements TicTacToeField {
 
     private Shape shape = null;
 
+    /**
+     *
+     * @return The shape of the field
+     */
     public Shape shape() {
         return shape;
     }
 
     public boolean isFree() {
-        return true;
+        return this.shape==null;
     }
 
     public void put(Shape shape) {

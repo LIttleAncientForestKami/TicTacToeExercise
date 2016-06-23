@@ -34,14 +34,8 @@ public class MapTest {
 
     @Test
     public void mapOfFieldsTest(){
-        Map<String, TicTacToeField> map = new HashMap<String, TicTacToeField>();
-        map.put("1", new TicTacToeSimpleField());
-        map.put("2", new TicTacToeSimpleField());
-        map.put("3", new TicTacToeSimpleField());
-        map.put("4", new TicTacToeSimpleField());
-        map.put("5", new TicTacToeSimpleField());
-        map.put("6", new TicTacToeSimpleField());
-        TicTacToeMap ticTacToeMap = new TicTacToeSimpleMap(map);
+        TicTacToeMapBuilder builder = new  TicTacToeMapBuilder();
+        TicTacToeMap ticTacToeMap = new TicTacToeSimpleMap(builder.simpleTicTacToeMap());
         Assert.assertTrue(ticTacToeMap.getField("2").isFree());
     }
 

@@ -14,7 +14,7 @@ import static org.testng.AssertJUnit.assertTrue;
 public class BoardTest {
 
     @Test
-    public void checkIfPositionExists() {
+    public void ositionExists() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(1), Mark.NONE);
@@ -29,7 +29,7 @@ public class BoardTest {
     }
 
     @Test
-    public void checkIfPositionDoesNotExists() {
+    public void positionDoesNotExists() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(1), Mark.NONE);
@@ -44,7 +44,7 @@ public class BoardTest {
     }
 
     @Test
-    public void checkIfPositionThatExistsIsOccupied() {
+    public void positionThatExistsIsOccupied() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.O);
@@ -59,7 +59,7 @@ public class BoardTest {
     }
 
     @Test
-    public void checkIfPositionThatExistsIsNotOccupied() {
+    public void positionThatExistsIsNotOccupied() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.NONE);
@@ -74,7 +74,7 @@ public class BoardTest {
     }
 
     @Test
-    public void checkIfPositionThatDoesNotExistIsOccupied() {
+    public void positionThatDoesNotExistIsOccupied() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.O);

@@ -5,5 +5,10 @@ package epam.ja.krk.tictactoe.map;
  */
 public interface TicTacToeMap {
 
-    TicTacToeField getField(String fieldNumber);
+    boolean hasFreeFieldOn(String fieldNumber);
+
+    boolean hasShapeOnTheField(String fieldNumber, Shape shape);
+
+    boolean putInTheField(String key, Shape shape);
+
 }

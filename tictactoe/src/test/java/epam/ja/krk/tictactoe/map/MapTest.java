@@ -3,9 +3,6 @@ package epam.ja.krk.tictactoe.map;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by ehsan on 23.06.16.
  */
@@ -36,7 +33,25 @@ public class MapTest {
     public void mapOfFieldsTest(){
         TicTacToeMapBuilder builder = new  TicTacToeMapBuilder();
         TicTacToeMap ticTacToeMap = new TicTacToeSimpleMap(builder.simpleTicTacToeMap());
-        Assert.assertTrue(ticTacToeMap.getField("2").isFree());
+        Assert.assertTrue(ticTacToeMap.hasFreeFieldOn("1"));
     }
+
+    @Test
+    public void mapPutO(){
+        TicTacToeMapBuilder builder = new  TicTacToeMapBuilder();
+        TicTacToeMap ticTacToeMap = new TicTacToeSimpleMap(builder.simpleTicTacToeMap());
+        ticTacToeMap.putInTheField("1", Shape.O);
+        Assert.assertTrue(ticTacToeMap.hasShapeOnTheField("1", Shape.O));
+    }
+
+    @Test
+    public void mapPutX(){
+        TicTacToeMapBuilder builder = new  TicTacToeMapBuilder();
+        TicTacToeMap ticTacToeMap = new TicTacToeSimpleMap(builder.simpleTicTacToeMap());
+        ticTacToeMap.putInTheField("5", Shape.X);
+        Assert.assertTrue(ticTacToeMap.hasShapeOnTheField("5", Shape.X));
+    }
+
+
 
 }

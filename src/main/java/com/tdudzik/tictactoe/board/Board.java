@@ -26,7 +26,16 @@ public class Board {
         if (!positionExists(position)) {
             throw new IllegalArgumentException("Position does not exists.");
         }
+
         return !marksByPosition.get(position).equals(Mark.NONE);
+    }
+
+    public Mark markOn(Position position) {
+        if (!positionExists(position)) {
+            throw new IllegalArgumentException("Position does not exists.");
+        }
+
+        return marksByPosition.get(position);
     }
 
 }

@@ -86,7 +86,41 @@ public class BoardTest {
             boolean isOccupied = board.isOccupied(Position.of(1));
 
             // Then
-            fail("Should throw an IllegalStateException.");
+            fail("Should throw an IllegalArgumentException.");
+        } catch (IllegalArgumentException ex) {
+            // Ok
+        }
+    }
+
+    @Test
+    public void markOnThePositionThatExists() {
+        // Given
+        Map<Position, Mark> marksByPositions = new HashMap<>();
+        marksByPositions.put(Position.of(5), Mark.X);
+
+        Board board = new Board(marksByPositions);
+
+        // When
+        Mark mark = board.markOn(Position.of(5));
+
+        // Then
+        assertEquals(Mark.X, mark);
+    }
+
+    @Test
+    public void markOnThePositionThatDoesNotExists() {
+        // Given
+        Map<Position, Mark> marksByPositions = new HashMap<>();
+        marksByPositions.put(Position.of(5), Mark.O);
+
+        Board board = new Board(marksByPositions);
+
+        // When
+        try {
+            Mark mark = board.markOn(Position.of(6));
+
+            // Then
+            fail("Should throw an IllegalArgumentException.");
         } catch (IllegalArgumentException ex) {
             // Ok
         }

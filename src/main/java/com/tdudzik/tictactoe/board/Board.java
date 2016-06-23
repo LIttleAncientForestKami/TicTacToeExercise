@@ -38,4 +38,8 @@ public class Board {
         return marksByPosition.get(position);
     }
 
+    public void placeMark(Position position, Mark mark) {
+        marksByPosition.put(position, mark);
+    }
+
 }

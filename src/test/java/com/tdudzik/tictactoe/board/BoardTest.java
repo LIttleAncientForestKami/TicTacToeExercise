@@ -126,4 +126,20 @@ public class BoardTest {
         }
     }
 
+    @Test
+    public void placeMarkOnThePositionThatExistsAndIsNotOccupied() {
+        // Given
+        Map<Position, Mark> marksByPositions = new HashMap<>();
+        marksByPositions.put(Position.of(5), Mark.NONE);
+
+        Board board = new Board(marksByPositions);
+
+        // When
+        board.placeMark(Position.of(5), Mark.O);
+
+        // Then
+        assertTrue(board.isOccupied(Position.of(5)));
+        assertEquals(Mark.O, board.markOn(Position.of(5)));
+    }
+
 }

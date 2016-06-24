@@ -42,7 +42,7 @@ public class SimpleArbiter implements Arbiter {
     }
 
     public boolean wantsToContinue() {
-        return isTheMapFull();
+        return !isTheMapFull();
     }
 
     public Shape nextPlayer() {

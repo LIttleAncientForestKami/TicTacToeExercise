@@ -1,5 +1,6 @@
 package epam.ja.krk.tictactoe.graphic;
 
+import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 
 /**
@@ -8,7 +9,8 @@ import epam.ja.krk.tictactoe.map.TicTacToeMap;
 public interface GraphicalViewer {
     void displayMap(TicTacToeMap map);
 
-    String whatIsTheNextMove();
+    String whatIsTheNextMove(Shape theShapeOfThePlayer);
 
+    void informThat(String str);
 
 }

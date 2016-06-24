@@ -1,5 +1,6 @@
 package epam.ja.krk.tictactoe.graphic;
 
+import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 
 import java.io.PrintStream;
@@ -12,6 +13,7 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
 
     private final PrintStream out;
     private final Scanner scanner;
+
     public SimpleGraphicalConsole(PrintStream out, Scanner scanner) {
         this.out = out;
         this.scanner = scanner;
@@ -21,8 +23,14 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
         out.println(map);
     }
 
-    public String whatIsTheNextMove() {
-        out.println("Next move : ");
+    public String whatIsTheNextMove(Shape theShapeOfThePlayer) {
+        out.println("Next move player "+theShapeOfThePlayer+": ");
         return scanner.next();
     }
+
+    public void informThat(String str) {
+        out.println(str);
+    }
+
+
 }

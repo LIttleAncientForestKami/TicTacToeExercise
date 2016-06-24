@@ -2,6 +2,7 @@ package epam.ja.krk.tictactoe.environment;
 
 import epam.ja.krk.tictactoe.arbiter.Arbiter;
 import epam.ja.krk.tictactoe.graphic.GraphicalViewer;
+import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 
 /**
@@ -21,9 +22,12 @@ public class TicTacToeSimpleEnvironment implements Environment {
 
 
     public void runTheGame() {
+        Shape currentPlayer;
         while (arbiter.wantsToContinue()){
             console.displayMap(map);
-            arbiter.putXO(console.whatIsTheNextMove());
+            currentPlayer = arbiter.whoIsPlaying();
+            arbiter.putXO(console.whatIsTheNextMove(currentPlayer));
+
         }
     }
 }

@@ -86,8 +86,8 @@ public class BoardTest {
             boolean isOccupied = board.isOccupied(Position.of(1));
 
             // Then
-            fail("Should throw an IllegalArgumentException.");
-        } catch (IllegalArgumentException ex) {
+            fail("Should throw an IllegalStateException.");
+        } catch (IllegalStateException ex) {
             // Ok
         }
     }
@@ -120,8 +120,8 @@ public class BoardTest {
             Mark mark = board.markOn(Position.of(6));
 
             // Then
-            fail("Should throw an IllegalArgumentException.");
-        } catch (IllegalArgumentException ex) {
+            fail("Should throw an IllegalStateException.");
+        } catch (IllegalStateException ex) {
             // Ok
         }
     }

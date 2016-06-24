@@ -24,7 +24,7 @@ public class Board {
 
     public boolean isOccupied(Position position) {
         if (!positionExists(position)) {
-            throw new IllegalArgumentException("Position does not exists.");
+            throw new IllegalStateException("Position does not exists.");
         }
 
         return !marksByPosition.get(position).equals(Mark.NONE);
@@ -32,7 +32,7 @@ public class Board {
 
     public Mark markOn(Position position) {
         if (!positionExists(position)) {
-            throw new IllegalArgumentException("Position does not exists.");
+            throw new IllegalStateException("Position does not exists.");
         }
 
         return marksByPosition.get(position);

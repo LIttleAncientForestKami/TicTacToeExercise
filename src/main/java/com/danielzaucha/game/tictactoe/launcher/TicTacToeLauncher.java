@@ -1,8 +1,6 @@
 package com.danielzaucha.game.tictactoe.launcher;
 
-import com.danielzaucha.game.tictactoe.board.Board;
 import com.danielzaucha.game.tictactoe.game.Game;
-import com.danielzaucha.game.tictactoe.player.Sign;
 
 /**
  * Created by daniel on 23.06.16.

@@ -1,4 +1,4 @@
-package com.danielzaucha.game.tictactoe.player;
+package com.danielzaucha.game.tictactoe.player.base;
 
 /**
  * Created by daniel on 23.06.16.

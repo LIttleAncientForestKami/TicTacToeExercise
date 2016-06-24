@@ -7,6 +7,10 @@ import java.util.Map;
  */
 public class TicTacToeSimpleMap implements TicTacToeMap {
 
+    private static int MIN_FIELD_NUMBER = 1;
+    private static int MAX_FIELD_NUMBER = 9;
+    private static int NUMBER_OF_ROWS = 3;
+
     private Map<String, TicTacToeField> map;
 
     public TicTacToeSimpleMap(Map<String, TicTacToeField> map) {
@@ -40,6 +44,21 @@ public class TicTacToeSimpleMap implements TicTacToeMap {
             done = true;
         }
         return done;
+    }
+
+    public String toString(){
+        String tempNumber = "";
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int iterator=MIN_FIELD_NUMBER; iterator<=MAX_FIELD_NUMBER; iterator++){
+            tempNumber = String.valueOf(iterator);
+            if(iterator%3==1){
+                stringBuilder.append("\n");
+            }else {
+                stringBuilder.append("\t");
+            }
+            stringBuilder.append(map.get(tempNumber));
+        }
+        return stringBuilder.toString();
     }
 
 }

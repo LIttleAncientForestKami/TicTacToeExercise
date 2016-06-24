@@ -39,4 +39,14 @@ public class ArbiterTest {
         Assert.assertTrue(arbiter.isTheMapFull());
     }
 
+    @Test
+    public void playerTermTest(){
+        TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
+
+        Arbiter arbiter = new SimpleArbiter(map);
+        arbiter.putXO("1", Shape.X);
+        Assert.assertEquals(arbiter.whoIsNext(), Shape.O);
+
+    }
+
 }

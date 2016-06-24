@@ -12,6 +12,7 @@ public class SimpleArbiter implements Arbiter {
 
     private int moveCounter;
 
+    private Shape currentlyPlayed;
     public SimpleArbiter(TicTacToeMap map) {
         this.ticTacToeMap = map;
     }
@@ -22,6 +23,7 @@ public class SimpleArbiter implements Arbiter {
             isPut = ticTacToeMap.putInTheField(fieldNumber, shape);
         }
         if(isPut){
+            currentlyPlayed = shape;
             moveCounter++;
         }
         return isPut;
@@ -31,5 +33,12 @@ public class SimpleArbiter implements Arbiter {
         return (moveCounter>=9);
     }
 
+    public Shape whoIsNext() {
+        Shape retShape = Shape.O;
+        if(Shape.O.equals(currentlyPlayed)){
+            retShape = Shape.X;
+        }
+        return retShape;
+    }
 
 }

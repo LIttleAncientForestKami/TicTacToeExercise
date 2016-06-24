@@ -11,4 +11,6 @@ public interface Arbiter {
     boolean putXO(String s, Shape o);
 
     boolean isTheMapFull();
+
+    Shape whoIsNext();
 }

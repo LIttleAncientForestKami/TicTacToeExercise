@@ -1,6 +1,4 @@
-package com.tdudzik.tictactoe.board;
-
-import javafx.geometry.Pos;
+package com.tdudzik.tictactoe.logic.board;
 
 import java.util.HashMap;
 import java.util.Map;

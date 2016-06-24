@@ -1,6 +1,5 @@
-package com.tdudzik.tictactoe.board;
+package com.tdudzik.tictactoe.logic.board;
 
-import com.tdudzik.tictactoe.board.Board;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -14,7 +13,7 @@ import static org.testng.AssertJUnit.assertTrue;
 public class BoardTest {
 
     @Test
-    public void ositionExists() {
+    public void positionExists() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(1), Mark.NONE);

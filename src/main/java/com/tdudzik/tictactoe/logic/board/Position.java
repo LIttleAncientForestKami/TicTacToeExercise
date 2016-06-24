@@ -1,4 +1,4 @@
-package com.tdudzik.tictactoe.board;
+package com.tdudzik.tictactoe.logic.board;
 
 public class Position {
 

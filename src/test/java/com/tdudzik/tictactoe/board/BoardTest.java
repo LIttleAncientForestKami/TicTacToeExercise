@@ -161,4 +161,21 @@ public class BoardTest {
         }
     }
 
+    @Test
+    public void placeMarkOnThePositionThatDoesNotExist() {
+        // Given
+        Map<Position, Mark> marksByPositions = new HashMap<>();
+        Board board = new Board(marksByPositions);
+
+        // When
+        try {
+            board.placeMark(Position.of(5), Mark.O);
+
+            // Then
+            fail("Should throw an IllegalStateException.");
+        } catch (IllegalStateException ex) {
+            // Ok
+        }
+    }
+
 }

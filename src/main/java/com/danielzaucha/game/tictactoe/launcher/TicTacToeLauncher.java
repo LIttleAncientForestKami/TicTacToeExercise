@@ -1,6 +1,7 @@
 package com.danielzaucha.game.tictactoe.launcher;
 
 import com.danielzaucha.game.tictactoe.board.Board;
+import com.danielzaucha.game.tictactoe.game.Game;
 import com.danielzaucha.game.tictactoe.player.Sign;
 
 /**
@@ -9,8 +10,8 @@ import com.danielzaucha.game.tictactoe.player.Sign;
 public class TicTacToeLauncher {
     public static void main(String[] args)
     {
-        Board board = new Board(3);
-        board.placeCharacterOnBoard(5, Sign.O);
-        System.out.println(board);
+        Game game = new Game();
+
+        game.run();
     }
 }

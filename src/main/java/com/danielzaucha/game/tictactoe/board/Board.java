@@ -2,8 +2,7 @@ package com.danielzaucha.game.tictactoe.board;
 
 import com.danielzaucha.game.tictactoe.player.Sign;
 
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -16,7 +15,7 @@ public class Board {
     public Board(int size)
     {
         boardSize = new BoardSize(size);
-        board = new HashMap<>();
+        board = new LinkedHashMap<>();
         initialize();
     }
 
@@ -34,10 +33,11 @@ public class Board {
 
     public String toString()
     {
-        StringBuilder sb = new StringBuilder("abcdefghi");
+        StringBuilder sb = new StringBuilder();
         for(Map.Entry<Integer, Sign> s: board.entrySet())
         {
-
+            sb.append(s.getValue().equals(Sign.N) ? "-" : s.getValue());
+            if(s.getKey()%boardSize.intValue()==0) sb.append("\n");
         }
         return sb.toString();
     }

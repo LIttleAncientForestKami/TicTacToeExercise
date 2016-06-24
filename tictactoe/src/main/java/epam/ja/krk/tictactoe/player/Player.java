@@ -5,21 +5,20 @@ import epam.ja.krk.tictactoe.map.Shape;
 /**
  * Created by ehsan on 24.06.16.
  */
-public class PlayerO implements Player {
+public abstract class Player {
 
     private String name;
     private String surname;
 
-    public PlayerO(String name, String surname) {
+    public Player(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public Shape shape() {
-        return Shape.O;
-    }
+    public abstract  Shape shape();
 
     public String wholeName() {
         return name + " " + surname;
     }
+
 }

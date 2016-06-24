@@ -142,4 +142,23 @@ public class BoardTest {
         assertEquals(Mark.O, board.markOn(Position.of(5)));
     }
 
+    @Test
+    public void placeMarkOnThePositionThatExistsAndOccupied() {
+        // Given
+        Map<Position, Mark> marksByPositions = new HashMap<>();
+        marksByPositions.put(Position.of(5), Mark.X);
+
+        Board board = new Board(marksByPositions);
+
+        // When
+        try {
+            board.placeMark(Position.of(5), Mark.O);
+
+            // Then
+            fail("Should throw an IllegalStateException.");
+        } catch (IllegalStateException ex) {
+            // Ok
+        }
+    }
+
 }

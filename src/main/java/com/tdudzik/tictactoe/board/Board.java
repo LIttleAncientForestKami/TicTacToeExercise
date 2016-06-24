@@ -39,6 +39,10 @@ public class Board {
     }
 
     public void placeMark(Position position, Mark mark) {
+        if (isOccupied(position)) {
+            throw new IllegalStateException("Position is already occupied.");
+        }
+
         marksByPosition.put(position, mark);
     }
 

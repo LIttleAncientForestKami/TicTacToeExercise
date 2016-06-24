@@ -19,19 +19,18 @@ public class BoardManagerTest {
 
     @Test
     public void boardManagerCreation(){
-        BoardManager bm = new BoardManager();
-        assertNotNull(bm);
+        assertNotNull(boardManager);
     }
 
     @Test
     public void sizeTester(){
-        int size = boardManager.boardSize(5);
-        assertEquals(25,size);
+        int size = boardManager.boardSize(3);
+        assertEquals(9,size);
 
     }
 
     @AfterClass
-    public void tearDown(){
+    public void teardown(){
         boardManager=null;
     }
 }

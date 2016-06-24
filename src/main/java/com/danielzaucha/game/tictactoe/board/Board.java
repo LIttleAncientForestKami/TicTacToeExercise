@@ -36,7 +36,7 @@ public class Board {
         StringBuilder sb = new StringBuilder();
         for(Map.Entry<Integer, Sign> s: board.entrySet())
         {
-            sb.append(s.getValue().equals(Sign.N) ? "-" : s.getValue());
+            sb.append(s.getValue().equals(Sign.N) ? s.getKey() + " " : s.getValue() + " ");
             if(s.getKey()%boardSize.intValue()==0) sb.append("\n");
         }
         return sb.toString();

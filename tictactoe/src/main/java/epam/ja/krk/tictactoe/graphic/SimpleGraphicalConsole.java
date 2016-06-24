@@ -11,16 +11,17 @@ import java.util.Scanner;
 public class SimpleGraphicalConsole implements GraphicalViewer {
 
     private final PrintStream out;
-
-    public SimpleGraphicalConsole(PrintStream out) {
+    private final Scanner scanner;
+    public SimpleGraphicalConsole(PrintStream out, Scanner scanner) {
         this.out = out;
+        this.scanner = scanner;
     }
 
     public void displayMap(TicTacToeMap map) {
         out.println(map);
     }
 
-    public String whatIsTheNextMove(Scanner scanner) {
+    public String whatIsTheNextMove() {
         out.println("Next move : ");
         return scanner.next();
     }

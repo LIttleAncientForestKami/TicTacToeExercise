@@ -9,6 +9,8 @@ import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Scanner;
+
 /**
  * Created by ehsan on 24.06.16.
  */
@@ -45,13 +47,14 @@ public class GraphicalViewerTest {
         arbiter.putXO("6");
 
         //TODO when we are going to have some loggers to we are going to use it
-        GraphicalViewer gf = new SimpleGraphicalConsole(System.out);
+        GraphicalViewer gf = new SimpleGraphicalConsole(System.out, new Scanner(System.in));
         gf.displayMap(map);
 
         Assert.assertTrue(map.hasShapeOnTheField("2", Shape.X));
 
 
     }
+
 
 
 }

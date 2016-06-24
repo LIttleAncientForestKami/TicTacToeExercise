@@ -1,5 +1,7 @@
 package board;
 
+import palyer.Mark;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,9 +10,9 @@ import java.util.Map;
  */
 public class Board {
 
-    Map<Integer, String> board = new HashMap<>();
+    Map<Integer, Mark> board = new HashMap<>();
 
-    public void putMarkOnTable(int s, String i) {
-        board.put(5,"O");
+    public void putMarkOnBoard(int index, Mark mark) {
+        board.put(index,mark);
     }
 }

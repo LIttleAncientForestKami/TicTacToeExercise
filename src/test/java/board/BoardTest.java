@@ -1,8 +1,7 @@
 package board;
 
 import org.testng.annotations.Test;
-
-import java.util.HashMap;
+import palyer.Mark;
 
 import static org.testng.Assert.assertEquals;
 
@@ -12,10 +11,10 @@ import static org.testng.Assert.assertEquals;
 public class BoardTest {
 
     @Test
-    public void putMarkOnTableTest(){
+    public void putMarkOnBoardTest(){
         Board board = new Board();
-        board.putMarkOnTable(5,"0");
-        assertEquals(board.board.get(5),"O");
+        board.putMarkOnBoard(5, Mark.O);
+        assertEquals(board.board.get(5),Mark.O);
 
     }
 }

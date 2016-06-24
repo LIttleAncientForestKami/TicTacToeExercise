@@ -20,6 +20,14 @@ public class InputHandlerTester {
         assertNotNull(inputHandler);
     }
 
+    //Actually this seems hard to be tested
+    // For this moment I am putting this test to rest to rethink it
+    /*
+    @Test
+    public void inputIsParsed(){
+        assertEquals(5,inputHandler.handleInput());
+    }
+    */
 
     @AfterClass
     public void teardown(){

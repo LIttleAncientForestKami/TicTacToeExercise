@@ -8,6 +8,8 @@ import java.util.Map;
  */
 public class Board {
     private Map<Integer, String> gameBoard;
+    private String visualBoard;
+
     public Board(int size) {
         boardInit(size);
 
@@ -25,5 +27,19 @@ public class Board {
         for(int i=1;i<=size;i++){
             gameBoard.put(i,Signs.EMPTY.toString());
         }
+    }
+
+
+    public String boardDrawn(int size){
+        visualBoard="";
+        for(int z=1;z<=size;z++){
+        for(int i=1;i<=size;i++){
+            visualBoard+="|"+showField(i)+"|";
+
+        }
+            visualBoard+="\n";}
+
+
+        return visualBoard;
     }
 }

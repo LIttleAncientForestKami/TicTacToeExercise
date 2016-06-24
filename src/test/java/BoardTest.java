@@ -12,11 +12,15 @@ import static org.junit.Assert.*;
  */
 public class BoardTest {
     Board board;
+    String representation;
 
     @BeforeClass
     public void init(){
         int size = new BoardManager().boardSize(3);
         board = new Board(size);
+        representation="| || || |\n" +
+                       "| || || |\n"+
+                       "| || || |\n";
 
     }
 
@@ -38,6 +42,10 @@ public class BoardTest {
         assertEquals(" ",Signs.EMPTY.toString());
     }
 
+    @Test
+    public void boardDrawn(){
+        assertEquals(representation,board.boardDrawn(3));
+    }
 
     @AfterClass
     public void teardown(){

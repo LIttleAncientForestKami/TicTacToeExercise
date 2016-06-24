@@ -41,6 +41,10 @@ public class SimpleArbiter implements Arbiter {
         return currentPlayer;
     }
 
+    public boolean wantsToContinue() {
+        return isTheMapFull();
+    }
+
     public Shape nextPlayer() {
         Shape retShape = Shape.O;
         if(Shape.O.equals(currentPlayer)){

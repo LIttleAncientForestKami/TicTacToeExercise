@@ -19,4 +19,6 @@ public interface Arbiter {
     void letToPlay(Shape shape);
 
     Shape whoIsPlaying();
+
+    boolean wantsToContinue();
 }

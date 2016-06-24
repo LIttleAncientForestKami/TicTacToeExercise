@@ -10,6 +10,8 @@ public class SimpleArbiter implements Arbiter {
 
     private TicTacToeMap ticTacToeMap;
 
+    private int moveCounter;
+
     public SimpleArbiter(TicTacToeMap map) {
         this.ticTacToeMap = map;
     }
@@ -19,6 +21,15 @@ public class SimpleArbiter implements Arbiter {
         if(ticTacToeMap.hasFreeFieldOn(fieldNumber)){
             isPut = ticTacToeMap.putInTheField(fieldNumber, shape);
         }
+        if(isPut){
+            moveCounter++;
+        }
         return isPut;
     }
+
+    public boolean isTheMapFull() {
+        return (moveCounter>=9);
+    }
+
+
 }

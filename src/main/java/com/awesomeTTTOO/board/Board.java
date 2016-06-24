@@ -10,6 +10,8 @@ public class Board {
     private Map<Integer, String> gameBoard;
     private String visualBoard;
 
+    public Board(){}
+
     public Board(int size) {
         boardInit(size);
 
@@ -29,6 +31,11 @@ public class Board {
         }
     }
 
+    public Map<Integer,String> currentState(){
+
+
+        return this.gameBoard;
+    }
 
     public String boardDrawn(int size){
         visualBoard="";

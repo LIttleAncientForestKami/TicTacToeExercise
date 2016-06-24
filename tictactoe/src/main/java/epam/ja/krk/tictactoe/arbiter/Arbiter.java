@@ -7,10 +7,16 @@ import epam.ja.krk.tictactoe.map.Shape;
  */
 public interface Arbiter {
 
-
-    boolean putXO(String s, Shape o);
+    boolean putXO(String s);
 
     boolean isTheMapFull();
 
-    Shape whoIsNext();
+    /**
+     * At the beggining the game choose one or the first player will be choosen by default
+     *
+     * @param shape
+     */
+    void letToPlay(Shape shape);
+
+    Shape whoIsPlaying();
 }

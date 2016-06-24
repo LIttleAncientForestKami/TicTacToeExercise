@@ -17,7 +17,8 @@ public class ArbiterTest {
     public void checkIfArbiterPutsXO(){
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
-        arbiter.putXO("1", Shape.O);
+        arbiter.letToPlay(Shape.O);
+        arbiter.putXO("1");
 
         Assert.assertTrue(map.hasShapeOnTheField("1", Shape.O));
     }
@@ -26,15 +27,16 @@ public class ArbiterTest {
     public void checkIfMapIsFull(){
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
-        arbiter.putXO("1", Shape.O);
-        arbiter.putXO("2", Shape.X);
-        arbiter.putXO("3", Shape.O);
-        arbiter.putXO("4", Shape.X);
-        arbiter.putXO("5", Shape.O);
-        arbiter.putXO("6", Shape.X);
-        arbiter.putXO("7", Shape.O);
-        arbiter.putXO("8", Shape.X);
-        arbiter.putXO("9", Shape.X);
+        arbiter.letToPlay(Shape.O);
+        arbiter.putXO("1");
+        arbiter.putXO("2");
+        arbiter.putXO("3");
+        arbiter.putXO("4");
+        arbiter.putXO("5");
+        arbiter.putXO("6");
+        arbiter.putXO("7");
+        arbiter.putXO("8");
+        arbiter.putXO("9");
 
         Assert.assertTrue(arbiter.isTheMapFull());
     }
@@ -44,8 +46,9 @@ public class ArbiterTest {
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
 
         Arbiter arbiter = new SimpleArbiter(map);
-        arbiter.putXO("1", Shape.X);
-        Assert.assertEquals(arbiter.whoIsNext(), Shape.O);
+        arbiter.letToPlay(Shape.O);
+        arbiter.putXO("1");
+        Assert.assertEquals(arbiter.whoIsPlaying(), Shape.X);
 
     }
 

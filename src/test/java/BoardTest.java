@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 /**
  * Created by bartlomiej on 24.06.16.
  */
-public class BoardTest extends Board {
+public class BoardTest {
     Board board;
     String representation;
 
@@ -33,11 +33,6 @@ public class BoardTest extends Board {
     public void initializeBoard(){
         assertEquals(" ",board.showField(3));
 
-    }
-
-    @Test
-    public void checkState(){
-        assertEquals(" ",board.currentState().get(1));
     }
 
     @Test

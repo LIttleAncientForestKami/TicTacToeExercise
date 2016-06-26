@@ -53,7 +53,7 @@ public class Board {
     }
 
 
-    public Set<Integer> listEmptyPositionIndices() {
+    Set<Integer> listEmptyPositionIndices() {
         Set<Integer> set = new TreeSet<>();
         Integer pos = 1;
         for (Field field : fieldSet) {

@@ -1,9 +1,13 @@
 import board.Board;
+import board.EmptyPositionLister;
 import board.Mark;
 import io.BoardPrinter;
 import io.MessagePrinter;
 import player.Player;
 import player.PlayerChanger;
+
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Game {
     private static final Integer MAX = 9;
@@ -14,6 +18,9 @@ public class Game {
     private final PlayerChanger playerChanger = new PlayerChanger();
     private final Player[] players = new Player[] {new Player("Player 1", Mark.O), new Player("Player 2", Mark.X)};
 
+    private final EmptyPositionLister emptyLister = new EmptyPositionLister();
+    private Set<Integer> emptyPositions = new TreeSet<>();
+
     public void play() {
 
         Mark currentMark = Mark.O;
@@ -21,6 +28,9 @@ public class Game {
 
         Integer current = 1;
         while (current <= MAX) {
+
+            emptyPositions = emptyLister.listEmptyPositions(board);
+            System.out.println(emptyPositions);
 
             // change current mark
             if (!player.checkMark( currentMark )) {

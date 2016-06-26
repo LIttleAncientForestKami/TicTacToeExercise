@@ -1,5 +1,6 @@
 import board.Board;
 import board.EmptyPositionLister;
+import board.FieldAdder;
 import board.Mark;
 import io.BoardPrinter;
 import io.MessagePrinter;
@@ -21,7 +22,9 @@ public class Game {
     private final EmptyPositionLister emptyLister = new EmptyPositionLister();
     private Set<Integer> emptyPositions = new TreeSet<>();
 
-    public void play() {
+    private final FieldAdder fieldAdder = new FieldAdder();
+
+    void play() {
 
         Mark currentMark = Mark.O;
         Player player = players[0];
@@ -40,8 +43,8 @@ public class Game {
             messagePrinter.printMessage(player);
 
 
-
-            board.addAMove(current, currentMark);
+            fieldAdder.addField(board, current, currentMark);
+     
 
             boardPrinter.printBoard(board);
 

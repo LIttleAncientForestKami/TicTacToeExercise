@@ -52,7 +52,7 @@ public class Board {
         return false;
     }
 
-
+    // lists empty positions - package local
     Set<Integer> listEmptyPositionIndices() {
         Set<Integer> set = new TreeSet<>();
         Integer pos = 1;
@@ -64,11 +64,8 @@ public class Board {
         return set;
     }
 
-
-
-
     // adds a single move
-    public void addAMove(Integer pos, Mark mark) {
+    void addAMove(Integer pos, Mark mark) {
         changeField(pos, mark);
     }
 }

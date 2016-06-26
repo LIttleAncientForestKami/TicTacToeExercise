@@ -11,13 +11,14 @@ public class Player {
         this.mark = mark;
     }
 
+    public boolean checkMark(Mark mark) {
+        return this.mark == mark;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(nick);
-        sb.append(" [");
-        sb.append(mark);
-        sb.append("]");
+        sb.append(nick).append(" [").append(mark).append("]");
         return sb.toString();
     }
 }

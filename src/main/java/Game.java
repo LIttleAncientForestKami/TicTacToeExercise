@@ -16,13 +16,21 @@ public class Game {
 
     public void play() {
 
+        Mark currentMark = Mark.O;
         Player player = players[0];
 
         Integer current = 1;
         while (current <= MAX) {
 
+            // change current mark
+            if (!player.checkMark( currentMark )) {
+                currentMark = currentMark.changeMark();
+            }
+
             messagePrinter.printMessage(player);
-            //
+
+            board.addAMove(current, currentMark);
+
             boardPrinter.printBoard(board);
 
             player = playerChanger.changePlayer(player, players[0], players[1]);

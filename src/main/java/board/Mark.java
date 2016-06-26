@@ -5,15 +5,11 @@ public enum Mark {
     O, X;
 
     // changes Mark from X->O or O->X
-    Mark changeMark() {
-        switch (this) {
-            case O:
-                return X;
-            case X:
-                return O;
-            default:
-                return null;
+    public Mark changeMark() {
+        if (this == O) {
+            return X;
         }
+        return O;
     }
 
     @Override

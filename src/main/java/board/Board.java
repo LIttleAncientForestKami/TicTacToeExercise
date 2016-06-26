@@ -5,10 +5,7 @@ import java.util.*;
 // board implementation
 public class Board {
     private final Integer n = 3;
-    private Mark currentMark;
     private final Set<Field> fieldSet;
-
-    private final MarkSwitcher markSwitcher;
 
     // factory method to generate initial empty fields
     private static Set<Field> generateEmptyFields(Integer size) {
@@ -21,10 +18,6 @@ public class Board {
 
     public Board() {
         fieldSet = Board.generateEmptyFields(n*n);
-        markSwitcher = new MarkSwitcher();
-
-        // TODO: change when Player will be implemented...
-        currentMark = Mark.O;
     }
 
     // toString
@@ -50,7 +43,7 @@ public class Board {
 
     // changes field from null mark to currentMark(O/X)
     // it is not possible to make move on existing mark (i.e. by accident)
-    private boolean changeField(Integer nPos) {
+    private boolean changeField(Integer nPos, Mark currentMark) {
         for (Field field : fieldSet) {
             if (field.equals( new Field( nPos, null ) )) {
                 fieldSet.remove( field );
@@ -64,18 +57,11 @@ public class Board {
 
 
     // makes a single move
-    public void makeAMove(Integer pos) {
-        this.changeField(pos);
-        markSwitcher.switchMark();
+    public void addAMove(Integer pos, Mark mark) {
+        changeField(pos, mark);
     }
 
 
 
 
-    // switch mark - helper class
-    private final class MarkSwitcher {
-        void switchMark() {
-            currentMark = currentMark.changeMark();
-        }
-    }
 }

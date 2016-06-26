@@ -1,6 +1,5 @@
 package board;
 
-import board.Position;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

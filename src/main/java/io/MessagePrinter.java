@@ -2,7 +2,7 @@ package io;
 
 import player.Player;
 
-public class MessagePrinter {
+public final class MessagePrinter {
     // asks player to make a move
     public void printMessage(Player player) {
         StringBuilder sb = new StringBuilder();

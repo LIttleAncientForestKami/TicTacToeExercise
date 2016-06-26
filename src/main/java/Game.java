@@ -29,6 +29,8 @@ public class Game {
 
             messagePrinter.printMessage(player);
 
+
+
             board.addAMove(current, currentMark);
 
             boardPrinter.printBoard(board);

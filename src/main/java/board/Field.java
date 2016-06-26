@@ -17,8 +17,6 @@ public class Field implements Comparable<Field> {
 
     @Override
     public int hashCode() {
-        if (mark == null)
-            return position.hashCode();
         return 31*(mark.hashCode() + 17) + position.hashCode();
     }
 
@@ -28,25 +26,17 @@ public class Field implements Comparable<Field> {
         if (obj == null) return false;
         if ( !(this.getClass().equals( obj.getClass() )) ) return false;
         Field tmp = (Field)obj;
-        boolean eq = position.equals( tmp.position );
-        if (mark == null) {
-            return eq;
-        }
-        return eq && mark == tmp.mark;
+        return position.equals( tmp.position ) && mark == tmp.mark;
     }
 
     @Override
     public int compareTo(Field field) {
-        Integer result = position.compareTo( field.position );
-        if (result != 0 || mark == null) {
-            return result;
-        }
-        return result + mark.compareTo( field.mark );
+        return position.compareTo( field.position );
     }
 
     @Override
     public String toString() {
-        if (mark == null) {
+        if (mark == Mark.EMPTY) {
             return position.toString();
         }
         return mark.toString();

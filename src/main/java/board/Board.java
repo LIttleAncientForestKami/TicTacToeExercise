@@ -4,14 +4,14 @@ import java.util.*;
 
 // board implementation
 public class Board {
-    private final Integer n = 3;
+    private static final Integer n = 3;
     private final Set<Field> fieldSet;
 
     // factory method to generate initial empty fields
     private static Set<Field> generateEmptyFields(Integer size) {
         Set<Field> tmpSet = new TreeSet<>();
         for (Integer i = 1; i <= size; i++) {
-            tmpSet.add( new Field(i, null) );
+            tmpSet.add( new Field(i, Mark.EMPTY) );
         }
         return tmpSet;
     }
@@ -39,13 +39,11 @@ public class Board {
         return sb.toString();
     }
 
-
-
     // changes field from null mark to currentMark(O/X)
     // it is not possible to make move on existing mark (i.e. by accident)
     private boolean changeField(Integer nPos, Mark currentMark) {
         for (Field field : fieldSet) {
-            if (field.equals( new Field( nPos, null ) )) {
+            if (field.equals( new Field( nPos, Mark.EMPTY ) )) {
                 fieldSet.remove( field );
                 fieldSet.add( new Field(nPos, currentMark) );
                 return true;
@@ -55,13 +53,22 @@ public class Board {
     }
 
 
-
-    // makes a single move
-    public void addAMove(Integer pos, Mark mark) {
-        changeField(pos, mark);
+    public Set<Integer> listEmptyPositionIndices() {
+        Set<Integer> set = new TreeSet<>();
+        Integer pos = 1;
+        for (Field field : fieldSet) {
+            if (field.equals( new Field( pos, Mark.EMPTY ) ))
+                set.add(pos);
+            ++pos;
+        }
+        return set;
     }
 
 
 
 
+    // adds a single move
+    public void addAMove(Integer pos, Mark mark) {
+        changeField(pos, mark);
+    }
 }

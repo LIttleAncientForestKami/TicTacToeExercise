@@ -2,7 +2,7 @@ package board;
 
 // represents mark on the board (O/X)
 public enum Mark {
-    O, X;
+    O, X, EMPTY;
 
     // changes Mark from X->O or O->X
     public Mark changeMark() {

@@ -17,20 +17,12 @@ public class Board {
         return tmpSet;
     }
 
-
-
     Board() {
         fieldSet = Board.generateEmptyFields(N);
 
         // TODO: change when Player will be implemented...
         currentMark = Mark.O;
     }
-
-
-
-
-
-
 
     // TODO: change - temporary implementation
     @Override
@@ -43,9 +35,7 @@ public class Board {
         return sb.toString();
     }
 
-
-
-
+    // chenges field from null mark to currentMark(O/X)
     private boolean changeField(Integer nPos) {
         for (Field field : fieldSet) {
             if (field.equals( new Field( nPos, null ) )) {
@@ -57,8 +47,6 @@ public class Board {
         return false;
     }
 
-
-
     // first mark on the board!
     void putFirstMark() {
         this.changeField( 5 );
@@ -66,9 +54,7 @@ public class Board {
 
 
 
-
-
-
+    // for test purposes
     public static void main(String[] args) {
         Board b = new Board();
         b.putFirstMark();

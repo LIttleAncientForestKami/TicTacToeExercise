@@ -4,7 +4,7 @@ import java.util.*;
 
 // board implementation
 public class Board {
-    private final Integer N = 9;
+    private final Integer n = 3;
     private Mark currentMark;
     private final Set<Field> fieldSet;
 
@@ -19,21 +19,29 @@ public class Board {
         return tmpSet;
     }
 
-    Board() {
-        fieldSet = Board.generateEmptyFields(N);
+    public Board() {
+        fieldSet = Board.generateEmptyFields(n*n);
         markSwitcher = new MarkSwitcher();
 
         // TODO: change when Player will be implemented...
         currentMark = Mark.O;
     }
 
-    // TODO: change - temporary implementation
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        Integer cnt = 0;     // counter helper
+
         for (Field field : fieldSet) {
             sb.append(field);
-            sb.append(" ");
+            ++cnt;
+            if (cnt % n == 0) {
+                sb.append("\n");
+                sb.append("-----\n");
+            } else {
+                sb.append("|");
+            }
         }
         return sb.toString();
     }
@@ -55,22 +63,12 @@ public class Board {
 
 
 
-
-    void makeAMove(Integer pos) {
+    // makes a single move
+    public void makeAMove(Integer pos) {
         this.changeField(pos);
         markSwitcher.switchMark();
     }
 
-    // for test purposes
-    public static void main(String[] args) {
-        Board b = new Board();
-        b.makeAMove(1);
-        b.makeAMove(2);
-        b.makeAMove(3);
-        b.makeAMove(3);
-
-        System.out.println( b );
-    }
 
 
 

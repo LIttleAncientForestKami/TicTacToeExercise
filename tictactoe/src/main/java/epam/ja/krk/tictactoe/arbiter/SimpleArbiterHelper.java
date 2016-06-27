@@ -17,6 +17,7 @@ public class SimpleArbiterHelper implements ArbiterHelper {
         this.map = map;
     }
 
+
     public List<DirectionFieldNumber> getTheDirectionsThatHaveTheShape(Shape shape, String fieldNumber) {
         DirectionFieldNumber directionFieldNumber = this.directionFieldNumber;
         List<DirectionFieldNumber> fieldNumberList = new ArrayList<DirectionFieldNumber>();
@@ -25,7 +26,7 @@ public class SimpleArbiterHelper implements ArbiterHelper {
             directionFieldNumber = directionFieldNumber.getFieldNumberOnDirection(direction, fieldNumber);
             if(map.hasShapeOnTheField(directionFieldNumber.fieldNumber, shape)){
                 if(directionList.contains(direction.opposit(direction))){
-                    fieldNumberList.add(new DirectionFieldNumber(true));
+                    fieldNumberList.add(directionFieldNumber.getOppositeDirectionFieldNumber());
                     break;
                 }
                 fieldNumberList.add(directionFieldNumber);

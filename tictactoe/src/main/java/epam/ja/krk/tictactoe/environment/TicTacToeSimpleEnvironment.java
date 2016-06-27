@@ -30,4 +30,8 @@ public class TicTacToeSimpleEnvironment implements Environment {
 
         }
     }
+
+    public Shape getTheWinner() {
+        return arbiter.whoIsTheWinner();
+    }
 }

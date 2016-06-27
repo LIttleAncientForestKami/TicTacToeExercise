@@ -27,6 +27,7 @@ public class SimpleClient {
 
         env.runTheGame();
         graphicalViewer.displayMap(map);
+        graphicalViewer.showWinner(env);
     }
 
 }

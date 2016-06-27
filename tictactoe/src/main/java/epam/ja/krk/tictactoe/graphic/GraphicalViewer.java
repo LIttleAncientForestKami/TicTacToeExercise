@@ -1,5 +1,7 @@
 package epam.ja.krk.tictactoe.graphic;
 
+import epam.ja.krk.tictactoe.arbiter.Arbiter;
+import epam.ja.krk.tictactoe.environment.Environment;
 import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 
@@ -13,4 +15,5 @@ public interface GraphicalViewer {
 
     void informThat(String str);
 
+    void showWinner(Environment environment);
 }

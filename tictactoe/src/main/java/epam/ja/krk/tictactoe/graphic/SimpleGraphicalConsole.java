@@ -1,5 +1,6 @@
 package epam.ja.krk.tictactoe.graphic;
 
+import epam.ja.krk.tictactoe.environment.Environment;
 import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 
@@ -30,6 +31,10 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
 
     public void informThat(String str) {
         out.println(str);
+    }
+
+    public void showWinner(Environment env) {
+        out.println("The winner is "  + env.getTheWinner());
     }
 
 

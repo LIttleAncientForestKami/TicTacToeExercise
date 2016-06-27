@@ -19,7 +19,7 @@ public class DirectionFieldNumber {
         fieldNumber = null;
     }
 
-    public DirectionFieldNumber(boolean needYouOpposite){
+    private DirectionFieldNumber(boolean needYouOpposite){
         if(needYouOpposite){
             direction = Direction.OPPOSIT;
         }else {
@@ -29,6 +29,10 @@ public class DirectionFieldNumber {
         fieldNumber = null;
     }
 
+    public DirectionFieldNumber getOppositeDirectionFieldNumber(){
+        return new DirectionFieldNumber(true);
+
+    }
     public DirectionFieldNumber getFieldNumberOnDirection(Direction direction, String fieldNumber){
         int fieldNumberInt = Integer.valueOf(fieldNumber);
 
@@ -71,7 +75,7 @@ public class DirectionFieldNumber {
                 break;
             case BOTTOM_RIGHT:
                 if(hasRight){
-                    fieldNumberInt -= columnNumberPlus1;
+                    fieldNumberInt += columnNumberPlus1;
                 }
                 break;
         }

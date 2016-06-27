@@ -66,22 +66,22 @@ public class SimpleArbiter implements Arbiter {
     }
 
     private boolean isTheWinner(Shape shape, String fieldNumber){
-
+        boolean isWinner = false;
         ArbiterHelper helper = new SimpleArbiterHelper(ticTacToeMap);
         //getting all directions that has the shape.
         List<DirectionFieldNumber> directionFieldNumberList = helper.getTheDirectionsThatHaveTheShape(shape, fieldNumber);
-
-        if(directionFieldNumberList.contains(new DirectionFieldNumber(true))){
-            return true;
-        }
-
-        //Check if in the direction that has the shape is there another object in that direction
-        for(DirectionFieldNumber directionFieldNumber : directionFieldNumberList){
-            if(helper.hasTheShapeOn(directionFieldNumber.direction, directionFieldNumber.fieldNumber, shape)){
-                return true;
+        DirectionFieldNumber dirFieldNumber = new DirectionFieldNumber();
+        if(directionFieldNumberList.contains(dirFieldNumber.getOppositeDirectionFieldNumber())){
+            isWinner = true;
+        }else {
+            //Check if in the direction that has the shape is there another same shape in that direction
+            for(DirectionFieldNumber directionFieldNumber : directionFieldNumberList){
+                if(helper.hasTheShapeOn(directionFieldNumber.direction, directionFieldNumber.fieldNumber, shape)){
+                    isWinner = true;
+                }
             }
         }
-        return false;
+        return isWinner;
     }
 
 }

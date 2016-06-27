@@ -14,8 +14,10 @@ public class CurrentPlayerTest {
         Player playerX = new Player(Mark.X);
         Player playerO = new Player(Mark.O);
         CurrentPlayer currentPlayer = new CurrentPlayer(playerX,playerO);
-        Player playerChange1 = currentPlayer.changeCurrentPlayer();
-        Player playerChange2 = currentPlayer.changeCurrentPlayer();
+        currentPlayer.changeCurrentPlayer();
+        Player playerChange1 = currentPlayer.getCurrentPlayer();
+        currentPlayer.changeCurrentPlayer();
+        Player playerChange2 = currentPlayer.getCurrentPlayer();
 
         assertEquals(playerChange1,playerO);
         assertEquals(playerChange2,playerX);

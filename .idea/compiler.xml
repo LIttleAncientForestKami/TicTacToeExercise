@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="gameTTTOO" />
+        <module name="tttgame" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="gameTTTOO" target="1.8" />
+      <module name="tttgame" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -21,4 +21,14 @@ public class Player {
         sb.append(nick).append(" [").append(mark).append("]");
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object playerObj) {
+        if (this == playerObj) return true;
+        if (playerObj == null) return false;
+        if (!this.getClass().equals( playerObj.getClass() ))
+            return false;
+        Player playerTmp = (Player)playerObj;
+        return mark == playerTmp.mark && nick.equals( playerTmp.nick );
+    }
 }

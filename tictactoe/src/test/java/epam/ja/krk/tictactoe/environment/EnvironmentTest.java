@@ -19,12 +19,7 @@ public class EnvironmentTest {
     @Test
     public void startingTheGameTest(){
 
-        TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
-        Arbiter arbiter = new SimpleArbiter(map);
-        GraphicalViewer gf = new SimpleGraphicalConsole(System.out, new Scanner(System.in));
-        Environment env = new TicTacToeSimpleEnvironment(arbiter,gf,map);
 
-        env.runTheGame();
 
     }
 

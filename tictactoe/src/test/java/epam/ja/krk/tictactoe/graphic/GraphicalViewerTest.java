@@ -6,6 +6,8 @@ import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 import epam.ja.krk.tictactoe.map.TicTacToeMapBuilder;
 import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
+import epam.ja.krk.tictactoe.player.PlayerO;
+import epam.ja.krk.tictactoe.player.PlayerX;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -47,7 +49,9 @@ public class GraphicalViewerTest {
         arbiter.putXO("6");
 
         //TODO when we are going to have some loggers to we are going to use it
-        GraphicalViewer gf = new SimpleGraphicalConsole(System.out, new Scanner(System.in));
+        PlayerO playerO = new PlayerO("Name", "surname");
+        PlayerX playerX = new PlayerX("Name", "surname");
+        GraphicalViewer gf = new SimpleGraphicalConsole(System.out, new Scanner(System.in), playerO, playerX);
         gf.displayMap(map);
 
         Assert.assertTrue(map.hasShapeOnTheField("2", Shape.X));

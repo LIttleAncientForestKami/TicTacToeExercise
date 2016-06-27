@@ -21,4 +21,8 @@ public abstract class Player {
         return name + " " + surname;
     }
 
+    @Override
+    public String toString() {
+        return wholeName() + " [ " + shape() + " ] ";
+    }
 }

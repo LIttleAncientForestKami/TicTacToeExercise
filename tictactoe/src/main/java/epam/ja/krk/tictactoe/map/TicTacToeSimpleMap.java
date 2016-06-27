@@ -9,7 +9,7 @@ public class TicTacToeSimpleMap implements TicTacToeMap {
 
     private static int MIN_FIELD_NUMBER = 1;
     private static int MAX_FIELD_NUMBER = 9;
-    private static int NUMBER_OF_ROWS = 3;
+    public static int NUMBER_OF_ROWS = 3;
 
     private Map<String, TicTacToeField> map;
 
@@ -31,9 +31,8 @@ public class TicTacToeSimpleMap implements TicTacToeMap {
 
     public boolean hasShapeOnTheField(String fieldNumber, Shape shape){
         boolean areEqual = false;
-        if(!hasFreeFieldOn(fieldNumber)){
-            if(mapContainsTheKey(fieldNumber)){
-
+        if(mapContainsTheKey(fieldNumber)){
+            if(!hasFreeFieldOn(fieldNumber)){
                 areEqual = map.get(fieldNumber).shape().equals(shape);
             }
         }

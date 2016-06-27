@@ -1,5 +1,7 @@
 package epam.ja.krk.tictactoe.arbiter;
 
+import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
+
 /**
  * Created by ehsan on 27.06.16.
  */
@@ -35,18 +37,18 @@ public class DirectionFieldNumber {
     }
     public DirectionFieldNumber getFieldNumberOnDirection(Direction direction, String fieldNumber){
         int fieldNumberInt = Integer.valueOf(fieldNumber);
-
-        int columnNumberMinus1 = 3-1;
-        int columnNumberPlus1 = 3+1;
-        boolean hasLeft = ((fieldNumberInt-1)%3)!=0;
-        boolean hasRight = ((fieldNumberInt-1)%3)!=2;
+        int colNumbers = TicTacToeSimpleMap.NUMBER_OF_ROWS;
+        int columnNumberMinus1 = colNumbers-1;
+        int columnNumberPlus1 = colNumbers+1;
+        boolean hasLeft = ((columnNumberMinus1)%colNumbers)!=0;
+        boolean hasRight = ((columnNumberMinus1)%colNumbers)!=columnNumberMinus1;
 
         switch (direction) {
             case TOP:
-                fieldNumberInt -= 3;
+                fieldNumberInt -= colNumbers;
                 break;
             case BOTTOM:
-                fieldNumberInt += 3;
+                fieldNumberInt += colNumbers;
                 break;
             case LEFT:
                 if(hasLeft){

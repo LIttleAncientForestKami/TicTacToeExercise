@@ -12,7 +12,7 @@ import java.util.List;
 public class SimpleArbiterHelper implements ArbiterHelper {
 
     private final TicTacToeMap map;
-    DirectionFieldNumber directionFieldNumber = new DirectionFieldNumber();
+    private final DirectionFieldNumber directionFieldNumber = new DirectionFieldNumber();
     public SimpleArbiterHelper(TicTacToeMap map) {
         this.map = map;
     }
@@ -21,16 +21,14 @@ public class SimpleArbiterHelper implements ArbiterHelper {
     public List<DirectionFieldNumber> getTheDirectionsThatHaveTheShape(Shape shape, String fieldNumber) {
         DirectionFieldNumber directionFieldNumber = this.directionFieldNumber;
         List<DirectionFieldNumber> fieldNumberList = new ArrayList<DirectionFieldNumber>();
-        List<Direction> directionList = new ArrayList<Direction>();
         for(Direction direction:Direction.values()){
             directionFieldNumber = directionFieldNumber.getFieldNumberOnDirection(direction, fieldNumber);
             if(map.hasShapeOnTheField(directionFieldNumber.fieldNumber, shape)){
-                if(directionList.contains(direction.opposit(direction))){
+                if(fieldNumberList.contains(directionFieldNumber.getOppositeDirectionFieldNumber())){
                     fieldNumberList.add(directionFieldNumber.getOppositeDirectionFieldNumber());
                     break;
                 }
                 fieldNumberList.add(directionFieldNumber);
-                directionList.add(direction);
             }
         }
         return fieldNumberList;

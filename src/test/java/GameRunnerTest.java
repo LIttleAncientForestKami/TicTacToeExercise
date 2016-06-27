@@ -20,7 +20,7 @@ public class GameRunnerTest {
     @Test
     public void gameInitialized(){
         assertNotNull(gameRunner);
-       
+
     }
 
 

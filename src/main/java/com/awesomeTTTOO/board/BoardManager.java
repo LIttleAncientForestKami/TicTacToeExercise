@@ -30,7 +30,10 @@ public class BoardManager {
     }
 
     public void putInBoard(int i, String o) {
+        if(!isTaken(i))
         board.presentBoard().put(i,o);
+        else
+            System.out.println("Sorry this field is taken, you've lost your turn");
 
     }
 
@@ -46,5 +49,9 @@ public class BoardManager {
 
 
         return visualBoard;
+    }
+
+    public boolean isTaken(int i) {
+        return showField(i)==" "? true:false;
     }
 }

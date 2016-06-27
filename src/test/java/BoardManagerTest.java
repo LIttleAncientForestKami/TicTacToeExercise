@@ -45,6 +45,12 @@ public class BoardManagerTest {
         assertEquals(representation,boardManager.boardDrawn());
     }
 
+    @Test
+    public void isTheFieldTakenTest(){
+        boardManager.putInBoard(5,"X");
+        assertFalse(boardManager.isTaken(5));
+    }
+
 
     @AfterClass
     public void teardown(){

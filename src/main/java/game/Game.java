@@ -15,7 +15,7 @@ public class Game {
 
     private Integer iteration = 1;
 
-    private final Board board = new Board();
+    private final Board board = Board.createBoard();
     private final BoardPrinter boardPrinter = new BoardPrinter();
     private final PlayerChanger playerChanger = new PlayerChanger();
     private final Player[] players = new Player[] {new Player("Player 1", Mark.O), new Player("Player 2", Mark.X)};

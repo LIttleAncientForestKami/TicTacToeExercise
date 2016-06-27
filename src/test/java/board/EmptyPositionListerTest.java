@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 @Test()
 public class EmptyPositionListerTest {
-    private Board board = new Board();
+    private Board board = Board.createBoard();
     private EmptyPositionLister emptyPositionLister = new EmptyPositionLister();
 
     @Test

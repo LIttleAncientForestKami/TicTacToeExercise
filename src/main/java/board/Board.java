@@ -8,16 +8,25 @@ public class Board {
     private final Set<Field> fieldSet;
 
     // factory method to generate initial empty fields
-    private static Set<Field> generateEmptyFields(Integer size) {
+  /*  private static Set<Field> generateEmptyFields(Integer size) {
         Set<Field> tmpSet = new TreeSet<>();
         for (Integer i = 1; i <= size; i++) {
             tmpSet.add( new Field(i, Mark.EMPTY) );
         }
         return tmpSet;
+    } */
+
+    // factory method
+    public static Board createBoard() {
+        Set<Field> tmpSet = new TreeSet<>();
+        for (Integer i = 1; i <= n*n; i++) {
+            tmpSet.add( new Field(i, Mark.EMPTY) );
+        }
+        return new Board(tmpSet);
     }
 
-    public Board() {
-        fieldSet = Board.generateEmptyFields(n*n);
+    private Board(Set<Field> fieldSet) {
+        this.fieldSet = fieldSet;
     }
 
     // toString

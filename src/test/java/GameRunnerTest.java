@@ -1,4 +1,4 @@
-import com.awesomeTTTOO.engine.GameInit;
+import com.awesomeTTTOO.engine.GameRunner;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -8,26 +8,24 @@ import static org.testng.Assert.assertTrue;
 /**
  * Created by bartlomiej on 27.06.16.
  */
-public class GameInitTest {
+public class GameRunnerTest {
 
-    GameInit gameInit;
+    GameRunner gameRunner;
 
     @BeforeClass
     public void init(){
-        gameInit = new GameInit();
+        gameRunner = new GameRunner();
     }
 
     @Test
     public void gameInitialized(){
-        assertNotNull(gameInit);
-        assertTrue(gameInit.gameRunning());
+        assertNotNull(gameRunner);
+       
     }
-
-
 
 
     @AfterClass
     public void teardown(){
-        gameInit=null;
+        gameRunner =null;
     }
 }

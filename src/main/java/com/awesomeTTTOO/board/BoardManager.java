@@ -8,8 +8,8 @@ import com.awesomeTTTOO.engine.InputHandler;
 public class BoardManager {
 
     private Board board;
-    private InputHandler input;
-    private String visualBoard;
+     private String visualBoard;
+    private int size = 3;
 
 
     /*
@@ -21,8 +21,7 @@ public class BoardManager {
     */
 
     public BoardManager(){
-        input = new InputHandler();
-        board=new Board(3);
+        board=new Board(size);
 
     }
 
@@ -35,7 +34,7 @@ public class BoardManager {
 
     }
 
-    public String boardDrawn(int size){
+    public String boardDrawn(){
         visualBoard="";
         int field =1;
         for(int z=1;z<=size;z++){

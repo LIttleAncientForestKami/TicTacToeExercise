@@ -1,3 +1,4 @@
+import com.awesomeTTTOO.board.BoardManager;
 import com.awesomeTTTOO.players.Player;
 import com.awesomeTTTOO.players.PlayerO;
 import com.awesomeTTTOO.players.PlayerX;
@@ -15,11 +16,13 @@ import static org.testng.Assert.*;
 public class PlayerTester {
     Player x;
     Player o;
+    BoardManager bm;
 
     @BeforeClass
     public void init(){
         x = new PlayerX();
         o = new PlayerO();
+        bm = new BoardManager();
     }
 
 

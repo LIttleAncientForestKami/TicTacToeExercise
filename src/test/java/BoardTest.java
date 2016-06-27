@@ -39,7 +39,7 @@ public class BoardTest {
 
     @Test
     public void boardDrawn(){
-        assertEquals(representation,boardManager.boardDrawn(3));
+        assertEquals(representation,boardManager.boardDrawn());
     }
 
     @AfterClass

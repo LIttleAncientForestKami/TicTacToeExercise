@@ -1,6 +1,8 @@
 package board;
 
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public enum SequencesEnum {
     FIRST_ROW(1,2,3),
@@ -20,7 +22,11 @@ public enum SequencesEnum {
         p3 = new Position(i3);
     }
 
-  //  List<Integer> listPositionIndices() {
-
-    //}
+    Set<Field> returnSetOfFieldsForTheSequence(Mark mark) {
+        Set<Field> set = new TreeSet<>();
+        set.add( new Field(p1, mark) );
+        set.add( new Field(p2, mark) );
+        set.add( new Field(p3, mark) );
+        return set;
+    }
 }

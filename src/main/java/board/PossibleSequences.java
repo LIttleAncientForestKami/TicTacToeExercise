@@ -17,6 +17,7 @@ public class PossibleSequences {
     }
 
 
+
     private PossibleSequences(Set<SequencesEnum> set) {
         this.set = set;
     }

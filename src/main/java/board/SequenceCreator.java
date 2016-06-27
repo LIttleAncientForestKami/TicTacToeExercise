@@ -6,9 +6,7 @@ import java.util.Set;
 import static board.SequencesEnum.*;
 
 public class SequenceCreator {
-
-
-    void addNewSequence(Integer nPos, Set<SequencesEnum> set) {
+    void addNewSequences(Integer nPos, Set<SequencesEnum> set) {
         SequencesEnum[] seq = new SequencesEnum[] {};
         switch (nPos) {
             case 1:

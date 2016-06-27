@@ -1,11 +1,9 @@
-import board.Board;
-import board.EmptyPositionLister;
-import board.FieldAdder;
-import board.Mark;
+package game;
+
+import board.*;
 import io.BoardPrinter;
 import io.DrawPrinter;
 import io.InputNumberTaker;
-import io.MessagePrinter;
 import player.Player;
 import player.PlayerChanger;
 
@@ -31,6 +29,10 @@ public class Game {
     private final InputNumberTaker inputNumberTaker = new InputNumberTaker();
 
     private final FieldAdder fieldAdder = new FieldAdder();
+
+
+
+
 
     // check if continue playing
     private boolean checkPlay() {
@@ -79,7 +81,7 @@ public class Game {
     }
 
     // come play the game :)
-    void play() {
+    public void play() {
         // game main loop
         while (checkPlay()) {
             // change current mark
@@ -90,6 +92,8 @@ public class Game {
             addNewField(newPosition);
             // print board
             printBoard();
+
+
             // check victory
 
             // check draw
@@ -99,10 +103,5 @@ public class Game {
             //increment
             increment();
         }
-    }
-
-    public static void main(String[] args) {
-        Game tttGame = new Game();
-        tttGame.play();
     }
 }

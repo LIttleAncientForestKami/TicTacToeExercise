@@ -3,6 +3,7 @@ package epam.ja.krk.tictactoe.arbiter;
 import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,16 +12,37 @@ import java.util.List;
 public class SimpleArbiterHelper implements ArbiterHelper {
 
     private final TicTacToeMap map;
-
+    DirectionFieldNumber directionFieldNumber = new DirectionFieldNumber();
     public SimpleArbiterHelper(TicTacToeMap map) {
         this.map = map;
     }
 
     public List<DirectionFieldNumber> getTheDirectionsThatHaveTheShape(Shape shape, String fieldNumber) {
+        DirectionFieldNumber directionFieldNumber = this.directionFieldNumber;
+        List<DirectionFieldNumber> fieldNumberList = new ArrayList<DirectionFieldNumber>();
+        List<Direction> directionList = new ArrayList<Direction>();
+        for(Direction direction:Direction.values()){
+            directionFieldNumber = directionFieldNumber.getFieldNumberOnDirection(direction, fieldNumber);
+            if(map.hasShapeOnTheField(directionFieldNumber.fieldNumber, shape)){
+                if(directionList.contains(direction.opposit(direction))){
+                    fieldNumberList.add(new DirectionFieldNumber(true));
+                    break;
+                }
+                fieldNumberList.add(directionFieldNumber);
+                directionList.add(direction);
+            }
+        }
+        return fieldNumberList;
 
-        
-        return null;
+    }
 
+    public boolean hasTheShapeOn(Direction direction, String fieldNumber, Shape shape){
+        DirectionFieldNumber directionFieldNumber = this.directionFieldNumber;
+        String key = directionFieldNumber.getFieldNumberOnDirection(direction, fieldNumber).fieldNumber;
+        if(key==null){
+            return false;
+        }
+        return map.hasShapeOnTheField(key, shape);
     }
 
 }

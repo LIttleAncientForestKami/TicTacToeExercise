@@ -63,12 +63,8 @@ public class ArbiterTest {
         arbiter.putXO("3");
         arbiter.putXO("4");
         arbiter.putXO("5");
-        arbiter.putXO("6");
-        arbiter.putXO("7");
-        arbiter.putXO("8");
-        arbiter.putXO("9");
 
-        Assert.assertEquals(arbiter.whoIsTheWinner(), Shape.O);
+        Assert.assertEquals(arbiter.whoIsTheWinner(), Shape.X);
 
     }
 

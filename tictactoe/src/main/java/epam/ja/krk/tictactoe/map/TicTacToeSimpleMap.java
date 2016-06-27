@@ -32,7 +32,10 @@ public class TicTacToeSimpleMap implements TicTacToeMap {
     public boolean hasShapeOnTheField(String fieldNumber, Shape shape){
         boolean areEqual = false;
         if(!hasFreeFieldOn(fieldNumber)){
-            areEqual = map.get(fieldNumber).shape().equals(shape);
+            if(mapContainsTheKey(fieldNumber)){
+
+                areEqual = map.get(fieldNumber).shape().equals(shape);
+            }
         }
         return areEqual;
     }

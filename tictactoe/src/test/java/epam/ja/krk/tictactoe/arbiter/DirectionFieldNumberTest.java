@@ -1,8 +1,5 @@
 package epam.ja.krk.tictactoe.arbiter;
 
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
-import epam.ja.krk.tictactoe.map.TicTacToeMapBuilder;
-import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,8 +17,8 @@ public class DirectionFieldNumberTest {
     public void validFieldNumberTest(){
 
         DirectionFieldNumber directionFieldNumber = new DirectionFieldNumber();
-        Assert.assertEquals(directionFieldNumber.getFieldNumberOnDirection(Direction.BOTOMN, "5").fieldNumber, "8");
-        Assert.assertEquals(directionFieldNumber.getFieldNumberOnDirection(Direction.BOTOMN, "1").fieldNumber, "4");
+        Assert.assertEquals(directionFieldNumber.getFieldNumberOnDirection(Direction.BOTTOM, "5").fieldNumber, "8");
+        Assert.assertEquals(directionFieldNumber.getFieldNumberOnDirection(Direction.BOTTOM, "1").fieldNumber, "4");
 
     }
 

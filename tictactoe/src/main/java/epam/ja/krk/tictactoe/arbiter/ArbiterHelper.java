@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface ArbiterHelper {
     List<DirectionFieldNumber> getTheDirectionsThatHaveTheShape(Shape shape, String fieldNumber);
+
+    boolean hasTheShapeOn(Direction direction, String fieldNumber, Shape shape);
 }

@@ -22,11 +22,11 @@ public class SimpleClient {
 
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
-        GraphicalViewer gf = new SimpleGraphicalConsole(System.out, new Scanner(System.in));
-        Environment env = new TicTacToeSimpleEnvironment(arbiter,gf,map);
+        GraphicalViewer graphicalViewer = new SimpleGraphicalConsole(System.out, new Scanner(System.in));
+        Environment env = new TicTacToeSimpleEnvironment(arbiter,graphicalViewer,map);
 
         env.runTheGame();
-
+        graphicalViewer.displayMap(map);
     }
 
 }

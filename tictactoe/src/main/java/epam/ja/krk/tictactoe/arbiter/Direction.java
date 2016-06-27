@@ -6,12 +6,45 @@ package epam.ja.krk.tictactoe.arbiter;
 public enum Direction {
 
     TOP,
-    BOTOMN,
+    BOTTOM,
     LEFT,
     RIGHT,
     TOP_LEFT,
     TOP_RIGHT,
     BOTTOM_LEFT,
-    BOTTOM_RIGHT
+    BOTTOM_RIGHT,
+    OPPOSIT;
 
+    private Direction direction;
+
+    public Direction opposit(Direction direction) {
+        Direction oppositeDirection = null;
+        switch (direction) {
+            case RIGHT:
+                oppositeDirection = LEFT;
+                break;
+            case LEFT:
+                oppositeDirection = RIGHT;
+                break;
+            case TOP:
+                oppositeDirection = BOTTOM;
+                break;
+            case BOTTOM:
+                oppositeDirection = TOP;
+                break;
+            case TOP_LEFT:
+                oppositeDirection = BOTTOM_RIGHT;
+                break;
+            case TOP_RIGHT:
+                oppositeDirection = BOTTOM_LEFT;
+                break;
+            case BOTTOM_LEFT:
+                oppositeDirection = TOP_RIGHT;
+                break;
+            case BOTTOM_RIGHT:
+                oppositeDirection = TOP_LEFT;
+                break;
+        }
+        return oppositeDirection;
+    }
 }

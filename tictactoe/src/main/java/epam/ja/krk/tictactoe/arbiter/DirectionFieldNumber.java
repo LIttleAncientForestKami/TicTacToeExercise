@@ -1,7 +1,5 @@
 package epam.ja.krk.tictactoe.arbiter;
 
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
-
 /**
  * Created by ehsan on 27.06.16.
  */
@@ -21,6 +19,16 @@ public class DirectionFieldNumber {
         fieldNumber = null;
     }
 
+    public DirectionFieldNumber(boolean needYouOpposite){
+        if(needYouOpposite){
+            direction = Direction.OPPOSIT;
+        }else {
+
+            direction = null;
+        }
+        fieldNumber = null;
+    }
+
     public DirectionFieldNumber getFieldNumberOnDirection(Direction direction, String fieldNumber){
         int fieldNumberInt = Integer.valueOf(fieldNumber);
 
@@ -33,7 +41,7 @@ public class DirectionFieldNumber {
             case TOP:
                 fieldNumberInt -= 3;
                 break;
-            case BOTOMN:
+            case BOTTOM:
                 fieldNumberInt += 3;
                 break;
             case LEFT:
@@ -74,4 +82,16 @@ public class DirectionFieldNumber {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof DirectionFieldNumber){
+            return ((DirectionFieldNumber)o).direction.equals(this.direction);
+        }
+        return  false;
+    }
+
+    @Override
+    public int hashCode() {
+        return direction.hashCode();
+    }
 }

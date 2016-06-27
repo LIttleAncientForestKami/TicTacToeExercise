@@ -8,38 +8,25 @@ import java.util.Map;
  */
 public class Board {
     private Map<Integer, String> gameBoard;
-    private String visualBoard;
+
 
     public Board(int size) {
         boardInit(size);
-
     }
 
-    public String showField(int i) {
-
-
-
-        return gameBoard.get(i);
+    protected Map<Integer,String> presentBoard(){
+        return gameBoard;
     }
+
+
 
     private void boardInit(int size){
         gameBoard=new HashMap<Integer, String>();
-        for(int i=1;i<=size;i++){
-            gameBoard.put(i,Signs.EMPTY.toString());
+        for(int i=1;i<=size*size;i++){
+            gameBoard.put(i," ");
         }
     }
 
 
-    public String boardDrawn(int size){
-        visualBoard="";
-        for(int z=1;z<=size;z++){
-        for(int i=1;i<=size;i++){
-            visualBoard+="|"+showField(i)+"|";
 
-        }
-            visualBoard+="\n";}
-
-
-        return visualBoard;
-    }
 }

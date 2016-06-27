@@ -1,36 +1,45 @@
 import com.awesomeTTTOO.players.Player;
+import com.awesomeTTTOO.players.PlayerO;
+import com.awesomeTTTOO.players.PlayerX;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.*;
+import static org.testng.Assert.*;
+
+
 
 /**
  * Created by bartlomiej on 24.06.16.
  */
 public class PlayerTester {
-    Player player;
+    Player x;
+    Player o;
 
     @BeforeClass
     public void init(){
-        player = new Player("O");
+        x = new PlayerX();
+        o = new PlayerO();
     }
 
 
     @Test
-    public void playerIsCreated(){
-        assertNotNull(player);
+    public void playersAreCreated(){
+        assertNotNull(x);
+        assertNotNull(o);
     }
 
     @Test
     public void playerPutsSign(){
-        assertEquals("O",player.insertSign());
+        assertEquals("O",o.insertSign());
+        assertEquals("X",x.insertSign());
     }
 
 
 
     @AfterClass
     public void teardown(){
-        player=null;
+        x=null;
+        o=null;
     }
 }

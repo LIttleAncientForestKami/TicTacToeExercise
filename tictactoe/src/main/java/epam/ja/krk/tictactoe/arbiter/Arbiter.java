@@ -21,4 +21,6 @@ public interface Arbiter {
     Shape whoIsPlaying();
 
     boolean wantsToContinue();
+
+    Shape whoIsTheWinner();
 }

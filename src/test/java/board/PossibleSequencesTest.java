@@ -1,7 +1,6 @@
 package board;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -12,7 +11,7 @@ import static board.SequencesEnum.*;
 
 @Test()
 public class PossibleSequencesTest {
-    private final PossibleSequences pS = PossibleSequences.createInitialSequnces();
+    private final PossibleSequences pS = PossibleSequences.createInitialSequences();
     private final Set<SequencesEnum> firstSetToRemove;
     private final Set<SequencesEnum> secondSetToRemove;
 

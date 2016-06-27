@@ -6,7 +6,7 @@ import static board.SequencesEnum.*;
 
 // class to remove sequences from the set of possible sequences
 public class SequenceLister {
-    void listSequence(Integer nPos) {
+    Set<SequencesEnum> listSequence(Integer nPos) {
         Set<SequencesEnum> seq = new TreeSet<>();
         switch (nPos) {
             case 1:
@@ -37,7 +37,7 @@ public class SequenceLister {
                 seq.addAll(Arrays.asList( THIRD_ROW, THIRD_COL, FIRST_DIAG ));
                 break;
         }
-
+        return seq;
        // set.removeAll( seq );
     }
 }

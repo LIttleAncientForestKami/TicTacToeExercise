@@ -7,6 +7,8 @@ import io.InputNumberTaker;
 import player.Player;
 import player.PlayerChanger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -18,9 +20,9 @@ public class Game {
     private final Board board = Board.createBoard();
     private final BoardPrinter boardPrinter = new BoardPrinter();
     private final PlayerChanger playerChanger = new PlayerChanger();
-    private final Player[] players = new Player[] {new Player("Player 1", Mark.O), new Player("Player 2", Mark.X)};
+    private final List<Player> players = new ArrayList<>();
 
-    private Player player = players[0];
+    private Player player;
     private Mark currentMark = Mark.O;
 
     private final EmptyPositionLister emptyLister = new EmptyPositionLister();
@@ -31,6 +33,20 @@ public class Game {
     private final FieldAdder fieldAdder = new FieldAdder();
 
 
+    private PossibleSequences currentSequenceToChange;
+    private final List<PossibleSequences> possibleSequencesList = new ArrayList<>();
+    private final SequenceRemover sequenceRemover = new SequenceRemover();
+
+    private SequenceChanger sequenceChanger = new SequenceChanger();
+
+    public Game() {
+        players.add( new Player("Player 1", Mark.O) );
+        players.add( new Player("Player 2", Mark.X) );
+        player = players.get(0);
+        possibleSequencesList.add(PossibleSequences.createInitialSequences()); // for pl 0
+        possibleSequencesList.add(PossibleSequences.createInitialSequences()); // for pl 1
+        currentSequenceToChange = possibleSequencesList.get(1);
+    }
 
 
 
@@ -77,7 +93,7 @@ public class Game {
 
     // change player
     private Player changePlayer() {
-        return playerChanger.changePlayer(player, players[0], players[1]);
+        return playerChanger.changePlayer(player, players.get(0), players.get(1));
     }
 
     // come play the game :)
@@ -92,9 +108,14 @@ public class Game {
             addNewField(newPosition);
             // print board
             printBoard();
-
-
+            // remove sequences
+            sequenceRemover.remove(currentSequenceToChange, newPosition);
+            // change sequences
+            currentSequenceToChange = sequenceChanger.changeSequences(currentSequenceToChange, possibleSequencesList.get(0), possibleSequencesList.get(1));
             // check victory
+            System.out.println("=");
+            System.out.println(possibleSequencesList.get(0));
+            System.out.println(possibleSequencesList.get(1));
 
             // check draw
             draw();

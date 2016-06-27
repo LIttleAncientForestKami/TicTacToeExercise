@@ -4,8 +4,9 @@ import java.util.*;
 
 import static board.SequencesEnum.*;
 
-public class SequenceModifier {
-    void modifySequences(boolean add, Integer nPos, Set<SequencesEnum> set) {
+// class to remove sequences from the set of possible sequences
+public class SequenceLister {
+    void listSequence(Integer nPos) {
         Set<SequencesEnum> seq = new TreeSet<>();
         switch (nPos) {
             case 1:
@@ -36,9 +37,7 @@ public class SequenceModifier {
                 seq.addAll(Arrays.asList( THIRD_ROW, THIRD_COL, FIRST_DIAG ));
                 break;
         }
-        if (add)
-            set.addAll( seq );
-        else
-            set.removeAll( seq );
+
+       // set.removeAll( seq );
     }
 }

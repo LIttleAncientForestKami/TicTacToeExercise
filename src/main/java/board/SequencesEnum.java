@@ -1,5 +1,7 @@
 package board;
 
+import java.util.List;
+
 public enum SequencesEnum {
     FIRST_ROW(1,2,3),
     SECOND_ROW(4,5,6),
@@ -18,4 +20,7 @@ public enum SequencesEnum {
         p3 = new Position(i3);
     }
 
+  //  List<Integer> listPositionIndices() {
+
+    //}
 }

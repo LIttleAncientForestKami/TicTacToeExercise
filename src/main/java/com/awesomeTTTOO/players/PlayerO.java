@@ -22,7 +22,9 @@ public class PlayerO implements Player {
     public void play(BoardManager boardManager) {
         System.out.println("Choose the field to put on O. Choose from 1-9");
         int field = inputHandler.handleInput();
-        boardManager.putInBoard(field,insertSign());
+        if(boardManager.putInBoard(field,insertSign()).equals("again"))
+        {field=inputHandler.handleInput();
+        boardManager.putInBoard(field,insertSign());}
     }
 
     public String insertSign() {

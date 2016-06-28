@@ -29,12 +29,13 @@ public class BoardManager {
         return board.presentBoard().get(i);
     }
 
-    public void putInBoard(int i, String o) {
-        if(!isTaken(i))
+    public String putInBoard(int i, String o) {
+        if(isTaken(i))
         board.presentBoard().put(i,o);
-        else
-            System.out.println("Sorry this field is taken, you've lost your turn");
-
+        else{
+            System.out.println("Sorry this field is taken, try again");
+        return "again";}
+        return "";
     }
 
     public String boardDrawn(){

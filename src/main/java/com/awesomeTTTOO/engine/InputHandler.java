@@ -16,6 +16,10 @@ public class InputHandler {
     public int handleInput() {
         try {
             int dis = scan.nextInt();
+            if(dis>9||dis<1){
+                System.out.println("The field which you have chosen does not exists. Please try again: ");
+                dis=scan.nextInt();
+            }
             return dis;
         }catch(InputMismatchException ex){
             System.out.println("I am sorry, but you were about to choose a field between 1-9\nYou've lost " +

@@ -24,7 +24,7 @@ public class SimpleClient {
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
         PlayerO playerO = new PlayerO("Name", "surname", PlayerType.HUMAN);
-        PlayerX playerX = new PlayerX("Name", "surname", PlayerType.HUMAN);
+        PlayerX playerX = new PlayerX("Name", "surname", PlayerType.MACHINE);
 
         PlayerController controller = new SimplePlayerController(playerO,playerX);
         GraphicalViewer graphicalViewer = new SimpleGraphicalConsole(System.out, new Scanner(System.in), controller);

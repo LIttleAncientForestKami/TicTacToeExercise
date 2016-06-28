@@ -2,10 +2,13 @@ package epam.ja.krk.tictactoe.graphic;
 
 import epam.ja.krk.tictactoe.environment.Environment;
 import epam.ja.krk.tictactoe.map.Shape;
+import epam.ja.krk.tictactoe.map.TicTacToeField;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 import epam.ja.krk.tictactoe.player.*;
 
 import java.io.PrintStream;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -17,7 +20,7 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
     private final Scanner scanner;
 
     private final PlayerController playerController;
-
+    private MachinePlayer machinePlayer = new SimpleMachinePlayer();
     public SimpleGraphicalConsole(PrintStream out, Scanner scanner, PlayerController playerController) {
         this.out = out;
         this.scanner = scanner;
@@ -29,14 +32,14 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
         out.println(map);
     }
 
-    public String whatIsTheNextMove(Shape theShapeOfThePlayer, TicTacToeMap ticTacToeMap) {
+    public String whatIsTheNextMove(Shape theShapeOfThePlayer, Map<String, TicTacToeField> currentMap) {
         PlayerType type = playerController.getTypeOfPlayer(theShapeOfThePlayer);
         String retNumber;
         if(type.equals(PlayerType.HUMAN)){
             out.println("Next move player "+theShapeOfThePlayer+": ");
             retNumber = scanner.next();
         }else {
-            retNumber = createAIMove(ticTacToeMap);
+            retNumber = createAIMove(currentMap);
         }
 
         return retNumber;
@@ -55,7 +58,7 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
         }
     }
 
-    private String createAIMove(TicTacToeMap ticTacToeMap){
-        return "1";
+    private String createAIMove(Map<String, TicTacToeField> currentMap){
+        return machinePlayer.whatIsTheNextMove(currentMap);
     }
 }

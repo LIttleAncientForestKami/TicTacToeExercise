@@ -10,27 +10,28 @@ import java.util.List;
  */
 public class SimpleArbiter implements Arbiter {
 
-    private TicTacToeMap ticTacToeMap;
+    private final TicTacToeMap ticTacToeMap;
 
-    private int moveCounter;
+    private final ArbiterHelper helper;
 
     private Shape theWinner = Shape.N;
 
     private Shape currentPlayer = Shape.O;
+
     public SimpleArbiter(TicTacToeMap map) {
         this.ticTacToeMap = map;
+        helper = new SimpleArbiterHelper(ticTacToeMap);
     }
 
 
     public boolean areYouHandleThis(String fieldNumber) {
-        boolean yesIDo = false;
-        if(putXO(fieldNumber)){
-            moveCounter++;
+        final boolean yesIDo = putXO(fieldNumber);
+        if(yesIDo){
             if(isTheWinner(fieldNumber)){
                 theWinner = currentPlayer;
             }
             nextPlayer();
-            yesIDo = true;
+            helper.deleteFromTheFreeFields(fieldNumber);
         }
         return yesIDo;
     }
@@ -44,7 +45,7 @@ public class SimpleArbiter implements Arbiter {
     }
 
     public boolean isTheMapFull() {
-        return (moveCounter>=9);
+        return helper.whatFieldsAreFree().isEmpty();
     }
 
     public void letToPlay(Shape shape) {
@@ -82,9 +83,8 @@ public class SimpleArbiter implements Arbiter {
     }
 
     private boolean isTheWinner(String fieldNumber){
-        if(moveCounter<5) return false;
+        if(helper.whatFieldsAreFree().size()>5) return false;
         boolean isWinner = false;
-        ArbiterHelper helper = new SimpleArbiterHelper(ticTacToeMap);
         //getting all directions that has the shape.
         List<DirectionFieldNumber> directionFieldNumberList = helper.getTheDirectionsThatHaveTheShape(currentPlayer, fieldNumber);
         DirectionFieldNumber dirFieldNumber = new DirectionFieldNumber();

@@ -11,4 +11,9 @@ public interface ArbiterHelper {
     List<DirectionFieldNumber> getTheDirectionsThatHaveTheShape(Shape shape, String fieldNumber);
 
     boolean hasTheShapeOn(Direction direction, String fieldNumber, Shape shape);
+
+    List<String> whatFieldsAreFree();
+
+    void deleteFromTheFreeFields(String fieldNumber);
+
 }

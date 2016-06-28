@@ -4,6 +4,7 @@ import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,8 +14,10 @@ public class SimpleArbiterHelper implements ArbiterHelper {
 
     private final TicTacToeMap map;
     private final DirectionFieldNumber directionFieldNumber = new DirectionFieldNumber();
+    private final List<String> freePlaces;
     public SimpleArbiterHelper(TicTacToeMap map) {
         this.map = map;
+        freePlaces = new LinkedList<String>(map.copyOfCurrentMap().keySet());
     }
 
 
@@ -44,6 +47,14 @@ public class SimpleArbiterHelper implements ArbiterHelper {
             return false;
         }
         return map.hasShapeOnTheField(key, shape);
+    }
+
+    public List<String> whatFieldsAreFree() {
+        return freePlaces;
+    }
+
+    public void deleteFromTheFreeFields(String fieldNumber) {
+        freePlaces.remove(fieldNumber);
     }
 
 }

@@ -1,4 +1,4 @@
-package palyer;
+package player;
 
 import org.testng.annotations.Test;
 

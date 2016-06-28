@@ -1,4 +1,4 @@
-package palyer;
+package player;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

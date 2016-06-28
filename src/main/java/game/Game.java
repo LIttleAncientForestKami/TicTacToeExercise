@@ -1,7 +1,7 @@
 package game;
 
 import board.Board;
-import palyer.*;
+import player.*;
 
 import java.util.InputMismatchException;
 
@@ -18,7 +18,6 @@ public class Game {
         inputValidator.init();
         PlayerInput playerInput = new PlayerInput(inputValidator);
         GameController gameController = new GameController(currentPlayer, board, playerInput);
-
 
         while (true){
             try {

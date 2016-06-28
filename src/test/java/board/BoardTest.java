@@ -1,7 +1,7 @@
 package board;
 
 import org.testng.annotations.Test;
-import palyer.Mark;
+import player.Mark;
 
 import static org.testng.Assert.assertEquals;
 

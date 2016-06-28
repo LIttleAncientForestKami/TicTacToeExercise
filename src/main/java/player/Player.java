@@ -1,4 +1,4 @@
-package palyer;
+package player;
 
 /**
  * Created by kuba on 24.06.16.

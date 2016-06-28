@@ -1,4 +1,4 @@
-package palyer;
+package player;
 
 
 import java.util.HashSet;
@@ -12,11 +12,11 @@ public class InputValidator {
 
     private Set<Integer> fields;
 
-    public InputValidator() {
+    InputValidator() {
         fields = new HashSet<>();
     }
 
-    public boolean validate(int i) {
+    boolean validate(int i) {
         if (fields.contains(i)) {
             fields.remove(i);
             return true;
@@ -24,9 +24,19 @@ public class InputValidator {
         throw new InputMismatchException();
     }
 
+    InputValidator(Set<Integer> fields) {
+        this.fields = fields;
+    }
+
     public void init() {
         for (int i = 1; i <= 9; i++) {
             fields.add(i);
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        InputValidator validator = (InputValidator) obj;
+        return this.fields.equals(validator.fields);
     }
 }

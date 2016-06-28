@@ -1,9 +1,9 @@
 package game;
 
 import board.Board;
-import palyer.CurrentPlayer;
-import palyer.Player;
-import palyer.PlayerInput;
+import player.CurrentPlayer;
+import player.Player;
+import player.PlayerInput;
 
 import java.util.InputMismatchException;
 
@@ -16,13 +16,13 @@ public class GameController {
     private PlayerInput playerInput;
 
 
-    public GameController(CurrentPlayer currentPlayer, Board board, PlayerInput playerInput) {
+    GameController(CurrentPlayer currentPlayer, Board board, PlayerInput playerInput) {
         this.currentPlayer = currentPlayer;
         this.board = board;
         this.playerInput = playerInput;
     }
 
-    public void play()throws InputMismatchException {
+    void play()throws InputMismatchException {
         Player player = currentPlayer.getCurrentPlayer();
         int move = playerInput.move();
         board.putMarkOnBoard(move, player.getMark());

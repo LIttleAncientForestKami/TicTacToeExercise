@@ -25,11 +25,11 @@ public class SimpleArbiterHelper implements ArbiterHelper {
         for(Direction direction:Direction.values()){
             directionFieldNumber = directionFieldNumber.getFieldNumberOnDirection(direction, fieldNumber);
             if(map.hasShapeOnTheField(directionFieldNumber.fieldNumber, shape)){
-                directionList.add(direction);
-                if(directionList.contains(direction.opposit(direction))){
+                if(directionList.contains(direction.opposite())){
                     fieldNumberList.add(directionFieldNumber.getOppositeDirectionFieldNumber());
                     break;
                 }
+                directionList.add(direction);
                 fieldNumberList.add(directionFieldNumber);
             }
         }

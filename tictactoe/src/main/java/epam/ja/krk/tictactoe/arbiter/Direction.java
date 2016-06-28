@@ -13,13 +13,11 @@ public enum Direction {
     TOP_RIGHT,
     BOTTOM_LEFT,
     BOTTOM_RIGHT,
-    OPPOSIT;
+    OPPOSITE;
 
-    private Direction direction;
-
-    public Direction opposit(Direction direction) {
+    public Direction opposite() {
         Direction oppositeDirection = null;
-        switch (direction) {
+        switch (this) {
             case RIGHT:
                 oppositeDirection = LEFT;
                 break;

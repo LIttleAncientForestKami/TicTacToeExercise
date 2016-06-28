@@ -23,7 +23,7 @@ public class DirectionFieldNumber {
 
     private DirectionFieldNumber(boolean needYouOpposite){
         if(needYouOpposite){
-            direction = Direction.OPPOSIT;
+            direction = Direction.OPPOSITE;
         }else {
 
             direction = null;
@@ -40,8 +40,8 @@ public class DirectionFieldNumber {
         int colNumbers = TicTacToeSimpleMap.NUMBER_OF_ROWS;
         int columnNumberMinus1 = colNumbers-1;
         int columnNumberPlus1 = colNumbers+1;
-        boolean hasLeft = ((columnNumberMinus1)%colNumbers)!=0;
-        boolean hasRight = ((columnNumberMinus1)%colNumbers)!=columnNumberMinus1;
+        boolean hasLeft = ((fieldNumberInt-1)%colNumbers)!=0;
+        boolean hasRight = ((fieldNumberInt-1)%colNumbers)!=columnNumberMinus1;
 
         switch (direction) {
             case TOP:

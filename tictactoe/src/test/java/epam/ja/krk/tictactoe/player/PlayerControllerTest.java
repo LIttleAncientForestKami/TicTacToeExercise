@@ -11,13 +11,11 @@ public class PlayerControllerTest {
 
     @Test
     public void playerType(){
-
-        PlayerController playerController = new SimplePlayerController(PlayerType.HUMAN, PlayerType.HUMAN);
-
-
+        PlayerO playerO = new PlayerO("Name", "surname", PlayerType.HUMAN);
+        PlayerX playerX = new PlayerX("Name", "surname", PlayerType.HUMAN);
+        PlayerController playerController = new SimplePlayerController(playerO, playerX);
 
         Assert.assertEquals(playerController.getTypeOfPlayer(Shape.X), PlayerType.HUMAN);
-
     }
 
 

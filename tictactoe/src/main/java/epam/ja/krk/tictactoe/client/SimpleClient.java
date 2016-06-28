@@ -9,8 +9,7 @@ import epam.ja.krk.tictactoe.graphic.SimpleGraphicalConsole;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 import epam.ja.krk.tictactoe.map.TicTacToeMapBuilder;
 import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
-import epam.ja.krk.tictactoe.player.PlayerO;
-import epam.ja.krk.tictactoe.player.PlayerX;
+import epam.ja.krk.tictactoe.player.*;
 
 import java.util.Scanner;
 
@@ -24,9 +23,11 @@ public class SimpleClient {
 
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
-        PlayerO playerO = new PlayerO("Name", "surname");
-        PlayerX playerX = new PlayerX("Name", "surname");
-        GraphicalViewer graphicalViewer = new SimpleGraphicalConsole(System.out, new Scanner(System.in), playerO, playerX);
+        PlayerO playerO = new PlayerO("Name", "surname", PlayerType.HUMAN);
+        PlayerX playerX = new PlayerX("Name", "surname", PlayerType.MACHINE);
+
+        PlayerController controller = new SimplePlayerController(playerO,playerX);
+        GraphicalViewer graphicalViewer = new SimpleGraphicalConsole(System.out, new Scanner(System.in), controller);
         Environment env = new TicTacToeSimpleEnvironment(arbiter,graphicalViewer,map);
 
         env.runTheGame();

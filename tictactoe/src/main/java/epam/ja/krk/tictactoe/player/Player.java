@@ -7,12 +7,14 @@ import epam.ja.krk.tictactoe.map.Shape;
  */
 public abstract class Player {
 
-    private String name;
-    private String surname;
+    private final String name;
+    private final String surname;
+    private final PlayerType type;
 
-    public Player(String name, String surname) {
+    public Player(String name, String surname, PlayerType type) {
         this.name = name;
         this.surname = surname;
+        this.type = type;
     }
 
     public abstract  Shape shape();
@@ -24,5 +26,9 @@ public abstract class Player {
     @Override
     public String toString() {
         return wholeName() + " [ " + shape() + " ] ";
+    }
+
+    public PlayerType type(){
+        return type;
     }
 }

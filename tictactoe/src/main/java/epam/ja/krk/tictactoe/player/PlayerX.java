@@ -7,8 +7,8 @@ import epam.ja.krk.tictactoe.map.Shape;
  */
 public class PlayerX extends Player{
 
-    public PlayerX(String name, String surname) {
-        super(name, surname);
+    public PlayerX(String name, String surname, PlayerType type) {
+        super(name, surname, type);
     }
 
     public Shape shape() {

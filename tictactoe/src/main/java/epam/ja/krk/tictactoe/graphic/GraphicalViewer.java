@@ -11,7 +11,7 @@ import epam.ja.krk.tictactoe.map.TicTacToeMap;
 public interface GraphicalViewer {
     void displayMap(TicTacToeMap map);
 
-    String whatIsTheNextMove(Shape theShapeOfThePlayer);
+    String whatIsTheNextMove(Shape theShapeOfThePlayer, TicTacToeMap ticTacToeMap);
 
     void informThat(String str);
 

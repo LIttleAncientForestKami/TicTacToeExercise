@@ -8,22 +8,32 @@ import java.util.Map;
 /**
  * Created by ehsan on 28.06.16.
  */
-public class SimplePlayerController implements PlayerController {
+public class SimplePlayerController implements PlayerController{
 
-    private final Map<Shape, PlayerType> playerMap = new HashMap<Shape, PlayerType>();
+    private final Map<Shape, Player> playerMap = new HashMap<Shape, Player>();
 
-    public SimplePlayerController(PlayerType typeO, PlayerType typeX) {
+    public SimplePlayerController(Player playerO, Player playerX) {
 
-        playerMap.put(Shape.O, typeO);
-        playerMap.put(Shape.X, typeX);
+        playerMap.put(Shape.O, playerO);
+        playerMap.put(Shape.X, playerX);
+        playerMap.put(Shape.N, fakePlayer());
 
     }
 
+    private Player fakePlayer(){
+        return new Player("fake", "fake", PlayerType.NOT_A_PLAYER) {
+            @Override
+            public Shape shape() {
+                return Shape.N;
+
+            }
+        };
+    }
     public PlayerType getTypeOfPlayer(Shape shape) {
-        PlayerType retType = PlayerType.NOT_A_PLAYER;
-        if(playerMap.containsKey(shape)){
-            retType = playerMap.get(shape);
-        }
-        return retType;
+        return playerMap.get(shape).type();
+    }
+
+    public Player whoPlaysAs(Shape shape) {
+        return playerMap.get(shape);
     }
 }

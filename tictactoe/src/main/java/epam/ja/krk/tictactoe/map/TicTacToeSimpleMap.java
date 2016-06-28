@@ -1,5 +1,6 @@
 package epam.ja.krk.tictactoe.map;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -46,6 +47,10 @@ public class TicTacToeSimpleMap implements TicTacToeMap {
             done = true;
         }
         return done;
+    }
+
+    public HashMap<String, TicTacToeField> copyOfCurrentMap(){
+        return new HashMap<String, TicTacToeField>(map);
     }
 
     public String toString(){

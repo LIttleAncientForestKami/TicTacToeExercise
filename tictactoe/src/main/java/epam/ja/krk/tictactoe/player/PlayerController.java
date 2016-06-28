@@ -8,4 +8,6 @@ import epam.ja.krk.tictactoe.map.Shape;
 public interface PlayerController {
 
     PlayerType getTypeOfPlayer(Shape shape);
+
+    Player whoPlaysAs(Shape shape);
 }

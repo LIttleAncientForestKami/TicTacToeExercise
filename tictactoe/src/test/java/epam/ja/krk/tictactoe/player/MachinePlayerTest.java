@@ -1,9 +1,8 @@
 package epam.ja.krk.tictactoe.player;
 
 import epam.ja.krk.tictactoe.arbiter.Arbiter;
-import epam.ja.krk.tictactoe.arbiter.ArbiterHelper;
 import epam.ja.krk.tictactoe.arbiter.SimpleArbiter;
-import epam.ja.krk.tictactoe.arbiter.SimpleArbiterHelper;
+import epam.ja.krk.tictactoe.map.Shape;
 import epam.ja.krk.tictactoe.map.TicTacToeMap;
 import epam.ja.krk.tictactoe.map.TicTacToeMapBuilder;
 import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
@@ -19,8 +18,8 @@ public class MachinePlayerTest {
 
     @Test
     void canMachineDoADecision(){
-        MachinePlayer machinePlayer = new SimpleMachinePlayer();
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
+        MachinePlayer machinePlayer = new SimpleMachinePlayer();
 
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.areYouHandleThis("1");
@@ -32,7 +31,7 @@ public class MachinePlayerTest {
         arbiter.areYouHandleThis("8");
         arbiter.areYouHandleThis("7");
 
-        Assert.assertEquals(machinePlayer.whatIsTheNextMove(map.copyOfCurrentMap()), "9");
+        Assert.assertEquals(machinePlayer.whatIsTheNextMove(Shape.O, map.copyOfCurrentMap()), "9");
 
     }
 

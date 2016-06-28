@@ -38,17 +38,17 @@ public class BoardManagerTest {
 
     }*/
 
-    @Test
+    @Test(priority = 1)
     public void putInBoardTester(){
         boardManager.putInBoard(5, "O");
         assertEquals("O",boardManager.showField(5));
         assertEquals(representation,boardManager.boardDrawn());
     }
 
-    @Test
+    @Test(priority = 3)
     public void isTheFieldTakenTest(){
-        boardManager.putInBoard(5,"X");
-        assertFalse(boardManager.isTaken(5));
+        boardManager.putInBoard(6,"X");
+        assertFalse(boardManager.isTaken(6));
     }
 
 

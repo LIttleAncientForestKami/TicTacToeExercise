@@ -1,4 +1,4 @@
-package game;
+package tictactoegame;
 
 import board.*;
 import io.BoardPrinter;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Game {
+public class TicTacToeGame {
     private static final Integer MAX = 9;
 
     private Integer iteration = 1;
@@ -39,7 +39,7 @@ public class Game {
 
     private SequenceChanger sequenceChanger = new SequenceChanger();
 
-    public Game() {
+    public TicTacToeGame() {
         players.add( new Player("Player 1", Mark.O) );
         players.add( new Player("Player 2", Mark.X) );
         player = players.get(0);

@@ -21,17 +21,22 @@ public class SimpleArbiter implements Arbiter {
         this.ticTacToeMap = map;
     }
 
-    public boolean putXO(String fieldNumber) {
+
+    public void handleThis(String fieldNumber) {
+        if(putXO(fieldNumber)){
+            moveCounter++;
+            if(isTheWinner(fieldNumber)){
+                theWinner = currentPlayer;
+            }
+        }
+
+        nextPlayer();
+    }
+
+    private boolean putXO(String fieldNumber) {
         boolean isPut = false;
         if(ticTacToeMap.hasFreeFieldOn(fieldNumber)){
             isPut = ticTacToeMap.putInTheField(fieldNumber, currentPlayer);
-        }
-        if(isPut){
-            if(moveCounter>3 && isTheWinner(currentPlayer, fieldNumber)){
-                theWinner = currentPlayer;
-            }
-            currentPlayer = nextPlayer();
-            moveCounter++;
         }
         return isPut;
     }
@@ -57,26 +62,27 @@ public class SimpleArbiter implements Arbiter {
         return  theWinner;
     }
 
-    public Shape nextPlayer() {
-        Shape retShape = Shape.O;
+    public void nextPlayer() {
         if(Shape.O.equals(currentPlayer)){
-            retShape = Shape.X;
+            currentPlayer = Shape.X;
+        }else {
+            currentPlayer = Shape.O;
         }
-        return retShape;
     }
 
-    private boolean isTheWinner(Shape shape, String fieldNumber){
+    private boolean isTheWinner(String fieldNumber){
+        if(moveCounter<5) return false;
         boolean isWinner = false;
         ArbiterHelper helper = new SimpleArbiterHelper(ticTacToeMap);
         //getting all directions that has the shape.
-        List<DirectionFieldNumber> directionFieldNumberList = helper.getTheDirectionsThatHaveTheShape(shape, fieldNumber);
+        List<DirectionFieldNumber> directionFieldNumberList = helper.getTheDirectionsThatHaveTheShape(currentPlayer, fieldNumber);
         DirectionFieldNumber dirFieldNumber = new DirectionFieldNumber();
         if(directionFieldNumberList.contains(dirFieldNumber.getOppositeDirectionFieldNumber())){
             isWinner = true;
         }else {
             //Check if in the direction that has the shape is there another same shape in that direction
             for(DirectionFieldNumber directionFieldNumber : directionFieldNumberList){
-                if(helper.hasTheShapeOn(directionFieldNumber.direction, directionFieldNumber.fieldNumber, shape)){
+                if(helper.hasTheShapeOn(directionFieldNumber.direction, directionFieldNumber.fieldNumber, currentPlayer)){
                     isWinner = true;
                 }
             }

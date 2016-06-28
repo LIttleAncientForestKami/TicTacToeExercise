@@ -26,7 +26,7 @@ public class TicTacToeSimpleEnvironment implements Environment {
         while (arbiter.wantsToContinue()){
             console.displayMap(map);
             currentPlayer = arbiter.whoIsPlaying();
-            arbiter.putXO(console.whatIsTheNextMove(currentPlayer));
+            arbiter.handleThis(console.whatIsTheNextMove(currentPlayer));
 
         }
     }

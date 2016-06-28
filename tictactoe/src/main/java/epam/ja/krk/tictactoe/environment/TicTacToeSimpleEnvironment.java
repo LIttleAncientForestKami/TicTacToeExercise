@@ -27,7 +27,10 @@ public class TicTacToeSimpleEnvironment implements Environment {
         while (arbiter.wantsToContinue()){
             console.displayMap(getACopyOfTicTacToeMap());
             currentPlayer = arbiter.whoIsPlaying();
-            arbiter.handleThis(console.whatIsTheNextMove(currentPlayer, getACopyOfTicTacToeMap()));
+            boolean handled = arbiter.areYouHandleThis(console.whatIsTheNextMove(currentPlayer, getACopyOfTicTacToeMap()));
+            if(!handled){
+                console.informThat("TryAgain");
+            }
 
         }
     }

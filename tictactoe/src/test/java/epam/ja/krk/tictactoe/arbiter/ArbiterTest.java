@@ -18,7 +18,7 @@ public class ArbiterTest {
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.handleThis("1");
+        arbiter.areYouHandleThis("1");
 
         Assert.assertTrue(map.hasShapeOnTheField("1", Shape.O));
     }
@@ -28,15 +28,15 @@ public class ArbiterTest {
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.handleThis("1");
-        arbiter.handleThis("2");
-        arbiter.handleThis("3");
-        arbiter.handleThis("4");
-        arbiter.handleThis("5");
-        arbiter.handleThis("6");
-        arbiter.handleThis("7");
-        arbiter.handleThis("8");
-        arbiter.handleThis("9");
+        arbiter.areYouHandleThis("1");
+        arbiter.areYouHandleThis("2");
+        arbiter.areYouHandleThis("3");
+        arbiter.areYouHandleThis("4");
+        arbiter.areYouHandleThis("5");
+        arbiter.areYouHandleThis("6");
+        arbiter.areYouHandleThis("7");
+        arbiter.areYouHandleThis("8");
+        arbiter.areYouHandleThis("9");
 
         Assert.assertTrue(arbiter.isTheMapFull());
     }
@@ -47,7 +47,7 @@ public class ArbiterTest {
 
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.handleThis("1");
+        arbiter.areYouHandleThis("1");
         Assert.assertEquals(arbiter.whoIsPlaying(), Shape.X);
 
     }
@@ -58,11 +58,11 @@ public class ArbiterTest {
 
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.handleThis("1");
-        arbiter.handleThis("2");
-        arbiter.handleThis("3");
-        arbiter.handleThis("4");
-        arbiter.handleThis("5");
+        arbiter.areYouHandleThis("1");
+        arbiter.areYouHandleThis("2");
+        arbiter.areYouHandleThis("3");
+        arbiter.areYouHandleThis("4");
+        arbiter.areYouHandleThis("5");
 
         Assert.assertEquals(arbiter.whoIsTheWinner(), Shape.X);
 

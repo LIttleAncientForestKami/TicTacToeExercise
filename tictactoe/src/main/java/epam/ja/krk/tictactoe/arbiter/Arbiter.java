@@ -7,7 +7,7 @@ import epam.ja.krk.tictactoe.map.Shape;
  */
 public interface Arbiter {
 
-    void handleThis(String fieldNumber);
+    boolean areYouHandleThis(String fieldNumber);
 
     boolean isTheMapFull();
 

@@ -22,15 +22,17 @@ public class SimpleArbiter implements Arbiter {
     }
 
 
-    public void handleThis(String fieldNumber) {
+    public boolean areYouHandleThis(String fieldNumber) {
+        boolean yesIDo = false;
         if(putXO(fieldNumber)){
             moveCounter++;
             if(isTheWinner(fieldNumber)){
                 theWinner = currentPlayer;
             }
+            nextPlayer();
+            yesIDo = true;
         }
-
-        nextPlayer();
+        return yesIDo;
     }
 
     private boolean putXO(String fieldNumber) {

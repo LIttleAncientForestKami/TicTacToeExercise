@@ -13,6 +13,19 @@ import static org.testng.AssertJUnit.assertTrue;
 public class BoardTest {
 
     @Test
+    public void createBoardFromBoardDimensions() {
+        // When
+        Board board = Board.from(BoardDimensions.of(3, 3));
+
+        // Then
+        assertFalse(board.positionExists(Position.of(0)));
+        assertTrue(board.positionExists(Position.of(1)) && !board.isOccupied(Position.of(1)));
+        assertTrue(board.positionExists(Position.of(5)) && !board.isOccupied(Position.of(5)));
+        assertTrue(board.positionExists(Position.of(9)) && !board.isOccupied(Position.of(9)));
+        assertFalse(board.positionExists(Position.of(10)));
+    }
+
+    @Test
     public void positionExists() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();

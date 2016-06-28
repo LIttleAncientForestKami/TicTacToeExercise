@@ -16,13 +16,13 @@ public class TicTacToeSimpleEnvironment implements Environment {
     private final TicTacToeMap map;
 
     public TicTacToeSimpleEnvironment(Arbiter arbiter, GraphicalViewer console, TicTacToeMap map) {
-        this.arbiter = arbiter;
-        this.console = console;
-        this.map = map;
+        this.arbiter = arbiter; // to control the game
+        this.console = console; // to output the status of the game
+        this.map = map; // we need to have the map to display and send the copies if needed to methods
     }
 
 
-    public void runTheGame() {
+    private void runTheGame() {
         Shape currentPlayer;
         while (arbiter.wantsToContinue()){
             console.displayMap(getACopyOfTicTacToeMap());
@@ -31,15 +31,20 @@ public class TicTacToeSimpleEnvironment implements Environment {
             if(!handled){
                 console.informThat("TryAgain");
             }
-
         }
+        console.displayMap(map);
+        console.showWinner(this);
     }
 
     public Shape getTheWinner() {
         return arbiter.whoIsTheWinner();
     }
 
-    public TicTacToeMap getACopyOfTicTacToeMap() {
+    private TicTacToeMap getACopyOfTicTacToeMap() {
         return new TicTacToeSimpleMap(map.copyOfCurrentMap());
+    }
+
+    public void run() {
+        runTheGame();
     }
 }

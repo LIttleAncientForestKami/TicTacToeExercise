@@ -21,18 +21,39 @@ public class SimpleClient {
 
     public static void main(String [] args){
 
+        // creating the map
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
+
+        // creating the arbiter
         Arbiter arbiter = new SimpleArbiter(map);
-        PlayerO playerO = new PlayerO("Name", "surname", PlayerType.HUMAN);
-        PlayerX playerX = new PlayerX("Name", "surname", PlayerType.MACHINE);
 
+        // players
+        PlayerO playerO = new PlayerO("Name", "Surname", PlayerType.HUMAN);
+        PlayerX playerX = new PlayerX("MachineName", "MachineSurname", PlayerType.MACHINE);
+
+        // creating the player controller
         PlayerController controller = new SimplePlayerController(playerO,playerX);
-        GraphicalViewer graphicalViewer = new SimpleGraphicalConsole(System.out, new Scanner(System.in), controller);
-        Environment env = new TicTacToeSimpleEnvironment(arbiter,graphicalViewer,map);
 
-        env.runTheGame();
-        graphicalViewer.displayMap(map);
-        graphicalViewer.showWinner(env);
+        // opening the graphical view
+        GraphicalViewer graphicalViewer = new SimpleGraphicalConsole(System.out, new Scanner(System.in), controller);
+
+        // running the environment by the parameters that we create earlier
+        Environment env = new TicTacToeSimpleEnvironment(arbiter,graphicalViewer,map);
+        Thread thread = new Thread(env);
+        thread.start();
+
+        // joining the thread
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            // TODO have a logger
+            //logger.log(this-e)
+        }
+
+
+        //graphicalViewer.displayMap(map);
+        //graphicalViewer.showWinner(env);
+
     }
 
 }

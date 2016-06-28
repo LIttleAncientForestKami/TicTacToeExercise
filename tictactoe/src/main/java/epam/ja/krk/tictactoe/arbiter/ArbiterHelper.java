@@ -10,6 +10,13 @@ import java.util.List;
 public interface ArbiterHelper {
     List<DirectionFieldNumber> getTheDirectionsThatHaveTheShape(Shape shape, String fieldNumber);
 
+    /**
+     * Checks in the direction if it can find the shape
+     * @param direction
+     * @param fieldNumber
+     * @param shape
+     * @return
+     */
     boolean hasTheShapeOn(Direction direction, String fieldNumber, Shape shape);
 
     List<String> whatFieldsAreFree();

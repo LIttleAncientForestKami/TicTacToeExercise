@@ -14,6 +14,7 @@ import java.util.Map;
 public class SimpleMachinePlayer implements MachinePlayer {
     public String whatIsTheNextMove(Shape shape, Map<String, TicTacToeField> currentMap) {
         ArbiterHelper helper = new SimpleArbiterHelper(new TicTacToeSimpleMap(currentMap));
+
         List<DirectionFieldNumber> directionFieldNumberList ;
         for(String key : currentMap.keySet()){
             if(currentMap.get(key).isFree()){

@@ -6,11 +6,7 @@ import epam.ja.krk.tictactoe.map.TicTacToeMap;
 /**
  * Created by ehsan on 24.06.16.
  */
-public interface Environment {
-    void runTheGame();
-
+public interface Environment extends Runnable{
     Shape getTheWinner();
-
-    TicTacToeMap getACopyOfTicTacToeMap();
 
 }

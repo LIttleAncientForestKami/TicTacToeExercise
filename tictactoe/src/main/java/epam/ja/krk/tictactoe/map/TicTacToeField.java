@@ -5,7 +5,12 @@ package epam.ja.krk.tictactoe.map;
  */
 public interface TicTacToeField {
 
+    /**
+     * The shape of the field
+     * @return
+     */
     Shape shape();
+
 
     boolean isFree();
 

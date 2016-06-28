@@ -26,10 +26,6 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
         this.playerController = playerController;
     }
 
-    private void createMachinePlayer(PlayerController playerController) {
-
-    }
-
     public void displayMap(TicTacToeMap map) {
         out.println(map);
     }
@@ -60,7 +56,7 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
         }
     }
 
-    private String createAIMove(Shape sha,Map<String, TicTacToeField> currentMap){
-        return machinePlayer.whatIsTheNextMove(sha, currentMap);
+    private String createAIMove(Shape shape,Map<String, TicTacToeField> currentMap){
+        return machinePlayer.whatIsTheNextMove(shape, currentMap);
     }
 }

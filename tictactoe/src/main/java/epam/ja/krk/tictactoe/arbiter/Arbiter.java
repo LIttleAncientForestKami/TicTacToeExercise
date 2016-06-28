@@ -18,6 +18,10 @@ public interface Arbiter {
      */
     void letToPlay(Shape shape);
 
+    /**
+     * getting the current player
+     * @return
+     */
     Shape whoIsPlaying();
 
     boolean wantsToContinue();

@@ -7,7 +7,17 @@ import epam.ja.krk.tictactoe.map.Shape;
  */
 public interface PlayerController {
 
+    /**
+     * Getting the type of the player that has the shape
+     * @param shape
+     * @return the PlayerType
+     */
     PlayerType getTypeOfPlayer(Shape shape);
 
+    /**
+     * getting the player by his shape
+     * @param shape
+     * @return
+     */
     Player whoPlaysAs(Shape shape);
 }

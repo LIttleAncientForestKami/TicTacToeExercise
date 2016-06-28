@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class SimpleArbiterHelper implements ArbiterHelper {
 
-    private final TicTacToeMap map;
-    private final DirectionFieldNumber directionFieldNumber = new DirectionFieldNumber();
-    private final List<String> freePlaces;
+    private final TicTacToeMap map; // helper also needs to
+    private final DirectionFieldNumber directionFieldNumber = new DirectionFieldNumber(); // direction field number gives us some useful possibilities
+    private final List<String> freePlaces; // we have this to have control on free places
     public SimpleArbiterHelper(TicTacToeMap map) {
         this.map = map;
         freePlaces = new LinkedList<String>(map.copyOfCurrentMap().keySet());
@@ -25,10 +25,12 @@ public class SimpleArbiterHelper implements ArbiterHelper {
         DirectionFieldNumber directionFieldNumber = this.directionFieldNumber;
         List<DirectionFieldNumber> fieldNumberList = new ArrayList<DirectionFieldNumber>();
         List<Direction> directionList = new ArrayList<Direction>();
+
         for(Direction direction:Direction.values()){
             directionFieldNumber = directionFieldNumber.getFieldNumberOnDirection(direction, fieldNumber);
             if(map.hasShapeOnTheField(directionFieldNumber.fieldNumber, shape)){
                 if(directionList.contains(direction.opposite())){
+                    // if there was a opposite direction it means we have a winner
                     fieldNumberList.add(directionFieldNumber.getOppositeDirectionFieldNumber());
                     break;
                 }

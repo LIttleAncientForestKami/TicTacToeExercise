@@ -19,8 +19,8 @@ public class SimpleArbiter implements Arbiter {
     private Shape currentPlayer = Shape.O;
 
     public SimpleArbiter(TicTacToeMap map) {
-        this.ticTacToeMap = map;
-        helper = new SimpleArbiterHelper(ticTacToeMap);
+        this.ticTacToeMap = map; // the arbiter needs the map to control the game and make decision
+        helper = new SimpleArbiterHelper(ticTacToeMap); // a helper helps arbiter to divide the responsibility
     }
 
 
@@ -74,7 +74,7 @@ public class SimpleArbiter implements Arbiter {
         return  theWinner;
     }
 
-    public void nextPlayer() {
+    private void nextPlayer() {
         if(Shape.O.equals(currentPlayer)){
             currentPlayer = Shape.X;
         }else {

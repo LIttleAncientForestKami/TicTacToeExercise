@@ -14,7 +14,7 @@ public class SimpleArbiter implements Arbiter {
 
     private int moveCounter;
 
-    private Shape theWinner;
+    private Shape theWinner = Shape.N;
 
     private Shape currentPlayer = Shape.O;
     public SimpleArbiter(TicTacToeMap map) {
@@ -55,7 +55,16 @@ public class SimpleArbiter implements Arbiter {
 
     public boolean wantsToContinue() {
 
-        return !isTheMapFull() && theWinner==null;
+        return !isTheMapFull() && !haveWeAWinner();
+    }
+
+    private boolean haveWeAWinner() {
+        boolean isThereAWinner = false;
+        if(!Shape.N.equals(theWinner)){
+            isThereAWinner=true;
+        }
+
+        return isThereAWinner;
     }
 
     public Shape whoIsTheWinner() {

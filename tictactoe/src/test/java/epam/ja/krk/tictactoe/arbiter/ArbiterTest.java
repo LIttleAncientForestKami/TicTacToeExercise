@@ -18,7 +18,7 @@ public class ArbiterTest {
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.putXO("1");
+        arbiter.handleThis("1");
 
         Assert.assertTrue(map.hasShapeOnTheField("1", Shape.O));
     }
@@ -28,15 +28,15 @@ public class ArbiterTest {
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.putXO("1");
-        arbiter.putXO("2");
-        arbiter.putXO("3");
-        arbiter.putXO("4");
-        arbiter.putXO("5");
-        arbiter.putXO("6");
-        arbiter.putXO("7");
-        arbiter.putXO("8");
-        arbiter.putXO("9");
+        arbiter.handleThis("1");
+        arbiter.handleThis("2");
+        arbiter.handleThis("3");
+        arbiter.handleThis("4");
+        arbiter.handleThis("5");
+        arbiter.handleThis("6");
+        arbiter.handleThis("7");
+        arbiter.handleThis("8");
+        arbiter.handleThis("9");
 
         Assert.assertTrue(arbiter.isTheMapFull());
     }
@@ -47,7 +47,7 @@ public class ArbiterTest {
 
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.putXO("1");
+        arbiter.handleThis("1");
         Assert.assertEquals(arbiter.whoIsPlaying(), Shape.X);
 
     }
@@ -58,11 +58,11 @@ public class ArbiterTest {
 
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.putXO("1");
-        arbiter.putXO("2");
-        arbiter.putXO("3");
-        arbiter.putXO("4");
-        arbiter.putXO("5");
+        arbiter.handleThis("1");
+        arbiter.handleThis("2");
+        arbiter.handleThis("3");
+        arbiter.handleThis("4");
+        arbiter.handleThis("5");
 
         Assert.assertEquals(arbiter.whoIsTheWinner(), Shape.X);
 

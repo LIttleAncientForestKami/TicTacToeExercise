@@ -43,7 +43,6 @@ public class SimpleGraphicalConsole implements GraphicalViewer {
     public void showWinner(Environment env) {
         Shape winner = env.getTheWinner();
         Player winnerPlayer = null;
-        String toPrint="";
         if(Shape.O.equals(winner)){
             winnerPlayer = playerO;
         }else if(Shape.X.equals(winner)){

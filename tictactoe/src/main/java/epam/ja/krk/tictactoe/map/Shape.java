@@ -5,5 +5,6 @@ package epam.ja.krk.tictactoe.map;
  */
 public enum Shape {
     X,
-    O
+    O,
+    N
 }

@@ -27,7 +27,7 @@ public class GraphicalViewerTest {
 
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
-        arbiter.putXO("5");
+        arbiter.handleThis("5");
 
         Assert.assertTrue(map.hasShapeOnTheField("5", Shape.O));
     }
@@ -41,12 +41,12 @@ public class GraphicalViewerTest {
         TicTacToeMap map = new TicTacToeSimpleMap((new TicTacToeMapBuilder()).simpleTicTacToeMap());
         Arbiter arbiter = new SimpleArbiter(map);
         arbiter.letToPlay(Shape.O);
-        arbiter.putXO("5");
-        arbiter.putXO("4");
-        arbiter.putXO("3");
-        arbiter.putXO("2");
-        arbiter.putXO("1");
-        arbiter.putXO("6");
+        arbiter.handleThis("5");
+        arbiter.handleThis("4");
+        arbiter.handleThis("3");
+        arbiter.handleThis("2");
+        arbiter.handleThis("1");
+        arbiter.handleThis("6");
 
         //TODO when we are going to have some loggers to we are going to use it
         PlayerO playerO = new PlayerO("Name", "surname");

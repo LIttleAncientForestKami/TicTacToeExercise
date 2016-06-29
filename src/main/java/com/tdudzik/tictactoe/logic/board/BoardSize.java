@@ -16,4 +16,19 @@ public class BoardSize {
         return size;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BoardSize boardSize = (BoardSize) o;
+
+        return size == boardSize.size;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return size;
+    }
 }

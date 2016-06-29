@@ -12,11 +12,8 @@ public class PossibleSequences implements Iterable<SequencesEnum> {
         for (SequencesEnum seq : SequencesEnum.values()) {
             set.add(seq);
         }
-
-        System.out.println(set);
         return new PossibleSequences(set);
     }
-
 
     private PossibleSequences(Set<SequencesEnum> set) {
         this.set = set;

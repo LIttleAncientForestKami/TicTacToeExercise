@@ -25,12 +25,12 @@ public class MarkTest {
     }
 
     @Test(dataProvider = "marks")
-    public void changeMarksTest(Mark actual, Mark excepted) {
-        assertEquals(actual, excepted);
+    public void changeMarksTest(Mark actual, Mark expected) {
+        assertEquals(actual, expected);
     }
 
     @Test(dataProvider = "strings")
-    public void toStringTest(String actual, String excepted) {
-        assertEquals(actual, excepted);
+    public void toStringTest(String actual, String expected) {
+        assertEquals(actual, expected);
     }
 }

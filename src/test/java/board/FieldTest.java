@@ -57,13 +57,13 @@ public class FieldTest {
     }
 
     @Test(dataProvider = "hash_eq")
-    public void testHashCode(boolean excepted, Field actualLeft, Field actualRight) {
-        assertEquals(actualLeft.hashCode() == actualRight.hashCode(), excepted);
+    public void testHashCode(boolean expected, Field actualLeft, Field actualRight) {
+        assertEquals(actualLeft.hashCode() == actualRight.hashCode(), expected);
     }
 
     @Test(dataProvider = "hash_eq")
-    public void testEquals(boolean excepted, Field actual1, Field actual2) {
-        assertEquals(actual1.equals( actual2 ), excepted);
-        assertEquals(actual2.equals( actual1 ), excepted);
+    public void testEquals(boolean expected, Field actual1, Field actual2) {
+        assertEquals(actual1.equals( actual2 ), expected);
+        assertEquals(actual2.equals( actual1 ), expected);
     }
 }

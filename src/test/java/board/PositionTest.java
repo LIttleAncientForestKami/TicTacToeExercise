@@ -66,13 +66,13 @@ public class PositionTest {
     }
 
     @Test(dataProvider = "hash_eq")
-    public void testHashCode(boolean excepted, Position actualLeft, Position actualRight) {
-        assertEquals(actualLeft.hashCode() == actualRight.hashCode(), excepted);
+    public void testHashCode(boolean expected, Position actualLeft, Position actualRight) {
+        assertEquals(actualLeft.hashCode() == actualRight.hashCode(), expected);
     }
 
     @Test(dataProvider = "hash_eq")
-    public void testEquals(boolean excepted, Position actual1, Position actual2) {
-        assertEquals(actual1.equals( actual2 ), excepted);
-        assertEquals(actual2.equals( actual1 ), excepted);
+    public void testEquals(boolean expected, Position actual1, Position actual2) {
+        assertEquals(actual1.equals( actual2 ), expected);
+        assertEquals(actual2.equals( actual1 ), expected);
     }
 }

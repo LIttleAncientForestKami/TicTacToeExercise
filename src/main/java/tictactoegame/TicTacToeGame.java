@@ -4,9 +4,11 @@ import board.*;
 import io.BoardPrinter;
 import io.DrawPrinter;
 import io.InputNumberTaker;
+import io.VictoryPrinter;
 import player.Player;
 import player.PlayerChanger;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +16,7 @@ import java.util.TreeSet;
 
 public class TicTacToeGame {
     private static final Integer MAX = 9;
+    private static final Integer MIN_TO_CHECK = 5;
 
     private Integer iteration = 1;
 
@@ -98,8 +101,18 @@ public class TicTacToeGame {
         return playerChanger.changePlayer(player, players.get(0), players.get(1));
     }
 
+    // victory message
+    private void victoryInfo(Player player) {
+        new VictoryPrinter().printMessage( player );
+    }
+
+    // check if the minimum iterations for victory occurred
+    private boolean possibleVictory() {
+        return iteration >= MIN_TO_CHECK;
+    }
+
     // come play the game :)
-    public void play() {
+    public void play() throws IOException {
         // game main loop
         while (checkPlay()) {
             // change current mark
@@ -115,7 +128,10 @@ public class TicTacToeGame {
             // change sequences
             currentSequence = sequenceChanger.changeSequences(currentSequence, possibleSequencesList.get(0), possibleSequencesList.get(1));
             // check victory
-System.out.println(            victoryChecker.checkVictory(board, currentSequence, currentMark)   );
+            if ( possibleVictory() && victoryChecker.checkVictory(board, currentSequence, currentMark) ) {
+                victoryInfo( player );
+                System.exit(0);
+            }
             // check draw
             draw();
             //change current player

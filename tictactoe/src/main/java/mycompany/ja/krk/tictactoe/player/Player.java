@@ -1,6 +1,6 @@
-package epam.ja.krk.tictactoe.player;
+package mycompany.ja.krk.tictactoe.player;
 
-import epam.ja.krk.tictactoe.map.Shape;
+import mycompany.ja.krk.tictactoe.map.Shape;
 
 /**
  * Created by ehsan on 24.06.16.
@@ -17,7 +17,7 @@ public abstract class Player {
         this.type = type;
     }
 
-    public abstract  Shape shape();
+    public abstract Shape shape();
 
     public String wholeName() {
         return name + " " + surname;

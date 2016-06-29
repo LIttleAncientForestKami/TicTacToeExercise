@@ -1,7 +1,7 @@
-package epam.ja.krk.tictactoe.arbiter;
+package mycompany.ja.krk.tictactoe.arbiter;
 
-import epam.ja.krk.tictactoe.map.Shape;
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
+import mycompany.ja.krk.tictactoe.map.Shape;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMap;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,11 +1,11 @@
-package epam.ja.krk.tictactoe.player;
+package mycompany.ja.krk.tictactoe.player;
 
-import epam.ja.krk.tictactoe.arbiter.Arbiter;
-import epam.ja.krk.tictactoe.arbiter.SimpleArbiter;
-import epam.ja.krk.tictactoe.map.Shape;
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
-import epam.ja.krk.tictactoe.map.TicTacToeMapBuilder;
-import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
+import mycompany.ja.krk.tictactoe.arbiter.Arbiter;
+import mycompany.ja.krk.tictactoe.arbiter.SimpleArbiter;
+import mycompany.ja.krk.tictactoe.map.Shape;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMap;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMapBuilder;
+import mycompany.ja.krk.tictactoe.map.TicTacToeSimpleMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

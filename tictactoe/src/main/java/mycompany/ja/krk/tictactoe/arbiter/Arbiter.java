@@ -1,6 +1,6 @@
-package epam.ja.krk.tictactoe.arbiter;
+package mycompany.ja.krk.tictactoe.arbiter;
 
-import epam.ja.krk.tictactoe.map.Shape;
+import mycompany.ja.krk.tictactoe.map.Shape;
 
 /**
  * Created by ehsan on 24.06.16.

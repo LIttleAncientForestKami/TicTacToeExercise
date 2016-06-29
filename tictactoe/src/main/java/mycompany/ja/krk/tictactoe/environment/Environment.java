@@ -1,7 +1,6 @@
-package epam.ja.krk.tictactoe.environment;
+package mycompany.ja.krk.tictactoe.environment;
 
-import epam.ja.krk.tictactoe.map.Shape;
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
+import mycompany.ja.krk.tictactoe.map.Shape;
 
 /**
  * Created by ehsan on 24.06.16.

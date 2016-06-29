@@ -1,4 +1,4 @@
-package epam.ja.krk.tictactoe.player;
+package mycompany.ja.krk.tictactoe.player;
 
 /**
  * Created by ehsan on 28.06.16.

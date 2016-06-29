@@ -1,6 +1,6 @@
-package epam.ja.krk.tictactoe.player;
+package mycompany.ja.krk.tictactoe.player;
 
-import epam.ja.krk.tictactoe.map.Shape;
+import mycompany.ja.krk.tictactoe.map.Shape;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

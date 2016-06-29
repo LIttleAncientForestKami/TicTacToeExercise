@@ -1,9 +1,11 @@
-package epam.ja.krk.tictactoe.arbiter;
+package mycompany.ja.krk.tictactoe.arbiter;
 
-import epam.ja.krk.tictactoe.map.Shape;
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
-import epam.ja.krk.tictactoe.map.TicTacToeMapBuilder;
-import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
+
+
+import mycompany.ja.krk.tictactoe.map.Shape;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMap;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMapBuilder;
+import mycompany.ja.krk.tictactoe.map.TicTacToeSimpleMap;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -64,7 +66,7 @@ public class ArbiterTest {
         arbiter.areYouHandleThis("4");
         arbiter.areYouHandleThis("5");
 
-        Assert.assertEquals(arbiter.whoIsTheWinner(), Shape.X);
+        Assert.assertEquals(arbiter.whoIsTheWinner(), Shape.N);
 
     }
 

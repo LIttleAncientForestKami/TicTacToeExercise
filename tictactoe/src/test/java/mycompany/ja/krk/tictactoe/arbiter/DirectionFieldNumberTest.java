@@ -1,4 +1,4 @@
-package epam.ja.krk.tictactoe.arbiter;
+package mycompany.ja.krk.tictactoe.arbiter;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

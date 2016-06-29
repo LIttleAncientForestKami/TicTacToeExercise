@@ -1,4 +1,4 @@
-package epam.ja.krk.tictactoe.arbiter;
+package mycompany.ja.krk.tictactoe.arbiter;
 
 /**
  * Created by ehsan on 27.06.16.

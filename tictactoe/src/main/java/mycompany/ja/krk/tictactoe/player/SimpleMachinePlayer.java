@@ -1,12 +1,18 @@
-package epam.ja.krk.tictactoe.player;
+package mycompany.ja.krk.tictactoe.player;
 
-import epam.ja.krk.tictactoe.arbiter.*;
-import epam.ja.krk.tictactoe.map.Shape;
-import epam.ja.krk.tictactoe.map.TicTacToeField;
-import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
+
+import mycompany.ja.krk.tictactoe.arbiter.ArbiterHelper;
+import mycompany.ja.krk.tictactoe.arbiter.Direction;
+import mycompany.ja.krk.tictactoe.arbiter.DirectionFieldNumber;
+import mycompany.ja.krk.tictactoe.arbiter.SimpleArbiterHelper;
+import mycompany.ja.krk.tictactoe.map.Shape;
+
+import mycompany.ja.krk.tictactoe.map.TicTacToeField;
+import mycompany.ja.krk.tictactoe.map.TicTacToeSimpleMap;
 
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Created by ehsan on 28.06.16.

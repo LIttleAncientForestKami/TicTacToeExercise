@@ -1,4 +1,4 @@
-package epam.ja.krk.tictactoe.daniel.danielzaucha.game.tictactoe.board;
+package mycompany.ja.krk.tictactoe.daniel.danielzaucha.game.tictactoe.board;
 
 import org.testng.annotations.Test;
 

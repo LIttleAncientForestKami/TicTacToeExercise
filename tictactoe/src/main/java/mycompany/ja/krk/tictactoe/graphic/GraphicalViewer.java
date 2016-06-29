@@ -1,12 +1,10 @@
-package epam.ja.krk.tictactoe.graphic;
+package mycompany.ja.krk.tictactoe.graphic;
 
-import epam.ja.krk.tictactoe.arbiter.Arbiter;
-import epam.ja.krk.tictactoe.environment.Environment;
-import epam.ja.krk.tictactoe.map.Shape;
-import epam.ja.krk.tictactoe.map.TicTacToeField;
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
+import mycompany.ja.krk.tictactoe.environment.Environment;
+import mycompany.ja.krk.tictactoe.map.Shape;
+import mycompany.ja.krk.tictactoe.map.TicTacToeField;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMap;
 
-import java.util.List;
 import java.util.Map;
 
 /**

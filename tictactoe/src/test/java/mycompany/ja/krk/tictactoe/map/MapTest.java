@@ -1,4 +1,4 @@
-package epam.ja.krk.tictactoe.map;
+package mycompany.ja.krk.tictactoe.map;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

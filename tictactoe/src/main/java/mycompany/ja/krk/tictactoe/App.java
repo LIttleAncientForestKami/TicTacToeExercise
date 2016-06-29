@@ -1,4 +1,4 @@
-package epam.ja.krk.tictactoe;
+package mycompany.ja.krk.tictactoe;
 
 /**
  * Hello world!

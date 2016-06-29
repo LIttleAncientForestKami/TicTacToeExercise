@@ -1,15 +1,15 @@
-package epam.ja.krk.tictactoe.client;
+package mycompany.ja.krk.tictactoe.client;
 
-import epam.ja.krk.tictactoe.arbiter.Arbiter;
-import epam.ja.krk.tictactoe.arbiter.SimpleArbiter;
-import epam.ja.krk.tictactoe.environment.Environment;
-import epam.ja.krk.tictactoe.environment.TicTacToeSimpleEnvironment;
-import epam.ja.krk.tictactoe.graphic.GraphicalViewer;
-import epam.ja.krk.tictactoe.graphic.SimpleGraphicalConsole;
-import epam.ja.krk.tictactoe.map.TicTacToeMap;
-import epam.ja.krk.tictactoe.map.TicTacToeMapBuilder;
-import epam.ja.krk.tictactoe.map.TicTacToeSimpleMap;
-import epam.ja.krk.tictactoe.player.*;
+import mycompany.ja.krk.tictactoe.arbiter.Arbiter;
+import mycompany.ja.krk.tictactoe.arbiter.SimpleArbiter;
+import mycompany.ja.krk.tictactoe.environment.Environment;
+import mycompany.ja.krk.tictactoe.environment.TicTacToeSimpleEnvironment;
+import mycompany.ja.krk.tictactoe.graphic.GraphicalViewer;
+import mycompany.ja.krk.tictactoe.graphic.SimpleGraphicalConsole;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMap;
+import mycompany.ja.krk.tictactoe.map.TicTacToeMapBuilder;
+import mycompany.ja.krk.tictactoe.map.TicTacToeSimpleMap;
+import mycompany.ja.krk.tictactoe.player.*;
 
 import java.util.Scanner;
 

@@ -5,14 +5,11 @@ import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Set;
 
-/**
- * Created by kuba on 27.06.16.
- */
 public class InputValidator {
 
     private Set<Integer> fields;
 
-    InputValidator() {
+    public InputValidator() {
         fields = new HashSet<>();
     }
 

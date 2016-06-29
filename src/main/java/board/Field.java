@@ -1,12 +1,9 @@
 package board;
 
-/**
- * Created by kuba on 28.06.16.
- */
-public class Field {
+class Field {
     private String field;
 
-    public Field(String field) {
+    Field(String field) {
         this.field = field;
     }
 

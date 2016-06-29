@@ -7,10 +7,7 @@ import player.PlayerInput;
 
 import java.util.InputMismatchException;
 
-/**
- * Created by kuba on 24.06.16.
- */
-public class GameController {
+class GameController {
     private CurrentPlayer currentPlayer;
     private Board board;
     private PlayerInput playerInput;

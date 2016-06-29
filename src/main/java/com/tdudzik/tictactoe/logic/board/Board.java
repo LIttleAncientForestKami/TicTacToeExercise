@@ -5,9 +5,11 @@ import java.util.Map;
 
 public class Board {
 
+    private final BoardSize size;
     private final Map<Position, Mark> marksByPosition;
 
-    Board(Map<Position, Mark> marksByPosition) {
+    Board(BoardSize size, Map<Position, Mark> marksByPosition) {
+        this.size = size;
         this.marksByPosition = marksByPosition;
     }
 
@@ -17,7 +19,11 @@ public class Board {
             marksByPosition.put(Position.of(i + 1), Mark.NONE);
         }
 
-        return new Board(marksByPosition);
+        return new Board(boardSize, marksByPosition);
+    }
+
+    public BoardSize getSize() {
+        return size;
     }
 
     public boolean positionExists(Position position) {

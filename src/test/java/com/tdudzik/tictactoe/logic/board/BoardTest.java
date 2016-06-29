@@ -13,6 +13,18 @@ import static org.testng.AssertJUnit.assertTrue;
 public class BoardTest {
 
     @Test
+    public void getBoardSizeOfBoard() {
+        // Given
+        Board board = new Board(BoardSize.of(3), new HashMap<>());
+
+        // When
+        BoardSize boardSize = board.getSize();
+
+        // Then
+        assertEquals(BoardSize.of(3), boardSize);
+    }
+
+    @Test
     public void createBoardFromBoardDimensions() {
         // When
         Board board = Board.from(BoardSize.of(3));
@@ -31,7 +43,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(1), Mark.NONE);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         boolean positionExists = board.positionExists(Position.of(1));
@@ -46,7 +58,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(1), Mark.NONE);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         boolean positionExists = board.positionExists(Position.of(2));
@@ -61,7 +73,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.O);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         boolean isOccupied = board.isOccupied(Position.of(5));
@@ -76,7 +88,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.NONE);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         boolean isOccupied = board.isOccupied(Position.of(5));
@@ -91,7 +103,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.O);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         try {
@@ -110,7 +122,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.X);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         Mark mark = board.markOn(Position.of(5));
@@ -125,7 +137,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.O);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         try {
@@ -144,7 +156,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.NONE);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         board.placeMark(Position.of(5), Mark.O);
@@ -160,7 +172,7 @@ public class BoardTest {
         Map<Position, Mark> marksByPositions = new HashMap<>();
         marksByPositions.put(Position.of(5), Mark.X);
 
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(1), marksByPositions);
 
         // When
         try {
@@ -177,7 +189,7 @@ public class BoardTest {
     public void placeMarkOnThePositionThatDoesNotExist() {
         // Given
         Map<Position, Mark> marksByPositions = new HashMap<>();
-        Board board = new Board(marksByPositions);
+        Board board = new Board(BoardSize.of(0), marksByPositions);
 
         // When
         try {

@@ -1,12 +1,14 @@
 package board;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 @Test()
 public class PositionTest {
@@ -60,17 +62,17 @@ public class PositionTest {
 
     @Test(dataProvider = "compare")
     public void testGreater(boolean condition) {
-        Assert.assertTrue(condition);
+        assertTrue(condition);
     }
 
     @Test(dataProvider = "hash_eq")
     public void testHashCode(boolean excepted, Position actualLeft, Position actualRight) {
-        Assert.assertEquals(actualLeft.hashCode() == actualRight.hashCode(), excepted);
+        assertEquals(actualLeft.hashCode() == actualRight.hashCode(), excepted);
     }
 
     @Test(dataProvider = "hash_eq")
     public void testEquals(boolean excepted, Position actual1, Position actual2) {
-        Assert.assertEquals(actual1.equals( actual2 ), excepted);
-        Assert.assertEquals(actual2.equals( actual1 ), excepted);
+        assertEquals(actual1.equals( actual2 ), excepted);
+        assertEquals(actual2.equals( actual1 ), excepted);
     }
 }

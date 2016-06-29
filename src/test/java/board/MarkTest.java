@@ -1,8 +1,9 @@
 package board;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 @Test()
 public class MarkTest {
@@ -25,11 +26,11 @@ public class MarkTest {
 
     @Test(dataProvider = "marks")
     public void changeMarksTest(Mark actual, Mark excepted) {
-        Assert.assertEquals(actual, excepted);
+        assertEquals(actual, excepted);
     }
 
     @Test(dataProvider = "strings")
     public void toStringTest(String actual, String excepted) {
-        Assert.assertEquals(actual, excepted);
+        assertEquals(actual, excepted);
     }
 }

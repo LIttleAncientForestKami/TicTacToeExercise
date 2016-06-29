@@ -9,6 +9,11 @@ public class Position implements Comparable<Position> {
         position = nPos;
     }
 
+    // convert to Int
+    static Integer asInt(Position obj) {
+        return obj.position;
+    }
+
     @Override
     public int compareTo(Position pos) {
         return position.compareTo( pos.position );

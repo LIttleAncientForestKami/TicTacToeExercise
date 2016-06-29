@@ -33,11 +33,13 @@ public class TicTacToeGame {
     private final FieldAdder fieldAdder = new FieldAdder();
 
 
-    private PossibleSequences currentSequenceToChange;
+    private PossibleSequences currentSequence;
     private final List<PossibleSequences> possibleSequencesList = new ArrayList<>();
     private final SequenceRemover sequenceRemover = new SequenceRemover();
 
     private SequenceChanger sequenceChanger = new SequenceChanger();
+
+    private final VictoryChecker victoryChecker = new VictoryChecker();
 
     public TicTacToeGame() {
         players.add( new Player("Player 1", Mark.O) );
@@ -45,7 +47,7 @@ public class TicTacToeGame {
         player = players.get(0);
         possibleSequencesList.add(PossibleSequences.createInitialSequences()); // for pl 0
         possibleSequencesList.add(PossibleSequences.createInitialSequences()); // for pl 1
-        currentSequenceToChange = possibleSequencesList.get(1);
+        currentSequence = possibleSequencesList.get(1);
     }
 
 
@@ -109,14 +111,11 @@ public class TicTacToeGame {
             // print board
             printBoard();
             // remove sequences
-            sequenceRemover.remove(currentSequenceToChange, newPosition);
+            sequenceRemover.remove(currentSequence, newPosition);
             // change sequences
-            currentSequenceToChange = sequenceChanger.changeSequences(currentSequenceToChange, possibleSequencesList.get(0), possibleSequencesList.get(1));
+            currentSequence = sequenceChanger.changeSequences(currentSequence, possibleSequencesList.get(0), possibleSequencesList.get(1));
             // check victory
-            System.out.println("=");
-            System.out.println(possibleSequencesList.get(0));
-            System.out.println(possibleSequencesList.get(1));
-
+System.out.println(            victoryChecker.checkVictory(board, currentSequence, currentMark)   );
             // check draw
             draw();
             //change current player

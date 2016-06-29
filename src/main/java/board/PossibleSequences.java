@@ -1,9 +1,10 @@
 package board;
 
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class PossibleSequences {
+public class PossibleSequences implements Iterable<SequencesEnum> {
     private Set<SequencesEnum> set = new TreeSet<>();
 
     public static PossibleSequences createInitialSequences() {
@@ -17,7 +18,6 @@ public class PossibleSequences {
     }
 
 
-
     private PossibleSequences(Set<SequencesEnum> set) {
         this.set = set;
     }
@@ -26,6 +26,13 @@ public class PossibleSequences {
         this.set.removeAll(set);
         System.out.println(this.set);
     }
+
+
+    // iterator
+    public Iterator<SequencesEnum> iterator() {
+        return set.iterator();
+    }
+
 
     @Override
     public String toString() {

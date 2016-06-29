@@ -77,4 +77,14 @@ public class Board {
     void addAMove(Integer pos, Mark mark) {
         changeField(pos, mark);
     }
+
+
+    Set<Field> returnSetOfFields(SequencesEnum possibleSequences) {
+        List<Field> tmpList = new ArrayList<>( fieldSet );
+        Set<Field> set = new HashSet<>();
+        for (Position position : possibleSequences) {
+            set.add( tmpList.get( Position.asInt( position ) - 1 ) );
+        }
+        return set;
+    }
 }

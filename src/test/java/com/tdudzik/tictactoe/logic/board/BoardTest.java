@@ -1,16 +1,25 @@
 package com.tdudzik.tictactoe.logic.board;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.mockito.Mockito.mock;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.fail;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class BoardTest {
+
+    private final BoardDataProvider boardDataProvider = new BoardDataProvider();
+
+    @DataProvider
+    public Object[][] sameMarksHorizontally() {
+        return boardDataProvider.sameMarksHorizontally();
+    }
 
     @Test
     public void getBoardSizeOfBoard() {
@@ -200,6 +209,19 @@ public class BoardTest {
         } catch (IllegalStateException ex) {
             // Ok
         }
+    }
+
+    @Test(dataProvider = "sameMarksHorizontally")
+    public void checkIfThereAreTheSameMarksHorizontally(Map<Position, Mark> positions, int numberOfMarks, boolean thereShouldBeSameMarksHorizontally) {
+        // Given
+        BoardSize boardSizeMock = mock(BoardSize.class);
+        Board board = new Board(boardSizeMock, positions);
+
+        // When
+        boolean thereAreSameMarksHorizontally = board.thereAreTheSameMarksSideBySideHorizontally(numberOfMarks);
+
+        // Then
+        assertEquals(thereShouldBeSameMarksHorizontally, thereAreSameMarksHorizontally);
     }
 
 }

@@ -15,7 +15,7 @@ public class BoardTest {
     @Test
     public void createBoardFromBoardDimensions() {
         // When
-        Board board = Board.from(BoardDimensions.of(3, 3));
+        Board board = Board.from(BoardSize.of(3));
 
         // Then
         assertFalse(board.positionExists(Position.of(0)));

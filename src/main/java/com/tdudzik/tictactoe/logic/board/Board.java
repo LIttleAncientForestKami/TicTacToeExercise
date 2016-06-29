@@ -11,9 +11,9 @@ public class Board {
         this.marksByPosition = marksByPosition;
     }
 
-    public static Board from(BoardDimensions boardDimensions) {
+    public static Board from(BoardSize boardSize) {
         Map<Position, Mark> marksByPosition = new HashMap<>();
-        for (int i = 0; i < boardDimensions.numberOfPositions(); i++) {
+        for (int i = 0; i < boardSize.getValue() * boardSize.getValue(); i++) {
             marksByPosition.put(Position.of(i + 1), Mark.NONE);
         }
 

@@ -87,6 +87,35 @@ public class BoardDataProvider {
         };
     }
 
+    public Object[][] sameMarksDiagonally() {
+        Map<Position, Mark> positions1 = new HashMap<>();
+        positions1.put(Position.of(1), Mark.X);
+        positions1.put(Position.of(2), Mark.NONE);
+        positions1.put(Position.of(3), Mark.NONE);
+        positions1.put(Position.of(4), Mark.NONE);
+        positions1.put(Position.of(5), Mark.X);
+        positions1.put(Position.of(6), Mark.NONE);
+        positions1.put(Position.of(7), Mark.NONE);
+        positions1.put(Position.of(8), Mark.NONE);
+        positions1.put(Position.of(9), Mark.X);
+
+        Map<Position, Mark> positions2 = new HashMap<>();
+        positions2.put(Position.of(1), Mark.NONE);
+        positions2.put(Position.of(2), Mark.NONE);
+        positions2.put(Position.of(3), Mark.X);
+        positions2.put(Position.of(4), Mark.NONE);
+        positions2.put(Position.of(5), Mark.X);
+        positions2.put(Position.of(6), Mark.NONE);
+        positions2.put(Position.of(7), Mark.X);
+        positions2.put(Position.of(8), Mark.NONE);
+        positions2.put(Position.of(9), Mark.NONE);
+
+        return new Object[][]{
+                {positions1, 3, true},
+                {positions2, 3, true}
+        };
+    }
+
     public Object[][] noSameMarks() {
         Map<Position, Mark> positions1 = new HashMap<>();
         positions1.put(Position.of(1), Mark.X);

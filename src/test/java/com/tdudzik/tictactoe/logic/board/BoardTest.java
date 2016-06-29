@@ -27,6 +27,11 @@ public class BoardTest {
     }
 
     @DataProvider
+    public Object[][] sameMarksDiagonally() {
+        return boardDataProvider.sameMarksDiagonally();
+    }
+
+    @DataProvider
     public Object[][] noSameMarks() {
         return boardDataProvider.noSameMarks();
     }
@@ -248,7 +253,7 @@ public class BoardTest {
     }
 
     @Test(dataProvider = "sameMarksVertically")
-    public void check_if_there_are_same_marks_vertically(Map<Position, Mark> marksByPosition, int numberOfMarks, boolean thereShouldBeSameMarksVertically) {
+    public void checkIfThereAreTheSameMarksVertically(Map<Position, Mark> marksByPosition, int numberOfMarks, boolean thereShouldBeSameMarksVertically) {
         // Given
         BoardSize boardSizeMock = mock(BoardSize.class);
         Board board = new Board(boardSizeMock, marksByPosition);
@@ -261,7 +266,7 @@ public class BoardTest {
     }
 
     @Test(dataProvider = "noSameMarks")
-    public void check_if_there_are_not_same_marks_vertically(Map<Position, Mark> marksByPosition, int numberOfMarks, boolean thereShouldBeSameMarksVertically) {
+    public void checkIfThereAreNotTheSameMarksVertically(Map<Position, Mark> marksByPosition, int numberOfMarks, boolean thereShouldBeSameMarksVertically) {
         // Given
         BoardSize boardSizeMock = mock(BoardSize.class);
         Board board = new Board(boardSizeMock, marksByPosition);
@@ -271,6 +276,32 @@ public class BoardTest {
 
         // Then
         assertEquals(thereShouldBeSameMarksVertically, thereAreSameMarksVertically);
+    }
+
+    @Test(dataProvider = "sameMarksDiagonally")
+    public void checkIfThereAreSameMarksDiagonally(Map<Position, Mark> marksByPosition, int numberOfMarks, boolean thereShouldBeSameMarksDiagonally) {
+        // Given
+        BoardSize boardSizeMock = mock(BoardSize.class);
+        Board board = new Board(boardSizeMock, marksByPosition);
+
+        // When
+        boolean thereAreSameMarksDiagonally = board.thereAreTheSameMarksSideBySideDiagonally(numberOfMarks);
+
+        // Then
+        assertEquals(thereShouldBeSameMarksDiagonally, thereAreSameMarksDiagonally);
+    }
+
+    @Test(dataProvider = "noSameMarks")
+    public void checkIfThereAreNotSameMarksDiagonally(Map<Position, Mark> marksByPosition, int numberOfMarks, boolean thereShouldBeSameMarksDiagonally) {
+        // Given
+        BoardSize boardSizeMock = mock(BoardSize.class);
+        Board board = new Board(boardSizeMock, marksByPosition);
+
+        // When
+        boolean thereAreSameMarksDiagonally = board.thereAreTheSameMarksSideBySideDiagonally(numberOfMarks);
+
+        // Then
+        assertEquals(thereShouldBeSameMarksDiagonally, thereAreSameMarksDiagonally);
     }
 
 }

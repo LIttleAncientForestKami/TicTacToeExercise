@@ -86,6 +86,20 @@ public class Board {
         return false;
     }
 
+    public boolean thereAreTheSameMarksSideBySideDiagonally(int numberOfMarks) {
+        if (numberOfMarks != 3) {
+            throw new UnsupportedOperationException("Not supported yet. You can check if there are the same marks vertically only for 3 marks.");
+        }
+
+        if (marksOnPositionsAreSame(Position.of(1), Position.of(5), Position.of(9))) {
+            return true;
+        } else if (marksOnPositionsAreSame(Position.of(3), Position.of(5), Position.of(7))) {
+            return true;
+        }
+
+        return false;
+    }
+
     private boolean marksOnPositionsAreSame(Position position1, Position position2, Position position3) {
         if (isOccupied(position1) && isOccupied(position2) && isOccupied(position3)) {
             Mark mark1 = markOn(position1);

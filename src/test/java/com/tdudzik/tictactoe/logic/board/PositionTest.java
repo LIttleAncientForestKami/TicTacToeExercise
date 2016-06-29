@@ -41,4 +41,16 @@ public class PositionTest {
         assertFalse(positionsAreEqual);
     }
 
+    @Test
+    public void nextPosition() {
+        // Given
+        Position position = Position.of(3);
+
+        // When
+        Position nextPosition = position.next();
+
+        // Then
+        assertEquals(Position.of(4), nextPosition);
+    }
+
 }

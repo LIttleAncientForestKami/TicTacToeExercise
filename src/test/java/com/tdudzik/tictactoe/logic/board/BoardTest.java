@@ -36,6 +36,16 @@ public class BoardTest {
         return boardDataProvider.noSameMarks();
     }
 
+    @DataProvider
+    public Object[][] everyPositionIsOccupied() {
+        return boardDataProvider.everyPositionIsOccupied();
+    }
+
+    @DataProvider
+    public Object[][] notEveryPositionIsOccupied() {
+        return boardDataProvider.notEveryPositionIsOccupied();
+    }
+
     @Test
     public void getBoardSizeOfBoard() {
         // Given
@@ -302,6 +312,32 @@ public class BoardTest {
 
         // Then
         assertEquals(thereShouldBeSameMarksDiagonally, thereAreSameMarksDiagonally);
+    }
+
+    @Test(dataProvider = "everyPositionIsOccupied")
+    public void checkIfEveryPositionIsOccupied(Map<Position, Mark> marksByPosition, boolean everyPositionShouldBeOccupied) {
+        // Given
+        BoardSize boardSizeMock = mock(BoardSize.class);
+        Board board = new Board(boardSizeMock, marksByPosition);
+
+        // When
+        boolean everyPositionIsOccupied = board.everyPositionIsOccupied();
+
+        // Then
+        assertEquals(everyPositionShouldBeOccupied, everyPositionIsOccupied);
+    }
+
+    @Test(dataProvider = "notEveryPositionIsOccupied")
+    public void checkIfEveryPositionIsNotOccupied(Map<Position, Mark> marksByPosition, boolean everyPositionShouldBeOccupied) {
+        // Given
+        BoardSize boardSizeMock = mock(BoardSize.class);
+        Board board = new Board(boardSizeMock, marksByPosition);
+
+        // When
+        boolean everyPositionIsOccupied = board.everyPositionIsOccupied();
+
+        // Then
+        assertEquals(everyPositionShouldBeOccupied, everyPositionIsOccupied);
     }
 
 }

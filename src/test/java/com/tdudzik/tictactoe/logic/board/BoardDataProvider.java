@@ -145,4 +145,38 @@ public class BoardDataProvider {
         };
     }
 
+    public Object[][] everyPositionIsOccupied() {
+        Map<Position, Mark> positions1 = new HashMap<>();
+        positions1.put(Position.of(1), Mark.X);
+        positions1.put(Position.of(2), Mark.X);
+        positions1.put(Position.of(3), Mark.O);
+        positions1.put(Position.of(4), Mark.O);
+        positions1.put(Position.of(5), Mark.O);
+        positions1.put(Position.of(6), Mark.X);
+        positions1.put(Position.of(7), Mark.X);
+        positions1.put(Position.of(8), Mark.O);
+        positions1.put(Position.of(9), Mark.X);
+
+        return new Object[][]{
+                {positions1, true}
+        };
+    }
+
+    public Object[][] notEveryPositionIsOccupied() {
+        Map<Position, Mark> positions1 = new HashMap<>();
+        positions1.put(Position.of(1), Mark.NONE);
+        positions1.put(Position.of(2), Mark.X);
+        positions1.put(Position.of(3), Mark.O);
+        positions1.put(Position.of(4), Mark.O);
+        positions1.put(Position.of(5), Mark.O);
+        positions1.put(Position.of(6), Mark.X);
+        positions1.put(Position.of(7), Mark.X);
+        positions1.put(Position.of(8), Mark.O);
+        positions1.put(Position.of(9), Mark.NONE);
+
+        return new Object[][]{
+                {positions1, false}
+        };
+    }
+
 }

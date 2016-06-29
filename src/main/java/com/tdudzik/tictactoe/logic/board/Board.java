@@ -114,4 +114,8 @@ public class Board {
         return false;
     }
 
+    public boolean everyPositionIsOccupied() {
+        return marksByPosition.values().stream().filter(m -> m.equals(Mark.NONE)).count() == 0;
+    }
+
 }

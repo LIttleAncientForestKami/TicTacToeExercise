@@ -1,37 +1,48 @@
 package com.danielzaucha.game.tictactoe.player.controller;
 
 import com.danielzaucha.game.tictactoe.board.Board;
+import com.danielzaucha.game.tictactoe.board.BoardObserver;
 import com.danielzaucha.game.tictactoe.input.Input;
+import com.danielzaucha.game.tictactoe.player.base.PlayerBase;
 import com.danielzaucha.game.tictactoe.player.base.Player;
-import com.danielzaucha.game.tictactoe.player.base.PlayerO;
-import com.danielzaucha.game.tictactoe.player.base.PlayerX;
+import com.danielzaucha.game.tictactoe.player.base.PlayerType;
+import com.danielzaucha.game.tictactoe.player.base.Sign;
 
 /**
  * Created by daniel on 24.06.16.
  */
-public class PlayerController extends PlayerControllerObserver{
+public class PlayerController extends BoardObserver implements PlayerControllerBase {
 
-    Player player1 = new PlayerX();
-    Player player2 = new PlayerO();
-    Player curPlayer = player1;
+    PlayerBase playerX;
+    PlayerBase playerO;
+    PlayerBase curPlayer;
 
-    public PlayerController(Board board, Input input)
+    public PlayerController(Board board, int boardSize)
     {
+        Input input = new Input(boardSize);
+
+        playerX = new Player(PlayerType.HUMAN, Sign.X, input);
+        playerO = new Player(PlayerType.HUMAN, Sign.O, input);
+        curPlayer = playerX;
+
         this.board = board;
         this.board.attach(this);
-        input.attach(this);
     }
 
     @Override
-    public void play(int pos)
-    {
-        curPlayer.play(board, pos);
+    public PlayerControllerBase run() {
+        curPlayer.play(board);
+        return this;
     }
 
     @Override
-    public void changePlayer()
-    {
-        if(curPlayer.equals(player1)) curPlayer = player2;
-        else curPlayer = player1;
+    public void update(Sign s, int pos){
+        changePlayer();
     }
+
+    private void changePlayer() {
+        if(curPlayer.equals(playerX)) curPlayer = playerO;
+        else curPlayer = playerX;
+    }
+
 }

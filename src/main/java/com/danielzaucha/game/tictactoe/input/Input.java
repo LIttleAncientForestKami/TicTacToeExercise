@@ -1,7 +1,5 @@
 package com.danielzaucha.game.tictactoe.input;
 
-import com.danielzaucha.game.tictactoe.player.controller.PlayerControllerObserver;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,7 +8,6 @@ import java.util.Scanner;
  */
 public class Input implements  InputBase{
     private Scanner scanner = new Scanner(System.in);
-    private PlayerControllerObserver playerControllerObserver;
 
     private int size;
 
@@ -20,7 +17,7 @@ public class Input implements  InputBase{
     }
 
     @Override
-    public void read() {
+    public int read() {
         int input;
         while (true) {
             try {
@@ -33,17 +30,8 @@ public class Input implements  InputBase{
         }
         if(input > 0 && input <=size*size)
         {
-            notifyToObserver(input);
+            return input;
         }
-    }
-
-    public void attach(PlayerControllerObserver playerControllerObserver)
-    {
-        this.playerControllerObserver = playerControllerObserver;
-    }
-
-    private void notifyToObserver(int pos)
-    {
-        playerControllerObserver.play(pos);
+        return 0;
     }
 }

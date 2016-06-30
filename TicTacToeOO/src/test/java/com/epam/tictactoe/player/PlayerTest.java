@@ -24,4 +24,14 @@ public class PlayerTest {
         Assert.assertFalse(new PlayerX().equals(new PlayerO()));
     }
 
+    @Test
+    public void toStringPlayerO() {
+        Assert.assertTrue(new PlayerO().toString().equals("Player O"));
+    }
+
+    @Test
+    public void toStringPlayerX() {
+        Assert.assertTrue(new PlayerX().toString().equals("Player X"));
+    }
+
 }

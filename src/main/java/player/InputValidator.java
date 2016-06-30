@@ -9,8 +9,16 @@ public class InputValidator {
 
     private Set<Integer> fields;
 
-    public InputValidator() {
-        fields = new HashSet<>();
+    InputValidator(Set<Integer> fields) {
+        this.fields = fields;
+    }
+
+    public static InputValidator getValidator() {
+        Set<Integer> fields = new HashSet<>();
+        for (int i = 1; i <= 9; i++) {
+            fields.add(i);
+        }
+        return new InputValidator(fields);
     }
 
     boolean validate(int i) {
@@ -21,19 +29,10 @@ public class InputValidator {
         throw new InputMismatchException();
     }
 
-    InputValidator(Set<Integer> fields) {
-        this.fields = fields;
-    }
-
-    public void init() {
-        for (int i = 1; i <= 9; i++) {
-            fields.add(i);
-        }
-    }
-
     @Override
     public boolean equals(Object obj) {
         InputValidator validator = (InputValidator) obj;
         return this.fields.equals(validator.fields);
     }
+
 }

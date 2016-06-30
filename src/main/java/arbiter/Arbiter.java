@@ -1,17 +1,17 @@
 package arbiter;
 
+import player.Player;
 
 import java.util.*;
 
-
-class Arbiter {
+public class Arbiter {
     private List<Set<Integer>> possibleWinningCombinations = new ArrayList<>();
 
     private Arbiter(List<Set<Integer>> possibleWinningCombinations) {
         this.possibleWinningCombinations = possibleWinningCombinations;
     }
 
-    static Arbiter getArbiter() {
+    public static Arbiter getArbiter() {
         List<Set<Integer>> possibleWinningCombinations = new ArrayList<>();
         possibleWinningCombinations.add(returnTreeSet(Arrays.asList(1, 2, 3)));
         possibleWinningCombinations.add(returnTreeSet(Arrays.asList(4, 5, 6)));
@@ -24,7 +24,9 @@ class Arbiter {
         return new Arbiter(possibleWinningCombinations);
     }
 
-    boolean decide(Set<Integer> playerMoves) {
+     boolean compereToPossibleConditions(Set<Integer> playerMoves) {
+        if (playerMoves.size() < 3)
+            return false;
         for (Set s : possibleWinningCombinations) {
             if (playerMoves.containsAll(s))
                 return true;
@@ -32,8 +34,20 @@ class Arbiter {
         return false;
     }
 
+    public boolean decide(Player player){
+        if(compereToPossibleConditions(player.returnListOfMoves())) {
+            System.out.println("Winner is" + player.returnListOfMoves());
+            return true;
+        }
+        if(player.returnListOfMoves().size() == 5) {
+            System.out.println("draw");
+            return true;
+        }
+        return false;
+    }
+
+
     private static TreeSet<Integer> returnTreeSet(List<Integer> list) {
         return new TreeSet<>(list);
     }
-
 }

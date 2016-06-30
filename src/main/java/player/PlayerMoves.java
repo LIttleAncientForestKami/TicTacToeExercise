@@ -1,7 +1,5 @@
 package player;
 
-import org.mockito.stubbing.OngoingStubbing;
-
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -12,7 +10,7 @@ public class PlayerMoves {
         return playerMoves;
     }
 
-    public void addMove(int i) {
+    void addMove(int i) {
         playerMoves.add(i);
     }
 }

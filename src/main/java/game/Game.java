@@ -11,17 +11,16 @@ public class Game {
         Player player1 = new Player(Mark.O);
         CurrentPlayer currentPlayer = new CurrentPlayer(player1, player2);
         Board board = new Board();
-        InputValidator inputValidator = new InputValidator();
-        inputValidator.init();
+        InputValidator inputValidator = InputValidator.getValidator();
         PlayerInput playerInput = new PlayerInput(inputValidator);
         GameController gameController = new GameController(currentPlayer, board, playerInput);
-
         System.out.println(board);
 
-        while (true){
+        boolean winingFlag = false;
+        while (!winingFlag) {
             try {
-                gameController.play();
-            }catch (InputMismatchException e){
+                winingFlag = gameController.play();
+            } catch (InputMismatchException e) {
                 System.out.println("Wrong Input Try Again");
             }
         }

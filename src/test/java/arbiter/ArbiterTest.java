@@ -38,8 +38,8 @@ public class ArbiterTest {
         //Given
         Arbiter arbiter = Arbiter.getArbiter();
         //When
-        boolean trueDecision = arbiter.decide(playerMovesTrue.getPlayerMoves());
-        boolean falseDecision = arbiter.decide(playerMovesFalse.getPlayerMoves());
+        boolean trueDecision = arbiter.compereToPossibleConditions(playerMovesTrue.getPlayerMoves());
+        boolean falseDecision = arbiter.compereToPossibleConditions(playerMovesFalse.getPlayerMoves());
         //Then
         assertTrue(trueDecision);
         assertFalse(falseDecision);

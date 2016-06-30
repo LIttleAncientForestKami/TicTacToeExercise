@@ -12,8 +12,7 @@ import static org.testng.Assert.fail;
 public class InputValidatorTest {
     @Test
     public void testInit() {
-        InputValidator validator = new InputValidator();
-        validator.init();
+        InputValidator validator = InputValidator.getValidator();
         Set<Integer> test = new HashSet<>();
         for (int i = 1; i <= 9; i++) {
             test.add(i);
@@ -24,9 +23,7 @@ public class InputValidatorTest {
 
     @Test
     public void testValidateException() {
-        InputValidator validator = new InputValidator();
-        validator.init();
-        try {
+        InputValidator validator = InputValidator.getValidator();try {
             validator.validate(35);
             fail("expectedExceptions");
         } catch (InputMismatchException e) {
@@ -36,8 +33,7 @@ public class InputValidatorTest {
 
     @Test
     public void testValidate() throws Exception {
-        InputValidator validator = new InputValidator();
-        validator.init();
+        InputValidator validator = InputValidator.getValidator();
         Set<Integer> test = new HashSet<>();
         for (int i = 1; i <= 9; i++) {
             test.add(i);

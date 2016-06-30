@@ -1,7 +1,7 @@
 package com.epam.ticTacToe;
 
 import com.epam.ticTacToe.board.GameBoard;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static org.testng.Assert.assertEquals;
 
@@ -10,20 +10,44 @@ import static org.testng.Assert.assertEquals;
  */
 public class GameBoardTest {
 
-    @Test
-    public void appliesMarkOAtCenter() {
+    private GameBoard mGameBoard;
+    private int BOARD_SIZE = 3;
+
+    @BeforeMethod
+    public void setUp() {
         /**
          * Arrange
          */
-        GameBoard gameBoard = new GameBoard();
+        mGameBoard = new GameBoard(BOARD_SIZE);
+    }
+
+    @Test
+    public void validateBoardInitialization() {
         /**
          * Art
          */
-        gameBoard.placeMark("O");
+        String result_123_456_789 = "123\n456\n789\n";
         /**
          * Assert
          */
-        String result_789_4O6_123 = "789\n4O6\n123\n";
-        assertEquals(gameBoard.toString(), result_789_4O6_123);
+        assertEquals(mGameBoard.toString(), result_123_456_789);
+    }
+
+    @Test
+    public void appliesMarkOAtCenter() {
+        /**
+         * Art
+         */
+        mGameBoard.placeMark("O", 5);
+        /**
+         * Assert
+         */
+        String result_123_4O6_789 = "123\n4O6\n789\n";
+        assertEquals(mGameBoard.toString(), result_123_4O6_789);
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        mGameBoard = null;
     }
 }

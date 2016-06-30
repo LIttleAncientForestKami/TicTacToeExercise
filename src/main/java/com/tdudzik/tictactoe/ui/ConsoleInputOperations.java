@@ -6,6 +6,7 @@ import com.tdudzik.tictactoe.logic.player.HumanPlayer;
 import com.tdudzik.tictactoe.logic.player.Player;
 import com.tdudzik.tictactoe.logic.player.PlayerFactory;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -38,8 +39,17 @@ public class ConsoleInputOperations implements InputOperations {
 
     @Override
     public Position readPosition(String playerName) {
-        System.out.print(playerName + ": ");
-        int position = scanner.nextInt();
+        int position;
+        while (true) {
+            try {
+                System.out.print(playerName + ": ");
+                position = scanner.nextInt();
+                break;
+            } catch (InputMismatchException ex) {
+                scanner.next();
+                continue;
+            }
+        }
 
         return Position.of(position);
     }

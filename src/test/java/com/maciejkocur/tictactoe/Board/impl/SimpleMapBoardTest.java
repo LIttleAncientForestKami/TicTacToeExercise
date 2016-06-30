@@ -11,8 +11,39 @@ import java.util.Map;
 
 public class SimpleMapBoardTest {
 
-    @DataProvider(name = "fields")
-    public static Object[][] fields() {
+
+    @Test(dataProvider = "allMoves")
+    public void appliesAnyMoveAtAnyEmptyField(Integer field, Mark mark) {
+        //given
+        Board board = createBoard();
+        //when
+        board.applyMark(field, mark);
+        //then
+        Assert.assertEquals(mark, board.getMarkAtField(field));
+    }
+
+    @Test(dataProvider = "oMoves")
+    public void notAppliesOAtOccupiedField(Integer field, Mark mark) {
+        //given
+        Board board = createBoard(field(field, mark));
+        //when
+        board.applyMark(field, Mark.CROSS);
+        //then
+        Assert.assertEquals(mark, board.getMarkAtField(field));
+    }
+
+    @Test(dataProvider = "xMoves")
+    public void notAppliesXAtOccupiedField(Integer field, Mark mark) {
+        //given
+        Board board = createBoard(field(field, mark));
+        //when
+        board.applyMark(field, Mark.CIRCLE);
+        //then
+        Assert.assertEquals(mark, board.getMarkAtField(field));
+    }
+
+    @DataProvider(name = "allMoves")
+    public static Object[][] allMoves() {
         Object[][] fields = new Object[18][2];
         for (int i = 0; i < 18; i++) {
             fields[i][0] = i + 1;
@@ -25,26 +56,25 @@ public class SimpleMapBoardTest {
         return fields;
     }
 
-    @Test(dataProvider = "fields")
-    public void appliesAnyMoveAtAnyEmptyField(Integer field, Mark mark) {
-        //given
-        Board board = createBoard();
-        //when
-        board.applyMark(field, mark);
-        //then
-        Assert.assertEquals(mark, board.getMarkAtField(field));
+    @DataProvider(name = "oMoves")
+    public static Object[][] oMoves() {
+        Object[][] fields = new Object[9][2];
+        for (int i = 0; i < 9; i++) {
+            fields[i][0] = i + 1;
+            fields[i][1] = Mark.CIRCLE;
+        }
+        return fields;
     }
 
-    @Test
-    public void notAppliesMoveOnOccupiedField() {
-        //given
-        Board board = createBoard(field(5, Mark.CIRCLE));
-        //when
-        board.applyMark(5, Mark.CROSS);
-        //then
-        Assert.assertEquals(Mark.CIRCLE, board.getMarkAtField(5));
+    @DataProvider(name = "xMoves")
+    public static Object[][] xMoves() {
+        Object[][] fields = new Object[9][2];
+        for (int i = 0; i < 9; i++) {
+            fields[i][0] = i + 1;
+            fields[i][1] = Mark.CIRCLE;
+        }
+        return fields;
     }
-
 
     private Object field(int position, Mark mark) {
         return new Object[]{position, mark};

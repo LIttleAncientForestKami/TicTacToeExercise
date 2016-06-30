@@ -7,5 +7,5 @@ import com.danielzaucha.game.tictactoe.player.base.Sign;
  */
 public interface BoardBase {
     String toString();
-    void placeCharacterOnBoard(int pos, Sign s);
+    boolean placeCharacterOnBoard(int pos, Sign s);
 }

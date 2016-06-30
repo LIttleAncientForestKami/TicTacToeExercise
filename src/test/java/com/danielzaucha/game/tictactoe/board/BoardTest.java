@@ -1,10 +1,9 @@
 package com.danielzaucha.game.tictactoe.board;
 
-import com.danielzaucha.game.tictactoe.input.Input;
 import com.danielzaucha.game.tictactoe.player.base.Sign;
 import com.danielzaucha.game.tictactoe.player.controller.PlayerController;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.LinkedHashMap;
@@ -24,9 +23,8 @@ public class BoardTest {
     @BeforeMethod
     public void setReferencesToPlayerController()
     {
+        //given
         board = new Board(3);
-
-        //Because PlayerController is observer of Board, we have to create reference to him
         playerController = new PlayerController(board, 3);
         map = initializeBoard(3);
     }
@@ -34,37 +32,59 @@ public class BoardTest {
     @Test
     public void allowsPlaceMarkOAtTheCenterOfBoard()
     {
+        //when
         board.placeCharacterOnBoard(5, Sign.O);
         map.put(5, Sign.O);
 
+        //than
         assertEquals(board.board, map);
     }
 
-    @Test
-    public void allowsPlaceSequenceOfMarksOnBoard()
+    @DataProvider(name="firstSequences")
+    private Object[][] firstSequences(){
+        return new Object[][]{{1, Sign.O, 2, Sign.X, 3, Sign.O},
+            {1, Sign.X, 5, Sign.O, 7, Sign.X},
+            {7, Sign.X, 8, Sign.O, 5, Sign.X},
+        };
+    }
+
+    @DataProvider(name="secondSequences")
+    private Object[][] secondSequences(){
+        return new Object[][]{{1, Sign.O, 2, Sign.X, 2, Sign.O},
+                {1, Sign.X, 5, Sign.O, 5, Sign.X},
+                {7, Sign.X, 8, Sign.O, 8, Sign.X},
+        };
+    }
+
+    @Test(dataProvider = "firstSequences")
+    public void allowsPlaceSequenceOfMarksOnBoard(Integer pos1, Sign sign1, Integer pos2, Sign sign2, Integer pos3, Sign sign3)
     {
-        board.placeCharacterOnBoard(1, Sign.O);
-        board.placeCharacterOnBoard(2, Sign.X);
-        board.placeCharacterOnBoard(3, Sign.O);
+        //when
+        board.placeCharacterOnBoard(pos1, sign1);
+        board.placeCharacterOnBoard(pos2, sign2);
+        board.placeCharacterOnBoard(pos3, sign3);
 
-        map.put(1, Sign.O);
-        map.put(2, Sign.X);
-        map.put(3, Sign.O);
+        map.put(pos1, sign1);
+        map.put(pos2, sign2);
+        map.put(pos3, sign3);
 
+        //than
         assertEquals(board.board, map);
     }
 
-    @Test
-    public void forbidsPlaceSequenceOfMarksOnBoard()
+    @Test(dataProvider = "secondSequences")
+    public void forbidsPlaceSequenceOfMarksOnBoard(Integer pos1, Sign sign1, Integer pos2, Sign sign2, Integer pos3, Sign sign3)
     {
-        board.placeCharacterOnBoard(1, Sign.O);
-        board.placeCharacterOnBoard(2, Sign.X);
-        board.placeCharacterOnBoard(2, Sign.O);
+        //when
+        board.placeCharacterOnBoard(pos1, sign1);
+        board.placeCharacterOnBoard(pos2, sign2);
+        board.placeCharacterOnBoard(pos3, sign3);
 
-        map.put(1, Sign.O);
-        map.put(2, Sign.X);
-        map.put(2, Sign.O);
+        map.put(pos1, sign1);
+        map.put(pos2, sign2);
+        map.put(pos3, sign3);
 
+        //than
         assertNotEquals(board.board, map);
     }
 

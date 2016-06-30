@@ -5,6 +5,8 @@
     <test name="test1">
         <classes>
             <class name="com.danielzaucha.game.tictactoe.board.BoardTest" />
+            <class name="com.danielzaucha.game.tictactoe.player.controller.PlayerControllerTest"/>
+            <class name="com.danielzaucha.game.tictactoe.arbiter.ArbiterTest"/>
         </classes>
     </test>
 </suite>

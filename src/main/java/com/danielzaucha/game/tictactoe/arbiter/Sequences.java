@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Created by daniel on 29.06.16.
  */
-public enum Sequences implements Comparable<Sequences> {
+public enum Sequences {
     FROW(1,2,3), 
     SROW(4,5,6),
     TROW(7,8,9),

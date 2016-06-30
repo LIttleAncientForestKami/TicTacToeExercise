@@ -1,5 +1,7 @@
 package com.danielzaucha.game.tictactoe.input;
 
+import com.danielzaucha.game.tictactoe.display.Logger;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -24,6 +26,7 @@ public class Input implements  InputBase{
                 input = scanner.nextInt();
                 break;
             } catch (InputMismatchException ex) {
+                Logger.printUnproperInputException();
                 scanner.next();
                 continue;
             }
@@ -32,6 +35,7 @@ public class Input implements  InputBase{
         {
             return input;
         }
+        Logger.printUnproperInputException();
         return 0;
     }
 }

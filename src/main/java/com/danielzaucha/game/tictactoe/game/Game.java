@@ -2,6 +2,7 @@ package com.danielzaucha.game.tictactoe.game;
 
 import com.danielzaucha.game.tictactoe.arbiter.Arbiter;
 import com.danielzaucha.game.tictactoe.board.Board;
+import com.danielzaucha.game.tictactoe.display.Logger;
 import com.danielzaucha.game.tictactoe.input.Input;
 import com.danielzaucha.game.tictactoe.player.controller.PlayerController;
 
@@ -13,8 +14,12 @@ public class Game implements GameBase{
     int boardSize=3;
     Board board = new Board(boardSize);
     PlayerController playerController = new PlayerController(board, boardSize);
-    Arbiter arbiter = new Arbiter(board);
+    Arbiter arbiter = new Arbiter(board, boardSize);
 
+    public Game(){
+        Logger.printWelcomeMessage();
+        Logger.printBoard(board);
+    }
     @Override
     public void run()
     {

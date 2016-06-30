@@ -1,6 +1,7 @@
 package com.danielzaucha.game.tictactoe.player.base;
 
 import com.danielzaucha.game.tictactoe.board.Board;
+import com.danielzaucha.game.tictactoe.display.Logger;
 import com.danielzaucha.game.tictactoe.input.Input;
 
 /**
@@ -21,9 +22,10 @@ public class Player implements PlayerBase {
     public void play(Board board) {
 
         int pos=0;
-        while(pos == 0)
-            pos = input.read();
 
-        board.placeCharacterOnBoard(pos, s);
+        while(!board.placeCharacterOnBoard(pos, s)){
+            Logger.printPlayerShell(s);
+            pos = input.read();
+        }
     }
 }

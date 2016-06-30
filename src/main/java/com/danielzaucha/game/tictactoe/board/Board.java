@@ -1,5 +1,6 @@
 package com.danielzaucha.game.tictactoe.board;
 
+import com.danielzaucha.game.tictactoe.display.Logger;
 import com.danielzaucha.game.tictactoe.player.base.Sign;
 
 import java.util.*;
@@ -26,12 +27,15 @@ public class Board implements BoardBase{
     }
 
     @Override
-    public void placeCharacterOnBoard(int pos, Sign s) {
+    public boolean placeCharacterOnBoard(int pos, Sign s) {
+        if(pos==0) return false;
         if(board.get(pos).equals(Sign.N)) {
             board.put(pos, s);
-            System.out.println(this);
+            Logger.printBoard(this);
             notifyToObserver(s, pos);
+            return true;
         }
+        return false;
     }
 
     public Set<Integer> getSignCoordinates(Sign s){
@@ -61,5 +65,12 @@ public class Board implements BoardBase{
             if(s.getKey()%boardSize.intValue()==0) sb.append("\n");
         }
         return sb.toString();
+    }
+
+    //This method concerns tests. It's necessery to delete Arbiter Observer, to test it.
+    public void deleteObserver(BoardObserver boardObserver){
+        for(BoardObserver b: boardObservers)
+            if(b.equals(boardObserver))
+                boardObservers.remove(boardObserver);
     }
 }

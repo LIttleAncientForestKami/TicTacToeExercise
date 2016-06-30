@@ -1,10 +1,10 @@
+import com.awesomeTTTOO.board.Board;
 import com.awesomeTTTOO.referee.WinningSequences;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 import static org.testng.Assert.*;
@@ -15,17 +15,26 @@ import static org.testng.Assert.*;
 public class WinningSequencesTester {
 
     WinningSequences winningSequences;
+    Board board;
 
     @BeforeClass
     public void init(){
         winningSequences=new WinningSequences();
+        board = new Board(3);
 
     }
 
 
+
+//    @Test
+//    public void removeNotWinnableSequenceTester(){
+//
+//        assertEquals(false, winningSequences.containSequence());
+//    }
+
     @Test
     public void checkWinningSequence(){
-        assertEquals(true,winningSequences.playerWon());
+        assertEquals("The game continues",winningSequences.playerWon(board));
     }
 
     @AfterClass

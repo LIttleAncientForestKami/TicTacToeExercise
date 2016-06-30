@@ -1,6 +1,7 @@
 package com.awesomeTTTOO.board;
 
 import com.awesomeTTTOO.engine.InputHandler;
+import com.awesomeTTTOO.referee.Referee;
 
 /**
  * Created by bartlomiej on 24.06.16.
@@ -10,6 +11,7 @@ public class BoardManager {
     private Board board;
      private String visualBoard;
     private int size = 3;
+    private Referee referee;
 
 
     /*
@@ -22,6 +24,7 @@ public class BoardManager {
 
     public BoardManager(){
         board=new Board(size);
+        referee = new Referee();
 
     }
 
@@ -30,12 +33,17 @@ public class BoardManager {
     }
 
     public String putInBoard(int i, String o) {
-        if(isTaken(i))
+        if(isTaken(i)){
         board.presentBoard().put(i,o);
+        notifyReferee(o,i);}
         else{
             System.out.println("Sorry this field is taken, try again");
         return "again";}
         return "";
+    }
+
+    private void notifyReferee(String s, int i){
+
     }
 
     public String boardDrawn(){
@@ -53,6 +61,6 @@ public class BoardManager {
     }
 
     public boolean isTaken(int i) {
-        return showField(i)==" "? true:false;
+        return (showField(i).equals(" "));
     }
 }

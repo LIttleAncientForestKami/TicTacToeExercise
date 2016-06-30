@@ -12,16 +12,18 @@ public class Board {
 
     public Board(int size) {
         boardInit(size);
+        gameBoard.put(1,"X");
+        gameBoard.put(2,"O");
     }
 
-    protected Map<Integer,String> presentBoard(){
+    public Map<Integer,String> presentBoard(){
         return gameBoard;
     }
 
 
 
     private void boardInit(int size){
-        gameBoard=new HashMap<Integer, String>();
+        gameBoard=new HashMap<>();
         for(int i=1;i<=size*size;i++){
             gameBoard.put(i," ");
         }

@@ -5,7 +5,7 @@ import mycompany.ja.krk.tictactoe.map.Shape;
 import java.util.List;
 
 /**
- * Created by ehsan on 27.06.16.
+ * Created by e.golesor@gmail.com on 27.06.16.
  */
 public interface ArbiterHelper {
     List<DirectionFieldNumber> getTheDirectionsThatHaveTheShape(Shape shape, String fieldNumber);

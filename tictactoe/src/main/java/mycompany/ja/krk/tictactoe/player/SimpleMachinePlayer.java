@@ -15,7 +15,7 @@ import java.util.Map;
 
 
 /**
- * Created by ehsan on 28.06.16.
+ * Created by e.golesor@gmail.com on 28.06.16.
  */
 public class SimpleMachinePlayer implements MachinePlayer {
     public String whatIsTheNextMove(Shape shape, Map<String, TicTacToeField> currentMap) {

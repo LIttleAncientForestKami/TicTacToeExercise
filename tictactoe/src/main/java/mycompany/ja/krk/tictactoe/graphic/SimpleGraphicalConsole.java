@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Created by ehsan on 24.06.16.
+ * Created by e.golesor@gmail.com on 24.06.16.
  */
 public class SimpleGraphicalConsole implements GraphicalViewer {
 

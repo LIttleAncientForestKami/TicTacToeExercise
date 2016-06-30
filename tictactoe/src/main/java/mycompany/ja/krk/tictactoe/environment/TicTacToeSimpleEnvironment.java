@@ -7,7 +7,7 @@ import mycompany.ja.krk.tictactoe.map.TicTacToeMap;
 import mycompany.ja.krk.tictactoe.map.TicTacToeSimpleMap;
 
 /**
- * Created by ehsan on 24.06.16.
+ * Created by e.golesor@gmail.com on 24.06.16.
  */
 public class TicTacToeSimpleEnvironment implements Environment {
 

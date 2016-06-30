@@ -3,7 +3,7 @@ package mycompany.ja.krk.tictactoe.player;
 import mycompany.ja.krk.tictactoe.map.Shape;
 
 /**
- * Created by ehsan on 24.06.16.
+ * Created by e.golesor@gmail.com on 24.06.16.
  */
 public class PlayerO extends Player {
 

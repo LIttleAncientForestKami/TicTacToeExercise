@@ -3,7 +3,7 @@ package mycompany.ja.krk.tictactoe.arbiter;
 import mycompany.ja.krk.tictactoe.map.TicTacToeSimpleMap;
 
 /**
- * Created by ehsan on 27.06.16.
+ * Created by e.golesor@gmail.com on 27.06.16.
  */
 public class DirectionFieldNumber {
 

@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * Created by ehsan on 28.06.16.
+ * Created by e.golesor@gmail.com on 28.06.16.
  */
 public class MachinePlayerTest {
 

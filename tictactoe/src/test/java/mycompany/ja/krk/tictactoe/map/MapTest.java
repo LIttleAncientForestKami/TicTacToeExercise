@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * Created by ehsan on 23.06.16.
+ * Created by e.golesor@gmail.com on 23.06.16.
  */
 public class MapTest {
 

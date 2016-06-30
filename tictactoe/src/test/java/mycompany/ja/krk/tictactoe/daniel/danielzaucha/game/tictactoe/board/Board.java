@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by ehsan on 28.06.16.
+ * Created by e.golesor@gmail.com on 28.06.16.
  */
 public class Board {
     public Map<Integer, Sign> board = new HashMap<Integer, Sign>();

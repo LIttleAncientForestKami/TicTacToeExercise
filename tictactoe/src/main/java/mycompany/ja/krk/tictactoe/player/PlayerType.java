@@ -1,7 +1,7 @@
 package mycompany.ja.krk.tictactoe.player;
 
 /**
- * Created by ehsan on 28.06.16.
+ * Created by e.golesor@gmail.com on 28.06.16.
  */
 public enum PlayerType {
     HUMAN,

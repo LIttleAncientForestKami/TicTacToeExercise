@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by ehsan on 23.06.16.
+ * Created by e.golesor@gmail.com on 23.06.16.
  */
 public class TicTacToeSimpleMap implements TicTacToeMap {
 

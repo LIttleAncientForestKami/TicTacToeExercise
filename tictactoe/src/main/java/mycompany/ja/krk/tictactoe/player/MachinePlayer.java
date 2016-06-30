@@ -6,7 +6,7 @@ import mycompany.ja.krk.tictactoe.map.TicTacToeField;
 import java.util.Map;
 
 /**
- * Created by ehsan on 28.06.16.
+ * Created by e.golesor@gmail.com on 28.06.16.
  */
 public interface MachinePlayer {
     /**

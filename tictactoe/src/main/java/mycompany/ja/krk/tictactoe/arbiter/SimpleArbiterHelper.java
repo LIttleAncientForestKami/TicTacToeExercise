@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by ehsan on 27.06.16.
+ * Created by e.golesor@gmail.com on 27.06.16.
  */
 public class SimpleArbiterHelper implements ArbiterHelper {
 

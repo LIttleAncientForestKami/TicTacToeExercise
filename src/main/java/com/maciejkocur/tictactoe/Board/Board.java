@@ -1,19 +1,7 @@
 package com.maciejkocur.tictactoe.Board;
 
-import java.util.Map;
+public interface Board {
+    void appliesMark(int i, Mark circle);
 
-public class Board {
-    Map<Integer, Mark> board;
-
-    public Board(Map<Integer, Mark> board) {
-        this.board = board;
-    }
-
-    public void appliesMark(int fieldNumber, Mark mark) {
-        board.put(fieldNumber, mark);
-    }
-
-    public Mark getMarkAtField(int fieldNumber) {
-        return board.get(fieldNumber);
-    }
+    Mark getMarkAtField(int i);
 }

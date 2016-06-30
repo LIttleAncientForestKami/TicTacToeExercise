@@ -1,6 +1,6 @@
 package com.maciejkocur.tictactoe.Board;
 
 
-enum Mark {
+public enum Mark {
     CIRCLE, CROSS;
 }

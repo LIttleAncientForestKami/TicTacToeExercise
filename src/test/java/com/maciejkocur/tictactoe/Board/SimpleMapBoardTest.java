@@ -1,11 +1,13 @@
 package com.maciejkocur.tictactoe.Board;
 
+import com.maciejkocur.tictactoe.Board.impl.SimpleMapBoard;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
-public class BoardTest {
+public class SimpleMapBoardTest {
 
     @Test
     public void appliesMark0AtCenter() {
@@ -28,7 +30,7 @@ public class BoardTest {
     }
 
     private Board createBoard() {
-        HashMap<Integer, Mark> emptyBoard = new HashMap<>();
-        return new Board(emptyBoard);
+        Map<Integer, Mark> emptyBoard = new HashMap<>();
+        return new SimpleMapBoard(emptyBoard);
     }
 }

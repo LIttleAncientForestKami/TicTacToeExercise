@@ -23,27 +23,11 @@ public class GameEngine {
     private final InputOperations inputOperations;
     private final OutputOperations outputOperations;
 
-    private final AtomicInteger integer = new AtomicInteger(0);
-
     public GameEngine(InputOperations inputOperations, OutputOperations outputOperations) {
         this.inputOperations = inputOperations;
         this.outputOperations = outputOperations;
     }
 
-//    public void launch() {
-//        Board board = Board.from(BoardSize.of(3));
-//
-//        Player player1 = new HumanPlayer(UUID.randomUUID().toString(), "Player 1");
-//        Player player2 = new HumanPlayer(UUID.randomUUID().toString(), "Player 2");
-//
-//        InputHandler inputHandler = new InputHandler(new ConsoleInputOperations(new Scanner(System.in)));
-//
-//        player1.playAsX(inputHandler, board);
-//        player2.playAsO(inputHandler, board);
-//        player1.playAsX(inputHandler, board);
-//
-//        outputOperations.drawBoard(board);
-//    }
     public void launch() {
         GameRules gameRules = new GameRules(BoardSize.of(3), WinningSequenceLength.of(3));
         Board board = Board.from(gameRules.getBoardSize());

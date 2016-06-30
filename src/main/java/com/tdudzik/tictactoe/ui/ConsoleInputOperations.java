@@ -21,15 +21,16 @@ public class ConsoleInputOperations implements InputOperations {
 
     @Override
     public Player readPlayer1() {
-        System.out.print("Player 1: ");
-        String playerName = scanner.nextLine();
-
-        return playerFactory.createHumanPlayer(playerName);
+        return readPlayer("Player 1: ");
     }
 
     @Override
     public Player readPlayer2() {
-        System.out.print("Player 2: ");
+        return readPlayer("Player 2: ");
+    }
+
+    private Player readPlayer(String message) {
+        System.out.print(message);
         String playerName = scanner.nextLine();
 
         return playerFactory.createHumanPlayer(playerName);

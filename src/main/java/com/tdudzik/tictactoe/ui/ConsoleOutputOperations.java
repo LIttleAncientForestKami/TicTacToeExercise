@@ -18,7 +18,7 @@ public class ConsoleOutputOperations implements OutputOperations {
             for (int j = 0; j < board.getSize().getValue(); j++) {
                 String mark;
                 if (!board.isOccupied(currentPosition)) {
-                    mark = String.valueOf(currentPosition.getValue());
+                    mark = "[" + String.valueOf(currentPosition.getValue()) + "]";
                 } else {
                     mark = board.markOn(currentPosition).equals(Mark.X) ? "X" : "O";
                 }

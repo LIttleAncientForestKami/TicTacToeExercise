@@ -4,8 +4,12 @@ public class WinningSequenceLength {
 
     private final int value;
 
-    public WinningSequenceLength(int value) {
+    private WinningSequenceLength(int value) {
         this.value = value;
+    }
+
+    public static WinningSequenceLength of(int value) {
+        return new WinningSequenceLength(value);
     }
 
     public int getValue() {

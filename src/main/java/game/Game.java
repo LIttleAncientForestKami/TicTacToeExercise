@@ -17,6 +17,7 @@ public class Game {
         inputValidator.init();
         PlayerInput playerInput = new PlayerInput(inputValidator);
         GameController gameController = new GameController(currentPlayer, board, playerInput);
+
         boardPrinter.printBoard();
 
         while (true){

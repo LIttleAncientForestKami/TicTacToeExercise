@@ -2,7 +2,7 @@ package arbiter;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import palyer.PlayerMoves;
+import player.PlayerMoves;
 
 import java.util.TreeSet;
 

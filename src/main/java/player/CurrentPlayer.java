@@ -1,8 +1,5 @@
 package player;
 
-/**
- * Created by kuba on 24.06.16.
- */
 public class CurrentPlayer {
     private Player player1;
     private Player player2;

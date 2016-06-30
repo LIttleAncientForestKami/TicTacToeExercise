@@ -14,6 +14,10 @@ public abstract class Player {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void playAsX(InputHandler inputHandler, Board board) {
         play(inputHandler, board, Mark.X);
     }

@@ -22,14 +22,13 @@ public class PlayerO implements Player {
     public void play(BoardManager boardManager) {
         System.out.println("Choose the field to put on O. Choose from 1-9");
         int field = inputHandler.handleInput();
-        if(boardManager.putInBoard(field,insertSign()).equals("again"))
+        if(field!=0){
+        if(boardManager.putInBoard(field,sign).equals("again"))
         {field=inputHandler.handleInput();
-        boardManager.putInBoard(field,insertSign());}
+        boardManager.putInBoard(field,sign);}}
+
     }
 
-    public String insertSign() {
 
-        return sign;
-    }
 
 }

@@ -9,5 +9,5 @@ public interface Player {
 
     void play(BoardManager boardManager);
 
-    String insertSign();
+
 }

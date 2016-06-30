@@ -41,7 +41,6 @@ public class BoardManagerTest {
     @Test(priority = 1)
     public void putInBoardTester(){
         boardManager.putInBoard(5, "O");
-        assertEquals("O",boardManager.showField(5));
         assertEquals(representation,boardManager.boardDrawn());
     }
 

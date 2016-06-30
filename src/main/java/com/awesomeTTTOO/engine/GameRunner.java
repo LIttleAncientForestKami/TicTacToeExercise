@@ -24,7 +24,7 @@ public class GameRunner {
 
 
     public void gameRun(){
-        test:
+
         while(true){
 
             for(Player p :players){
@@ -32,8 +32,7 @@ public class GameRunner {
                 p.play(boardManager);
 
                 System.out.println(boardManager.boardDrawn());
-                turns++;
-                if(turns>8)break test;
+
             }
 
 

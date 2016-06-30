@@ -12,9 +12,7 @@ public class Board {
 
     public Board(int size) {
         boardInit(size);
-        gameBoard.put(1,"X");
-        gameBoard.put(2,"O");
-    }
+        }
 
     public Map<Integer,String> presentBoard(){
         return gameBoard;

@@ -24,17 +24,9 @@ public class WinningSequencesTester {
 
     }
 
-
-
-//    @Test
-//    public void removeNotWinnableSequenceTester(){
-//
-//        assertEquals(false, winningSequences.containSequence());
-//    }
-
     @Test
     public void checkWinningSequence(){
-        assertEquals("The game continues",winningSequences.playerWon(board));
+        assertEquals(false,winningSequences.playerWon(board));
     }
 
     @AfterClass

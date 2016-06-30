@@ -31,13 +31,6 @@ public class BoardTest {
     }
 
     @Test
-    public void initializeBoard(){
-        assertEquals(" ",boardManager.showField(3));
-
-    }
-
-
-    @Test
     public void boardDrawn(){
         assertEquals(representation,boardManager.boardDrawn());
     }

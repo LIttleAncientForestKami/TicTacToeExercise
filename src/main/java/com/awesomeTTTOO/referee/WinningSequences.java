@@ -61,7 +61,7 @@ public class WinningSequences {
     }
 
 
-    public String playerWon(Board board) {
+    public boolean playerWon(Board board) {
         String s;
         Map<Integer, String> gameBoard = board.presentBoard();
         Iterator<Set> myIterator = sequencesList.iterator();
@@ -71,11 +71,17 @@ public class WinningSequences {
                 s += gameBoard.get(i);
             }
             if (s.contains("X") && s.contains("O")) myIterator.remove();
-            if (s.equals("XXX")) return "The X has won";
-            if(s.equals("OOO")) return "The O has won";
+            if (s.equals("XXX")) return true;
+            if(s.equals("OOO")) return true;
+
         }
-        return "The game continues";
+
+        return false;
     }
 
+
+    protected boolean draw(){
+        return sequencesList.isEmpty();
+    }
 
 }

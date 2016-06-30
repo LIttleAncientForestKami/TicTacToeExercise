@@ -1,3 +1,4 @@
+import com.awesomeTTTOO.board.Board;
 import com.awesomeTTTOO.referee.Referee;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -11,16 +12,17 @@ import static
 public class RefereeTest {
 
     Referee referee;
-
+    Board board;
 
     @BeforeClass
     public void init(){
         referee = new Referee();
+        board = new Board(3);
     }
 
     @Test
     public void testIfWon(){
-        assertTrue(referee.checkIfSomeoneWon());
+        assertEquals(false,referee.checkIfSomeoneWon(board));
     }
 
 

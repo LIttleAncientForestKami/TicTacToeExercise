@@ -32,14 +32,6 @@ public class PlayerTester {
         assertNotNull(o);
     }
 
-    @Test
-    public void playerPutsSign(){
-        assertEquals("O",o.insertSign());
-        assertEquals("X",x.insertSign());
-    }
-
-
-
     @AfterClass
     public void teardown(){
         x=null;

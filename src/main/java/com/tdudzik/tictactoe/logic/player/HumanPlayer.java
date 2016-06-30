@@ -7,7 +7,7 @@ import com.tdudzik.tictactoe.logic.io.InputHandler;
 
 public class HumanPlayer extends Player {
 
-    public HumanPlayer(String id, String name) {
+    HumanPlayer(String id, String name) {
         super(id, name);
     }
 

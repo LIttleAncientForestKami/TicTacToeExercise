@@ -1,6 +1,7 @@
-package com.maciejkocur.tictactoe.Board;
+package com.maciejkocur.tictactoe.Board.impl;
 
-import com.maciejkocur.tictactoe.Board.impl.SimpleMapBoard;
+import com.maciejkocur.tictactoe.Board.Board;
+import com.maciejkocur.tictactoe.Board.Mark;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SimpleMapBoardTest {
+
     @DataProvider(name = "fields")
     public static Object[][] fields() {
         Object[][] fields = new Object[18][2];
@@ -34,7 +36,7 @@ public class SimpleMapBoardTest {
     }
 
     @Test
-    public void notAppliesMoveOnOcupiedField() {
+    public void notAppliesMoveOnOccupiedField() {
         //given
         Board board = createBoard(field(5, Mark.CIRCLE));
         //when
@@ -42,6 +44,7 @@ public class SimpleMapBoardTest {
         //then
         Assert.assertEquals(Mark.CIRCLE, board.getMarkAtField(5));
     }
+
 
     private Object field(int position, Mark mark) {
         return new Object[]{position, mark};

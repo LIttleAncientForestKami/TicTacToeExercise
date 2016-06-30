@@ -3,25 +3,32 @@ package Board;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+
 public class BoardTest {
 
     @Test
     public void appliesMark0AtCenter() {
         // given
-        Board board = new Board();
+        Board board = createBoard();
         // when
-        board.appliesMark(5, "O");
+        board.appliesMark(5, Mark.CIRCLE);
         // then
-        Assert.assertEquals("O", board.getMarkAtField(5));
+        Assert.assertEquals(Mark.CIRCLE, board.getMarkAtField(5));
     }
 
     @Test
     public void appliesMarkXAtCenter() {
         // given
-        Board board = new Board();
+        Board board = createBoard();
         // when
-        board.appliesMark(5, "X");
+        board.appliesMark(5, Mark.CROSS);
         // then
-        Assert.assertEquals("X", board.getMarkAtField(5));
+        Assert.assertEquals(Mark.CROSS, board.getMarkAtField(5));
+    }
+
+    private Board createBoard() {
+        HashMap<Integer, Mark> emptyBoard = new HashMap<>();
+        return new Board(emptyBoard);
     }
 }

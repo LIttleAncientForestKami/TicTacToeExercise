@@ -1,16 +1,19 @@
 package Board;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
-    Map<Integer, String> board = new HashMap<>();
+    Map<Integer, Mark> board;
 
-    public void appliesMark(int fieldNumber, String mark) {
+    public Board(Map<Integer, Mark> board) {
+        this.board = board;
+    }
+
+    public void appliesMark(int fieldNumber, Mark mark) {
         board.put(fieldNumber, mark);
     }
 
-    public String getMarkAtField(int fieldNumber) {
+    public Mark getMarkAtField(int fieldNumber) {
         return board.get(fieldNumber);
     }
 }

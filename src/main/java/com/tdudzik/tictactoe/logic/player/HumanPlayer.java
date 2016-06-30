@@ -13,7 +13,14 @@ public class HumanPlayer extends Player {
 
     @Override
     protected void play(InputHandler inputHandler, Board board, Mark mark) {
-        Position position = inputHandler.readHumanPlayerPosition(name);
+        Position position;
+        while (true) {
+            position = inputHandler.readHumanPlayerPosition(name);
+
+            if (board.positionExists(position) && !board.isOccupied(position)) {
+                break;
+            }
+        }
         board.placeMark(position, mark);
     }
 

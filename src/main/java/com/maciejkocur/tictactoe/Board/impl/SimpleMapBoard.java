@@ -12,8 +12,10 @@ public class SimpleMapBoard implements Board {
         this.board = board;
     }
 
-    public void appliesMark(int fieldNumber, Mark mark) {
-        board.put(fieldNumber, mark);
+    public void applyMark(int fieldNumber, Mark mark) {
+        if (!board.containsKey(fieldNumber)) {
+            board.put(fieldNumber, mark);
+        }
     }
 
     public Mark getMarkAtField(int fieldNumber) {

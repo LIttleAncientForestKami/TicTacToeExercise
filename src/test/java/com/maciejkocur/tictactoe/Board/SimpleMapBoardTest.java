@@ -28,13 +28,33 @@ public class SimpleMapBoardTest {
         //given
         Board board = createBoard();
         //when
-        board.appliesMark(field, mark);
+        board.applyMark(field, mark);
         //then
         Assert.assertEquals(mark, board.getMarkAtField(field));
     }
 
-    private Board createBoard() {
+    @Test
+    public void notAppliesMoveOnOcupiedField() {
+        //given
+        Board board = createBoard(field(5, Mark.CIRCLE));
+        //when
+        board.applyMark(5, Mark.CROSS);
+        //then
+        Assert.assertEquals(Mark.CIRCLE, board.getMarkAtField(5));
+    }
+
+    private Object field(int position, Mark mark) {
+        return new Object[]{position, mark};
+    }
+
+    private Board createBoard(Object... objects) {
         Map<Integer, Mark> emptyBoard = new HashMap<>();
+        for (int i = 0; i < objects.length; i++) {
+            Object[] field = (Object[]) objects[i];
+            Integer position = (Integer) field[0];
+            Mark mark = (Mark) field[1];
+            emptyBoard.put(position, mark);
+        }
         return new SimpleMapBoard(emptyBoard);
     }
 }

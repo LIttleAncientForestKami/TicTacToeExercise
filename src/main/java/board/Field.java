@@ -1,10 +1,16 @@
 package board;
 
+import player.Mark;
+
 class Field {
     private String field;
 
-    Field(String field) {
-        this.field = field;
+    Field(Mark field) {
+        this.field = field.toString();
+    }
+
+    Field(int i) {
+        this.field = i + "";
     }
 
     @Override

@@ -15,12 +15,14 @@ public class Board {
         board.put(index, mark);
     }
 
-    List<Field> returnFields() {
-        List<Field> fields = new ArrayList<>();
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
         for (int i = 1; i <= 9; i++) {
-            if (board.containsKey(i)) fields.add(new Field(board.get(i).toString()));
-            else fields.add(new Field(i + ""));
+            if(board.containsKey(i)) builder.append(new Field(board.get(i)));
+            else builder.append(new Field(i));
+            if (i % 3 == 0) builder.append("\n");
         }
-        return fields;
+        return builder.toString();
     }
 }

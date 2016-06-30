@@ -7,6 +7,7 @@ import java.util.TreeSet;
 public class PossibleSequences implements Iterable<SequencesEnum> {
     private Set<SequencesEnum> set = new TreeSet<>();
 
+    // initial sequences
     public static PossibleSequences createInitialSequences() {
         Set<SequencesEnum> set = new TreeSet<>();
         for (SequencesEnum seq : SequencesEnum.values()) {
@@ -19,17 +20,16 @@ public class PossibleSequences implements Iterable<SequencesEnum> {
         this.set = set;
     }
 
+    // remove sequences
     void remove(Set<SequencesEnum> set) {
         this.set.removeAll(set);
         System.out.println(this.set);
     }
 
-
     // iterator
     public Iterator<SequencesEnum> iterator() {
         return set.iterator();
     }
-
 
     @Override
     public String toString() {

@@ -15,34 +15,32 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class TicTacToeGame {
-    private static final Integer MAX = 9;
-    private static final Integer MIN_TO_CHECK = 5;
+    private static final Integer MAX = 9;                               // max number of iterations
+    private static final Integer MIN_TO_CHECK = 5;                      // min iterations to check the victory
 
-    private Integer iteration = 1;
+    private Integer iteration = 1;                                      // iteration counter
 
-    private final Board board = Board.createBoard();
-    private final BoardPrinter boardPrinter = new BoardPrinter();
-    private final PlayerChanger playerChanger = new PlayerChanger();
-    private final List<Player> players = new ArrayList<>();
+    private final Board board = Board.createBoard();                    // board
+    private final BoardPrinter boardPrinter = new BoardPrinter();       // boardPrinter
+    private final PlayerChanger playerChanger = new PlayerChanger();    // playerChanger
+    private final List<Player> players = new ArrayList<>();             // players list
 
-    private Player player;
-    private Mark currentMark = Mark.O;
+    private Player player;                      // current player
+    private Mark currentMark = Mark.O;          // current mark
 
-    private final EmptyPositionLister emptyLister = new EmptyPositionLister();
-    private Set<Integer> emptyPositions = new TreeSet<>();
+    private final EmptyPositionLister emptyLister = new EmptyPositionLister();  // object to list empty positions
+    private Set<Integer> emptyPositions = new TreeSet<>();                      // set of empty positions
 
-    private final InputNumberTaker inputNumberTaker = new InputNumberTaker();
+    private final InputNumberTaker inputNumberTaker = new InputNumberTaker();   // object to take numbers from the user
 
-    private final FieldAdder fieldAdder = new FieldAdder();
+    private final FieldAdder fieldAdder = new FieldAdder();                     // object to add new fields
 
+    private PossibleSequences currentSequence;                                          // current PossibleSequences
+    private final List<PossibleSequences> possibleSequencesList = new ArrayList<>();    // PossibleSequences for two players
+    private final SequenceRemover sequenceRemover = new SequenceRemover();              // object to remove existing sequences
+    private SequenceChanger sequenceChanger = new SequenceChanger();                    // object to change sequences
 
-    private PossibleSequences currentSequence;
-    private final List<PossibleSequences> possibleSequencesList = new ArrayList<>();
-    private final SequenceRemover sequenceRemover = new SequenceRemover();
-
-    private SequenceChanger sequenceChanger = new SequenceChanger();
-
-    private final VictoryChecker victoryChecker = new VictoryChecker();
+    private final VictoryChecker victoryChecker = new VictoryChecker();         // object to check the victory
 
     public TicTacToeGame() {
         players.add( new Player("Player 1", Mark.O) );
@@ -52,8 +50,6 @@ public class TicTacToeGame {
         possibleSequencesList.add(PossibleSequences.createInitialSequences()); // for pl 1
         currentSequence = possibleSequencesList.get(1);
     }
-
-
 
     // check if continue playing
     private boolean checkPlay() {

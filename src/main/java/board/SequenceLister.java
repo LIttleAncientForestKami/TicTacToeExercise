@@ -4,7 +4,7 @@ import java.util.*;
 
 import static board.SequencesEnum.*;
 
-// class to remove sequences from the set of possible sequences
+// class to list all possible sequences from particular position
 public class SequenceLister {
     Set<SequencesEnum> listSequence(Integer nPos) {
         Set<SequencesEnum> seq = new TreeSet<>();

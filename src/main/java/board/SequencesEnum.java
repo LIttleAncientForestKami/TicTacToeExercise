@@ -2,6 +2,7 @@ package board;
 
 import java.util.*;
 
+// coordinates of possible sequences of the board
 public enum SequencesEnum implements Iterable<Position> {
     FIRST_ROW(1,2,3),
     SECOND_ROW(4,5,6),
@@ -20,6 +21,7 @@ public enum SequencesEnum implements Iterable<Position> {
         setOfPositions.add( new Position( i3 ) );
     }
 
+    // returns set of fields with one mark
     Set<Field> returnSetOfFieldsForTheSequence(Mark mark) {
         Set<Field> set = new TreeSet<>();
         setOfPositions.forEach(e -> set.add( new Field( e, mark ) ));

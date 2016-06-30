@@ -7,15 +7,6 @@ public class Board {
     private static final Integer n = 3;
     private final Set<Field> fieldSet;
 
-    // factory method to generate initial empty fields
-  /*  private static Set<Field> generateEmptyFields(Integer size) {
-        Set<Field> tmpSet = new TreeSet<>();
-        for (Integer i = 1; i <= size; i++) {
-            tmpSet.add( new Field(i, Mark.EMPTY) );
-        }
-        return tmpSet;
-    } */
-
     // factory method
     public static Board createBoard() {
         Set<Field> tmpSet = new TreeSet<>();
@@ -78,7 +69,7 @@ public class Board {
         changeField(pos, mark);
     }
 
-
+    // returns set of fields from the board based on Sequences enum coordinates
     Set<Field> returnSetOfFields(SequencesEnum possibleSequences) {
         List<Field> tmpList = new ArrayList<>( fieldSet );
         Set<Field> set = new HashSet<>();

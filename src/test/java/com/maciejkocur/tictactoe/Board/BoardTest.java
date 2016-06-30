@@ -1,4 +1,4 @@
-package Board;
+package com.maciejkocur.tictactoe.Board;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

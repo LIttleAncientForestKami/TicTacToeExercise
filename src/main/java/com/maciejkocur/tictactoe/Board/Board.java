@@ -1,4 +1,4 @@
-package Board;
+package com.maciejkocur.tictactoe.Board;
 
 import java.util.Map;
 

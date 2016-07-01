@@ -1,6 +1,6 @@
-package com.maciejkocur.tictactoe.Board.impl;
+package com.maciejkocur.tictactoe.board.impl;
 
-import com.maciejkocur.tictactoe.Board.Mark;
+import com.maciejkocur.tictactoe.board.Mark;
 
 import java.util.HashMap;
 import java.util.Map;

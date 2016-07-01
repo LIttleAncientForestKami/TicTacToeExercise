@@ -1,7 +1,7 @@
-package com.maciejkocur.tictactoe.Board.impl;
+package com.maciejkocur.tictactoe.board.impl;
 
-import com.maciejkocur.tictactoe.Board.Board;
-import com.maciejkocur.tictactoe.Board.Mark;
+import com.maciejkocur.tictactoe.board.Board;
+import com.maciejkocur.tictactoe.board.Mark;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,7 +11,6 @@ import java.util.Map;
 
 public class SimpleMapBoardTest {
 
-
     @Test(dataProvider = "allMoves")
     public void appliesAnyMoveAtAnyEmptyField(Integer field, Mark mark) {
         //given
@@ -19,7 +18,7 @@ public class SimpleMapBoardTest {
         //when
         board.applyMark(field, mark);
         //then
-        Assert.assertEquals(mark, board.getMarkAtField(field));
+        Assert.assertEquals(board.getMarkAtField(field), mark);
     }
 
     @Test(dataProvider = "oMoves")
@@ -29,7 +28,7 @@ public class SimpleMapBoardTest {
         //when
         board.applyMark(field, Mark.CROSS);
         //then
-        Assert.assertEquals(mark, board.getMarkAtField(field));
+        Assert.assertEquals(board.getMarkAtField(field), mark);
     }
 
     @Test(dataProvider = "xMoves")
@@ -39,7 +38,17 @@ public class SimpleMapBoardTest {
         //when
         board.applyMark(field, Mark.CIRCLE);
         //then
-        Assert.assertEquals(mark, board.getMarkAtField(field));
+        Assert.assertEquals(board.getMarkAtField(field), mark);
+    }
+
+    @Test
+    public void printsEmptyBoard() {
+        //given
+        Board board = createBoard();
+        //when
+        String emptyStringBoard = board.toString();
+        //then
+        Assert.assertEquals(emptyStringBoard, "\t1\t2\t3\n\t4\t5\t6\n\t7\t8\t9\n");
     }
 
     @DataProvider(name = "allMoves")

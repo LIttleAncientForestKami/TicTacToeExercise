@@ -1,4 +1,4 @@
-package com.maciejkocur.tictactoe.Board;
+package com.maciejkocur.tictactoe.board;
 
 
 public enum Mark {

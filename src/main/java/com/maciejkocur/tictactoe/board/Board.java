@@ -1,4 +1,4 @@
-package com.maciejkocur.tictactoe.Board;
+package com.maciejkocur.tictactoe.board;
 
 public interface Board {
     void applyMark(int i, Mark circle);

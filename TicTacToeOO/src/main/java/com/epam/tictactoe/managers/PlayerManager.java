@@ -11,30 +11,26 @@ public class PlayerManager implements IPlayerManager {
 
     IPlayer currentPlayer;
 
-    private final IPlayer first;
-    private final IPlayer second;
+    private final IPlayer playerO;
+    private final IPlayer playerX;
 
     public PlayerManager(){
-        this.first=new PlayerO();
-        this.currentPlayer=this.first;
-        this.second=new PlayerX();;
+        this.playerO =new PlayerO();
+        this.currentPlayer=this.playerO;
+        this.playerX =new PlayerX();;
     }
-    public PlayerManager(IPlayer first, IPlayer second){
-        this.first=first;
-        this.currentPlayer=first;
-        this.second=second;
-    }
-
-    public IPlayer next() {
-        if(currentPlayer.equals(first)){
-            this.currentPlayer=second;
-        }else{
-            this.currentPlayer=first;
-        }
-        return this.currentPlayer;
+    public PlayerManager(IPlayer playerO, IPlayer playerX){
+        this.playerO =playerO;
+        this.currentPlayer=playerO;
+        this.playerX = playerX;
     }
 
-    public IPlayer current() {
-        return this.currentPlayer;
+    public IPlayer playerO(){
+        return this.playerO;
     }
+    public IPlayer playerX(){
+        return this.playerX;
+    }
+
+
 }

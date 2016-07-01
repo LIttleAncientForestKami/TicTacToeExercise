@@ -26,20 +26,12 @@ public class PlayerManagerTest {
     }
 
     @Test(dataProvider = "playerManager")
-    public void currentPlayerShouldBePlayerOAfterPlayerManagerCreation(IPlayerManager playerManager) {
-        Assert.assertTrue(playerManager.current().equals(new PlayerO()));
+    public void playerOShouldBePlayerO(IPlayerManager playerManager) {
+        Assert.assertTrue(playerManager.playerO().equals(new PlayerO()));
+    }
+    @Test(dataProvider = "playerManager")
+    public void playerXShouldBePlayerX(IPlayerManager playerManager) {
+        Assert.assertTrue(playerManager.playerX().equals(new PlayerX()));
     }
 
-    @Test(dataProvider = "playerManager")
-    public void nextPlayerShouldBePlayerX(IPlayerManager playerManager) {
-        Assert.assertTrue(playerManager.next().equals(new PlayerX()));
-    }
-
-    @Test(dataProvider = "playerManager")
-    public void checkingSequencesPlayerOPlayerX(IPlayerManager playerManager) {
-        Assert.assertTrue(playerManager.current().equals(new PlayerO()));
-        Assert.assertTrue(playerManager.next().equals(new PlayerX()));
-        Assert.assertTrue(playerManager.next().equals(new PlayerO()));
-        Assert.assertTrue(playerManager.next().equals(new PlayerX()));
-    }
 }

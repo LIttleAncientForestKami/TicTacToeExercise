@@ -71,16 +71,28 @@ public class SimpleMapBoardTest {
         Board board = createBoard(field(1, Mark.CIRCLE));
         Set<Integer> expectedAvailableMoves = moves(2, 3, 4, 5, 6, 7, 8, 9);
         //when
+        Set<Integer> availableFields = board.getAvailableFields();
+        //then
+        Assert.assertEquals(availableFields, expectedAvailableMoves);
+    }
+
+    @Test
+    public void getAvailableMovesWithTwoOccupiedFields() {
+        //given
+        Board board = createBoard(field(1, Mark.CIRCLE), field(2, Mark.CIRCLE));
+        Set<Integer> expectedAvailableMoves = moves(3, 4, 5, 6, 7, 8, 9);
+        //when
         Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
         //then
         Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
     }
 
     @Test
-    public void getAvailableMovesWithTwoOccupiedField() {
+    public void getAvailableMovesWithAllOccupiedFields() {
         //given
-        Board board = createBoard(field(1, Mark.CIRCLE), field(2, Mark.CIRCLE));
-        Set<Integer> expectedAvailableMoves = moves(3, 4, 5, 6, 7, 8, 9);
+        Board board = createBoard(field(1, Mark.CIRCLE), field(2, Mark.CIRCLE), field(3, Mark.CIRCLE), field(4, Mark.CIRCLE),
+                field(5, Mark.CIRCLE), field(6, Mark.CIRCLE), field(7, Mark.CIRCLE), field(8, Mark.CIRCLE), field(9, Mark.CIRCLE));
+        Set<Integer> expectedAvailableMoves = moves();
         //when
         Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
         //then
@@ -126,14 +138,14 @@ public class SimpleMapBoardTest {
     }
 
     private Board createBoard(Object... objects) {
-        Map<Integer, Mark> emptyBoard = new HashMap<>();
+        Map<Integer, Mark> board = new HashMap<>();
         for (int i = 0; i < objects.length; i++) {
             Object[] field = (Object[]) objects[i];
             Integer position = (Integer) field[0];
             Mark mark = (Mark) field[1];
-            emptyBoard.put(position, mark);
+            board.put(position, mark);
         }
-        return new SimpleMapBoard(emptyBoard);
+        return new SimpleMapBoard(board);
     }
 
     private Set<Integer> moves(int... moves) {

@@ -7,7 +7,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class SimpleMapBoardTest {
 
@@ -31,6 +33,7 @@ public class SimpleMapBoardTest {
         Assert.assertEquals(board.getMarkAtField(field), mark);
     }
 
+
     @Test(dataProvider = "xMoves")
     public void notAppliesXAtOccupiedField(Integer field, Mark mark) {
         //given
@@ -50,6 +53,18 @@ public class SimpleMapBoardTest {
         //then
         Assert.assertEquals(emptyStringBoard, "\t1\t2\t3\n\t4\t5\t6\n\t7\t8\t9\n");
     }
+
+    @Test
+    public void getAvailableMovesOnEmptyBoard() {
+        //given
+        Board board = createBoard();
+        Set<Integer> expectedAvailableMoves = moves(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        //when
+        Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
+        //then
+        Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
+    }
+
 
     @DataProvider(name = "allMoves")
     public static Object[][] allMoves() {
@@ -98,5 +113,13 @@ public class SimpleMapBoardTest {
             emptyBoard.put(position, mark);
         }
         return new SimpleMapBoard(emptyBoard);
+    }
+
+    private Set<Integer> moves(int... moves) {
+        HashSet<Integer> availableMoves = new HashSet<>();
+        for (int move : moves) {
+            availableMoves.add(move);
+        }
+        return availableMoves;
     }
 }

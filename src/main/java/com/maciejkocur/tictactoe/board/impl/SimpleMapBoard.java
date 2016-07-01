@@ -3,7 +3,9 @@ package com.maciejkocur.tictactoe.board.impl;
 import com.maciejkocur.tictactoe.board.Board;
 import com.maciejkocur.tictactoe.board.Mark;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class SimpleMapBoard implements Board {
     Map<Integer, Mark> board;
@@ -22,6 +24,15 @@ public class SimpleMapBoard implements Board {
     @Override
     public Mark getMarkAtField(int fieldNumber) {
         return board.get(fieldNumber);
+    }
+
+    @Override
+    public Set<Integer> getAvailableFields() {
+        Set<Integer> availableMoves = new HashSet<>();
+        for (int i = 1; i <= 9; i++) {
+            availableMoves.add(i);
+        }
+        return availableMoves;
     }
 
     @Override

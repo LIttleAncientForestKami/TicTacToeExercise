@@ -8,6 +8,10 @@ import java.util.Map;
 public class SimpleMapBoardBuilder {
 
     public Map<Integer, Mark> createMap() {
-        return new HashMap<>();
+        HashMap<Integer, Mark> map = new HashMap<>();
+        for (int i = 1; i <= 9; i++) {
+            map.put(i, Mark.EMPTY);
+        }
+        return map;
     }
 }

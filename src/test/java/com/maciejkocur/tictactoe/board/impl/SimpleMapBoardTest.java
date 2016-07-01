@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -138,7 +137,7 @@ public class SimpleMapBoardTest {
     }
 
     private Board createBoard(Object... objects) {
-        Map<Integer, Mark> board = new HashMap<>();
+        Map<Integer, Mark> board = new SimpleMapBoardBuilder().createMap();
         for (int i = 0; i < objects.length; i++) {
             Object[] field = (Object[]) objects[i];
             Integer position = (Integer) field[0];

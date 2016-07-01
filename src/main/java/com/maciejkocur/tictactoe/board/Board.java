@@ -3,9 +3,10 @@ package com.maciejkocur.tictactoe.board;
 import java.util.Set;
 
 public interface Board {
-    void applyMark(int i, Mark circle);
+    void applyMark(Integer i, Mark circle);
 
-    Mark getMarkAtField(int i);
+    Mark getMarkAtField(Integer i);
 
     Set<Integer> getAvailableFields();
+
 }

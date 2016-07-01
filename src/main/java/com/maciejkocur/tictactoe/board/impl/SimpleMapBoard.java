@@ -14,15 +14,16 @@ public class SimpleMapBoard implements Board {
         this.board = board;
     }
 
+
     @Override
-    public void applyMark(int fieldNumber, Mark mark) {
-        if (!board.containsKey(fieldNumber)) {
+    public void applyMark(Integer fieldNumber, Mark mark) {
+        if (board.containsKey(fieldNumber) && board.get(fieldNumber) == Mark.EMPTY) {
             board.put(fieldNumber, mark);
         }
     }
 
     @Override
-    public Mark getMarkAtField(int fieldNumber) {
+    public Mark getMarkAtField(Integer fieldNumber) {
         return board.get(fieldNumber);
     }
 
@@ -30,7 +31,7 @@ public class SimpleMapBoard implements Board {
     public Set<Integer> getAvailableFields() {
         Set<Integer> availableMoves = new HashSet<>();
         for (int i = 1; i <= 9; i++) {
-            if (!board.containsKey(i)) {
+            if (board.containsKey(i) && board.get(i) == Mark.EMPTY) {
                 availableMoves.add(i);
             }
         }
@@ -42,7 +43,8 @@ public class SimpleMapBoard implements Board {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (board.containsKey(3 * i + j + 1)) {
+                int position = 3 * i + j + 1;
+                if (board.containsKey(position) && board.get(position) != Mark.EMPTY) {
                     sb.append("\t");
                     sb.append(board.get(3 * i + j + 1).toString());
                 } else {

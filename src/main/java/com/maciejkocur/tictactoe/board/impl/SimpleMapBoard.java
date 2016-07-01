@@ -30,7 +30,9 @@ public class SimpleMapBoard implements Board {
     public Set<Integer> getAvailableFields() {
         Set<Integer> availableMoves = new HashSet<>();
         for (int i = 1; i <= 9; i++) {
-            availableMoves.add(i);
+            if (!board.containsKey(i)) {
+                availableMoves.add(i);
+            }
         }
         return availableMoves;
     }

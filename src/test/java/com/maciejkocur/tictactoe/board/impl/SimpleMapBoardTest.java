@@ -65,6 +65,27 @@ public class SimpleMapBoardTest {
         Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
     }
 
+    @Test
+    public void getAvailableMovesWithOneOccupiedField() {
+        //given
+        Board board = createBoard(field(1, Mark.CIRCLE));
+        Set<Integer> expectedAvailableMoves = moves(2, 3, 4, 5, 6, 7, 8, 9);
+        //when
+        Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
+        //then
+        Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
+    }
+
+    @Test
+    public void getAvailableMovesWithTwoOccupiedField() {
+        //given
+        Board board = createBoard(field(1, Mark.CIRCLE), field(2, Mark.CIRCLE));
+        Set<Integer> expectedAvailableMoves = moves(3, 4, 5, 6, 7, 8, 9);
+        //when
+        Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
+        //then
+        Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
+    }
 
     @DataProvider(name = "allMoves")
     public static Object[][] allMoves() {

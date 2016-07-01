@@ -4,14 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>TddMavenTictac</groupId>
-    <artifactId>VersionWithOneOinCentre</artifactId>
+    <groupId>com.tictac</groupId>
+    <artifactId>TddMavenTictac</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.9.10</version>
+
         </dependency>
     </dependencies>
 
@@ -29,6 +31,24 @@
                     </goals>
                 </execution>
             </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <configuration>
+                <executable>java</executable>
+                <arguments>
+                    <argument>-Xms512m</argument>
+                    <argument>-Xmx512m</argument>
+                    <argument>-XX:NewRatio=3</argument>
+                    <argument>-XX:+PrintGCTimeStamps</argument>
+                    <argument>-XX:+PrintGCDetails</argument>
+                    <argument>-Xloggc:gc.log</argument>
+                    <argument>-classpath</argument>
+                    <classpath/>
+                    <argument>com.redstack.App</argument>
+                </arguments>
+            </configuration>
         </plugin>
     </plugins>
     </build>

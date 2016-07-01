@@ -67,7 +67,6 @@ public class TestBoard {
         Symbol symbol2 = board.getCellOnPosition(2).getSymbol();
         Symbol symbol3 = board.getCellOnPosition(3).getSymbol();
         Symbol symbol4 = board.getCellOnPosition(4).getSymbol();
-
         // then
         assertEquals(symbol1,Symbol.O);
         assertEquals(symbol2,Symbol.X);

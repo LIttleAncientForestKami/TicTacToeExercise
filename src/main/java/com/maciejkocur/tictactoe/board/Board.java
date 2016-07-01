@@ -1,12 +1,14 @@
 package com.maciejkocur.tictactoe.board;
 
+import com.maciejkocur.tictactoe.board.impl.Field;
+
 import java.util.Set;
 
 public interface Board {
-    void applyMark(Integer i, Mark circle);
+    void applyMark(Field field, Mark mark);
 
-    Mark getMarkAtField(Integer i);
+    Mark getMarkAtField(Field field);
 
-    Set<Integer> getAvailableFields();
+    Set<Field> getAvailableFields();
 
 }

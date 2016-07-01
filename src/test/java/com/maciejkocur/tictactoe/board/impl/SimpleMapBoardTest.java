@@ -13,7 +13,7 @@ import java.util.Set;
 public class SimpleMapBoardTest {
 
     @Test(dataProvider = "allMoves")
-    public void appliesAnyMoveAtAnyEmptyField(Integer field, Mark mark) {
+    public void appliesAnyMoveAtAnyEmptyField(Field field, Mark mark) {
         //given
         Board board = createBoard();
         //when
@@ -23,9 +23,9 @@ public class SimpleMapBoardTest {
     }
 
     @Test(dataProvider = "oMoves")
-    public void notAppliesOAtOccupiedField(Integer field, Mark mark) {
+    public void notAppliesOAtOccupiedField(Field field, Mark mark) {
         //given
-        Board board = createBoard(field(field, mark));
+        Board board = createBoard(move(field.value(), mark));
         //when
         board.applyMark(field, Mark.CROSS);
         //then
@@ -34,9 +34,9 @@ public class SimpleMapBoardTest {
 
 
     @Test(dataProvider = "xMoves")
-    public void notAppliesXAtOccupiedField(Integer field, Mark mark) {
+    public void notAppliesXAtOccupiedField(Field field, Mark mark) {
         //given
-        Board board = createBoard(field(field, mark));
+        Board board = createBoard(move(field.value(), mark));
         //when
         board.applyMark(field, Mark.CIRCLE);
         //then
@@ -57,9 +57,9 @@ public class SimpleMapBoardTest {
     public void getAvailableMovesOnEmptyBoard() {
         //given
         Board board = createBoard();
-        Set<Integer> expectedAvailableMoves = moves(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        Set<Field> expectedAvailableMoves = moves(1, 2, 3, 4, 5, 6, 7, 8, 9);
         //when
-        Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
+        Set<Field> availableFieldsOnEmptyBoard = board.getAvailableFields();
         //then
         Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
     }
@@ -67,10 +67,10 @@ public class SimpleMapBoardTest {
     @Test
     public void getAvailableMovesWithOneOccupiedField() {
         //given
-        Board board = createBoard(field(1, Mark.CIRCLE));
-        Set<Integer> expectedAvailableMoves = moves(2, 3, 4, 5, 6, 7, 8, 9);
+        Board board = createBoard(move(1, Mark.CIRCLE));
+        Set<Field> expectedAvailableMoves = moves(2, 3, 4, 5, 6, 7, 8, 9);
         //when
-        Set<Integer> availableFields = board.getAvailableFields();
+        Set<Field> availableFields = board.getAvailableFields();
         //then
         Assert.assertEquals(availableFields, expectedAvailableMoves);
     }
@@ -78,10 +78,10 @@ public class SimpleMapBoardTest {
     @Test
     public void getAvailableMovesWithTwoOccupiedFields() {
         //given
-        Board board = createBoard(field(1, Mark.CIRCLE), field(2, Mark.CIRCLE));
-        Set<Integer> expectedAvailableMoves = moves(3, 4, 5, 6, 7, 8, 9);
+        Board board = createBoard(move(1, Mark.CIRCLE), move(2, Mark.CIRCLE));
+        Set<Field> expectedAvailableMoves = moves(3, 4, 5, 6, 7, 8, 9);
         //when
-        Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
+        Set<Field> availableFieldsOnEmptyBoard = board.getAvailableFields();
         //then
         Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
     }
@@ -89,11 +89,11 @@ public class SimpleMapBoardTest {
     @Test
     public void getAvailableMovesWithAllOccupiedFields() {
         //given
-        Board board = createBoard(field(1, Mark.CIRCLE), field(2, Mark.CIRCLE), field(3, Mark.CIRCLE), field(4, Mark.CIRCLE),
-                field(5, Mark.CIRCLE), field(6, Mark.CIRCLE), field(7, Mark.CIRCLE), field(8, Mark.CIRCLE), field(9, Mark.CIRCLE));
-        Set<Integer> expectedAvailableMoves = moves();
+        Board board = createBoard(move(1, Mark.CIRCLE), move(2, Mark.CIRCLE), move(3, Mark.CIRCLE), move(4, Mark.CIRCLE),
+                move(5, Mark.CIRCLE), move(6, Mark.CIRCLE), move(7, Mark.CIRCLE), move(8, Mark.CIRCLE), move(9, Mark.CIRCLE));
+        Set<Field> expectedAvailableMoves = moves();
         //when
-        Set<Integer> availableFieldsOnEmptyBoard = board.getAvailableFields();
+        Set<Field> availableFieldsOnEmptyBoard = board.getAvailableFields();
         //then
         Assert.assertEquals(availableFieldsOnEmptyBoard, expectedAvailableMoves);
     }
@@ -102,11 +102,11 @@ public class SimpleMapBoardTest {
     public static Object[][] allMoves() {
         Object[][] fields = new Object[18][2];
         for (int i = 0; i < 18; i++) {
-            fields[i][0] = i + 1;
+            fields[i][0] = new Field(i + 1);
             fields[i][1] = Mark.CIRCLE;
         }
         for (int i = 0; i < 9; i++) {
-            fields[i + 9][0] = i + 1;
+            fields[i + 9][0] = new Field(i + 1);
             fields[i + 9][1] = Mark.CROSS;
         }
         return fields;
@@ -116,7 +116,7 @@ public class SimpleMapBoardTest {
     public static Object[][] oMoves() {
         Object[][] fields = new Object[9][2];
         for (int i = 0; i < 9; i++) {
-            fields[i][0] = i + 1;
+            fields[i][0] = new Field(i + 1);
             fields[i][1] = Mark.CIRCLE;
         }
         return fields;
@@ -126,31 +126,31 @@ public class SimpleMapBoardTest {
     public static Object[][] xMoves() {
         Object[][] fields = new Object[9][2];
         for (int i = 0; i < 9; i++) {
-            fields[i][0] = i + 1;
+            fields[i][0] = new Field(i + 1);
             fields[i][1] = Mark.CIRCLE;
         }
         return fields;
     }
 
-    private Object field(int position, Mark mark) {
+    private Object move(int position, Mark mark) {
         return new Object[]{position, mark};
     }
 
     private Board createBoard(Object... objects) {
-        Map<Integer, Mark> board = new SimpleMapBoardBuilder().createMap();
+        Map<Field, Mark> board = new SimpleMapBoardBuilder().createMap();
         for (int i = 0; i < objects.length; i++) {
             Object[] field = (Object[]) objects[i];
             Integer position = (Integer) field[0];
             Mark mark = (Mark) field[1];
-            board.put(position, mark);
+            board.put(new Field(position), mark);
         }
         return new SimpleMapBoard(board);
     }
 
-    private Set<Integer> moves(int... moves) {
-        HashSet<Integer> availableMoves = new HashSet<>();
+    private Set<Field> moves(int... moves) {
+        HashSet<Field> availableMoves = new HashSet<>();
         for (int move : moves) {
-            availableMoves.add(move);
+            availableMoves.add(new Field(move));
         }
         return availableMoves;
     }

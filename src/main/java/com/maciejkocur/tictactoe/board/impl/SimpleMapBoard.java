@@ -8,31 +8,31 @@ import java.util.Map;
 import java.util.Set;
 
 public class SimpleMapBoard implements Board {
-    Map<Integer, Mark> board;
+    Map<Field, Mark> board;
 
-    public SimpleMapBoard(Map<Integer, Mark> board) {
+    public SimpleMapBoard(Map<Field, Mark> board) {
         this.board = board;
     }
 
 
     @Override
-    public void applyMark(Integer fieldNumber, Mark mark) {
-        if (board.containsKey(fieldNumber) && board.get(fieldNumber) == Mark.EMPTY) {
-            board.put(fieldNumber, mark);
+    public void applyMark(Field field, Mark mark) {
+        if (board.containsKey(field) && board.get(field) == Mark.EMPTY) {
+            board.put(field, mark);
         }
     }
 
     @Override
-    public Mark getMarkAtField(Integer fieldNumber) {
-        return board.get(fieldNumber);
+    public Mark getMarkAtField(Field field) {
+        return board.get(field);
     }
 
     @Override
-    public Set<Integer> getAvailableFields() {
-        Set<Integer> availableMoves = new HashSet<>();
+    public Set<Field> getAvailableFields() {
+        Set<Field> availableMoves = new HashSet<>();
         for (int i = 1; i <= 9; i++) {
-            if (board.containsKey(i) && board.get(i) == Mark.EMPTY) {
-                availableMoves.add(i);
+            if (board.containsKey(new Field(i)) && board.get(new Field(i)) == Mark.EMPTY) {
+                availableMoves.add(new Field(i));
             }
         }
         return availableMoves;

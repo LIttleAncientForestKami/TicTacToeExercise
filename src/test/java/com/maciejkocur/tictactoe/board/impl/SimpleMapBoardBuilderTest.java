@@ -13,10 +13,18 @@ public class SimpleMapBoardBuilderTest {
     public void createsEmptyBoard() {
         //given
         SimpleMapBoardBuilder builder = new SimpleMapBoardBuilder();
-        HashMap<Integer, Mark> emptyMap = new HashMap<>();
+        HashMap<Field, Mark> emptyMap = createEmptyMap();
         //when
-        Map<Integer, Mark> createdMap = builder.createMap();
+        Map<Field, Mark> createdMap = builder.createMap();
         //then
         Assert.assertEquals(emptyMap, createdMap);
+    }
+
+    private HashMap<Field, Mark> createEmptyMap() {
+        HashMap<Field, Mark> map = new HashMap<>();
+        for (int i = 1; i <= 9; i++) {
+            map.put(new Field(i), Mark.EMPTY);
+        }
+        return map;
     }
 }

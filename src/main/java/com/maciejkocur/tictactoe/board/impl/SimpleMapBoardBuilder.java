@@ -7,10 +7,10 @@ import java.util.Map;
 
 public class SimpleMapBoardBuilder {
 
-    public Map<Integer, Mark> createMap() {
-        HashMap<Integer, Mark> map = new HashMap<>();
+    public Map<Field, Mark> createMap() {
+        HashMap<Field, Mark> map = new HashMap<>();
         for (int i = 1; i <= 9; i++) {
-            map.put(i, Mark.EMPTY);
+            map.put(new Field(i), Mark.EMPTY);
         }
         return map;
     }

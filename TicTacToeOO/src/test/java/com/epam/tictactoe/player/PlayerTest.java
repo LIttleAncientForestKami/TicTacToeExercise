@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * Created by grzegorz_sledz on 30.06.16.
+ * @author Grzegorz Sledz
  */
 public class PlayerTest {
 
@@ -59,6 +59,12 @@ public class PlayerTest {
         IPlayer player=new PlayerX();
         player.saveTurn(new Position(5));
         Assert.assertEquals(player.lastTurn(),new Position(5));
+    }
+    @Test
+    public void afterOneTurnTurnAmountShoulBeOne() {
+        IPlayer player=new PlayerX();
+        player.saveTurn(new Position(5));
+        Assert.assertEquals(player.turnsAmount(),1);
     }
 
 }

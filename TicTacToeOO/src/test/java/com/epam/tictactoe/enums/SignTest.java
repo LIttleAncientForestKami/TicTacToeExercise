@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 
 /**
- * Created by Grzesiek on 2016-06-23.
+ * @author Grzegorz Sledz
  */
 public class SignTest {
 

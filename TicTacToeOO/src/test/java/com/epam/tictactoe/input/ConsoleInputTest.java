@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 import java.io.ByteArrayInputStream;
 
 /**
- * Created by grzegorz_sledz on 01.07.16.
+ * @author Grzegorz Sledz
  */
 public class ConsoleInputTest {
 
     @Test
-    public void readInt16() {
+    public void readInt16FromConsoleInput() {
         Integer expectedValue = 16;
         IInput console = new ConsoleInput(new ByteArrayInputStream("16".getBytes()));
         Assert.assertTrue(expectedValue == console.readInt());

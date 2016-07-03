@@ -9,9 +9,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 /**
- * Created by Grzesiek on 2016-06-23.
+ * @author Grzegorz Sledz
  */
-
 public class BoardTests {
 
     @Test
@@ -20,7 +19,7 @@ public class BoardTests {
         Assert.assertFalse(board.checkIsFullyFilled());
     }
     @Test
-    public void checkIsBoardFieldIsNotEmptyAfterPlacingMark() {
+    public void checkIsBoardFieldElementIsNotEmptyAfterPlacingMark() {
         IBoard board = new Board(new Dimension(3));
         IPosition position=new Position(5);
         Assert.assertTrue(board.placeMark(position,Sign.X));
@@ -33,12 +32,6 @@ public class BoardTests {
         IPosition position=new Position(1);
         Assert.assertTrue(board.placeMark(position,Sign.X));
         Assert.assertFalse(board.placeMark(position,Sign.X));
-    }
-    @Test
-    public void placeMarkAtTheSamePositionShouldReturnFalse() {
-        IBoard board = new Board(new Dimension(3));
-        Assert.assertTrue(board.placeMark(new Position(1),Sign.X));
-        Assert.assertFalse(board.placeMark(new Position(1),Sign.X));
     }
 
     @Test

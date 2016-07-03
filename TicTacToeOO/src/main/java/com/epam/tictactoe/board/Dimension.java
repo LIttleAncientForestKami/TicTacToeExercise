@@ -1,5 +1,10 @@
 package com.epam.tictactoe.board;
 
+/**
+ * @author Grzegorz Sledz
+ *
+ * Class is responsible for representing board dimension
+ */
 public class Dimension implements IDimension {
 
     private final int value;
@@ -9,21 +14,6 @@ public class Dimension implements IDimension {
     }
 
     public int value() {
-        return this.value;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Dimension))
-            return false;
-        if (obj == this)
-            return true;
-        Dimension dimension = (Dimension) obj;
-        return dimension.value == this.value;
-    }
-
-    @Override
-    public int hashCode() {
         return this.value;
     }
 }

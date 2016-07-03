@@ -6,13 +6,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * Created by grzegorz_sledz on 24.06.16.
+ * @author Grzegorz Sledz
  */
 public class PositionTest {
 
     @Test()
-    public void equalityOfTwoTheSamePostionShouldBeTrue() {
-        Assert.assertFalse(new Position(5).equals(new Position(4)));
-        Assert.assertTrue(new Position(5).equals(new Position(5)));
+    public void position1ToStringTest() {
+        Assert.assertEquals("Position: 1",new Position(1).toString());
     }
 }

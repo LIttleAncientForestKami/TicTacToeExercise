@@ -1,63 +1,57 @@
 package com.epam.tictactoe.controller;
 
+import com.epam.tictactoe.arbiter.Arbiter3x3;
+import com.epam.tictactoe.arbiter.IArbiter;
 import com.epam.tictactoe.board.*;
+import com.epam.tictactoe.enums.GameState;
 import com.epam.tictactoe.input.ConsoleInput;
-import com.epam.tictactoe.input.IInput;
 import com.epam.tictactoe.managers.IPlayerManager;
 import com.epam.tictactoe.managers.PlayerManager;
 import com.epam.tictactoe.player.IPlayer;
 
 /**
- * Created by grzegorz_sledz on 30.06.16.
+ * @author Grzegorz Sledz
+ *
+ * Class is needded to create game logic for Tic Tac Toe.
  */
 public class TicTacToeGame {
-
-    private final IBoard board;
-    private final IDimension dimension;
     private final IPlayerManager playerManager;
-    private final IInput console;
-    private int correctTurns;
+    private final IArbiter arbiter;
+    private final BoardPlayerController boardPlayerController;
 
     public TicTacToeGame(IDimension dimension) {
-        this.board = new Board(dimension);
-        this.dimension = dimension;
+        IBoard board = new Board(dimension);
         this.playerManager = new PlayerManager();
-        this.console = new ConsoleInput();
+        this.arbiter = new Arbiter3x3(board);
+        this.boardPlayerController = new BoardPlayerController(board,new ConsoleInput());
     }
 
-    public TicTacToeGame playO(){
-        makeTurn(playerManager.playerO());
-        return this;
-    }
-    public TicTacToeGame playX(){
-        makeTurn(playerManager.playerX());
+    public TicTacToeGame playO() {
+        nextTurn(playerManager.playerO());
         return this;
     }
 
-    private void makeTurn(IPlayer player){
-        doMove(player);
-        System.out.println(board);
-        checkIsWinner(player);
+    public TicTacToeGame playX() {
+        nextTurn(playerManager.playerX());
+        return this;
     }
 
-    private void checkIsWinner(IPlayer player ){
-        if(board.checkIsFullyFilled()){
-            System.out.println("Nobody won");
+    private void nextTurn(IPlayer player) {
+        boardPlayerController.doMove(player);
+        boardPlayerController.showBoard();
+        GameState gameState = arbiter.checkIsWinner(player);
+        checkGameState(gameState, player);
+    }
+
+    private void checkGameState(GameState gameState, IPlayer player) {
+        if (gameState == GameState.WINNER) {
+            System.out.println("The winner is: " + player);
+            stop();
         }
-    }
-
-    private void doMove(IPlayer player) {
-        boolean isCorrectMove = false;
-        IPosition toPosition;
-        do {
-            System.out.println(player + " choose field [1-" + dimension.value() * dimension.value() + "]: ");
-             toPosition = new Position(console.readInt());
-            isCorrectMove = board.placeMark(toPosition, player.sign());
-            if (!isCorrectMove) {
-                System.out.println(toPosition + " is not valid. Try again!!");
-            }
-        } while (!isCorrectMove);
-        player.saveTurn(toPosition);
+        if (gameState == GameState.NOBODY_WIN) {
+            System.out.println("Nobody won");
+            stop();
+        }
     }
 
     private void stop() {

@@ -1,5 +1,10 @@
 package com.epam.tictactoe.enums;
 
+/**
+ * @author Grzegorz Sledz
+ *
+ * Enum stores possible signs in board
+ */
 public enum Sign {
 
     O("O"), X("X"), EMPTY("-");

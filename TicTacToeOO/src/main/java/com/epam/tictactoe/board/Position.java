@@ -2,9 +2,11 @@ package com.epam.tictactoe.board;
 
 
 /**
- * Created by grzegorz_sledz on 24.06.16.
+ * @author Grzegorz Sledz
+ *
+ * Class is responsible for representing position on board
  */
-public class Position implements IPosition, Comparable {
+public class Position implements IPosition {
     private final int value;
 
     public Position(int value) {
@@ -29,10 +31,6 @@ public class Position implements IPosition, Comparable {
         return this.value;
     }
 
-    public int compareTo(Object o) {
-        Position position = (Position) o;
-        return new Integer(this.value).compareTo(position.value);
-    }
 
     @Override
     public String toString() {

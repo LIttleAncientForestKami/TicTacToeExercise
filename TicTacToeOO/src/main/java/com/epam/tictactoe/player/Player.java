@@ -7,7 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Grzesiek on 2016-06-26.
+ * @author Grzegorz Sledz
+ *
+ * Class responsible for storing player sing and player correct turns
  */
 public  abstract class Player implements IPlayer {
     private final Sign sign;
@@ -26,6 +28,9 @@ public  abstract class Player implements IPlayer {
             return null;
         }
         return this.turns.get(turns.size()-1);
+    }
+    public int turnsAmount(){
+        return this.turns.size();
     }
 
     @Override

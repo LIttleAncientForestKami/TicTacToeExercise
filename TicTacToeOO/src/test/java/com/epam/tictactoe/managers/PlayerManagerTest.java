@@ -12,7 +12,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
- * Created by grzegorz_sledz on 27.06.16.
+ * @author Grzegorz Sledz
  */
 public class PlayerManagerTest {
 

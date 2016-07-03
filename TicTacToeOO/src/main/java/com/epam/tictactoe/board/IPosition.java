@@ -1,7 +1,7 @@
 package com.epam.tictactoe.board;
 
 /**
- * Created by grzegorz_sledz on 24.06.16.
+ * @author Grzegorz Sledz
  */
 public interface IPosition {
     public int value();

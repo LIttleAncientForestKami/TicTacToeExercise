@@ -4,7 +4,9 @@ import com.epam.tictactoe.board.Dimension;
 import com.epam.tictactoe.controller.TicTacToeGame;
 
 /**
- * Created by grzegorz_sledz on 30.06.16.
+ * @author Grzegorz Sledz
+ *
+ * Main class
  */
 public class Main {
 

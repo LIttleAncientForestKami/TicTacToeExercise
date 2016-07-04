@@ -1,6 +1,7 @@
 package com.maciejkocur.tictactoe;
 
 import com.maciejkocur.tictactoe.board.Board;
+import com.maciejkocur.tictactoe.board.Mark;
 import com.maciejkocur.tictactoe.board.impl.SimpleMapBoard;
 import com.maciejkocur.tictactoe.board.impl.SimpleMapBoardBuilder;
 import com.maciejkocur.tictactoe.engine.Game;
@@ -16,8 +17,8 @@ public class GameStarter {
         Board board = new SimpleMapBoard(new SimpleMapBoardBuilder().createMap());
         BoardView boardView = new ConsoleBoardView();
         InputReader inputReader = new SimpleInputReader();
-        Player player1 = new HumanPlayer(inputReader);
-        Player player2 = new HumanPlayer(inputReader);
+        Player player1 = new HumanPlayer(inputReader, Mark.CIRCLE);
+        Player player2 = new HumanPlayer(inputReader, Mark.CROSS);
         new Game(board, player1, player2, boardView).start();
     }
 }

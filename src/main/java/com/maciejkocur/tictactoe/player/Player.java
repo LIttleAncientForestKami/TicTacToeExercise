@@ -6,5 +6,6 @@ import java.io.IOException;
 import java.util.Set;
 
 public interface Player {
+
     Field chooseField(Set<Field> fields) throws IOException;
 }

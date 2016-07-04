@@ -43,13 +43,13 @@ public class SimpleMapBoard implements Board {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                int position = 3 * i + j + 1;
-                if (board.containsKey(position) && board.get(position) != Mark.EMPTY) {
+                Field field = new Field(3 * i + j + 1);
+                if (board.containsKey(field) && board.get(field) != Mark.EMPTY) {
                     sb.append("\t");
-                    sb.append(board.get(3 * i + j + 1).toString());
+                    sb.append(board.get(field).toString());
                 } else {
                     sb.append("\t");
-                    sb.append(3 * i + j + 1);
+                    sb.append(String.valueOf(3 * i + j + 1));
                 }
             }
             sb.append("\n");

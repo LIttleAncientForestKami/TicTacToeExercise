@@ -1,7 +1,7 @@
 package com.maciejkocur.tictactoe.board.impl;
 
 public class Field {
-    Integer value;
+    private final Integer value;
 
     public Field(Integer value) {
         this.value = value;

@@ -11,14 +11,16 @@ public class Board {
 
     private final int size;
 
-    List<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
+    private List<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
 
     public Board(int size) {
         this.size = size;
+        int cellPosition=1;
         for (int i = 0; i < size; i++) {
             ArrayList<Cell> internalArray = new ArrayList<Cell>();
-            for (int j = 0; j <size ; j++) {
-                internalArray.add(new Cell(null));
+            for (int j=0 ; j <size ; j++) {
+                internalArray.add(new Cell(cellPosition));
+                cellPosition++;
             }
             cells.add(internalArray);
         }
@@ -30,15 +32,31 @@ public class Board {
 
 
     public Cell getCellOnPosition(int position) {
-        int columnNumber = (position % size) > 0 ? (position % size - 1) : size - 1;
-        return cells.get(columnNumber).get(position/size);
+        int rowNumber = ((position -1)/ size);
+        int columnNumber = position%size >0 ? position%size -1: size-1;
+        return cells.get(rowNumber).get(columnNumber);
 
     }
 
     public void createCell(int position) {
-        int columnNumber = (position % size) > 0 ? (position % size - 1) : size - 1;
-        cells.get(columnNumber).add(position/size,new Cell(position));
+        int rowNumber = ((position -1)/ size);
+        int columnNumber = position%size >0 ? position%size -1: size-1;
+        cells.get(rowNumber).add(columnNumber,new Cell(position));
 
+    }
+
+    // do not test this method. It is just for console representation
+    public void printBoard(){
+        for (int i = 0; i <size; i++) {
+            for (int j = 0; j <size ; j++) {
+                if (cells.get(i).get(j).getSymbol()!=null) {
+                    System.out.print(cells.get(i).get(j).getSymbol());
+                }else{
+                    System.out.print(cells.get(i).get(j).position);
+                }
+            }
+            System.out.println("");
+        }
     }
 }
 

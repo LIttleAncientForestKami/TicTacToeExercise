@@ -8,20 +8,22 @@ import java.util.TreeMap;
  */
 public class GameBoard {
 
-    private final int SIDE_SIZE;
+    private final int SIZE;
     private Map<Field, FieldStatus> mBoard;
 
 
-    public GameBoard(int size) {
-        SIDE_SIZE = size;
+    public GameBoard(BoardSize size) {
+        SIZE = size.value();
         mBoard = new TreeMap<>();
-        for (int i = 0; i < SIDE_SIZE * SIDE_SIZE; i++) {
-                mBoard.put(intToCoordinatesConverter(i), stringToFieldStatusConverter(""));
+        for (int i = 0; i < SIZE * SIZE; i++) {
+                mBoard.put(intToCoordinatesConverter(i), FieldStatus.FREE);
         }
+        System.out.println(this);
     }
 
-    public void placeMark(String s, int index) {
-        mBoard.put(intToCoordinatesConverter(index - 1), stringToFieldStatusConverter(s));
+    public void placeMark(FieldStatus mark, int index) {
+        mBoard.put(intToCoordinatesConverter(index - 1), mark);
+        System.out.println(this);
     }
 
     @Override
@@ -32,7 +34,7 @@ public class GameBoard {
                 ) {
             FieldStatus fieldStatus = entry.getValue();
             stringBuilder.append(fieldStatus == FieldStatus.FREE ? i : fieldStatus);
-            if (i % SIDE_SIZE == 0) {
+            if (i % SIZE == 0) {
                 stringBuilder.append("\n");
             }
             i++;
@@ -40,20 +42,7 @@ public class GameBoard {
         return stringBuilder.toString();
     }
 
-    private FieldStatus stringToFieldStatusConverter(String s) {
-        FieldStatus result = FieldStatus.FREE;
-        switch (s) {
-            case "O" :
-                result = FieldStatus.O;
-                break;
-            case "X" :
-                result = FieldStatus.X;
-                break;
-        }
-        return result;
-    }
-
     private Field intToCoordinatesConverter(int i) {
-        return new Field((i) % SIDE_SIZE, (i) / SIDE_SIZE);
+        return new Field((i) % SIZE, (i) / SIZE);
     }
 }

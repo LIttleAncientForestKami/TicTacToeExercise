@@ -13,7 +13,7 @@ public class Field implements Comparable<Field> {
     }
 
     public int compareTo(Field field) {
-        if (mXCoordinate < field.mXCoordinate && mYCoordinate <= field.mYCoordinate) {
+        if ((mXCoordinate < field.mXCoordinate && mYCoordinate <= field.mYCoordinate) || mYCoordinate < field.mYCoordinate) {
             return -1;
         } else if ((mXCoordinate > field.mXCoordinate && mYCoordinate == field.mYCoordinate) || (mYCoordinate > field.mYCoordinate)) {
             return 1;

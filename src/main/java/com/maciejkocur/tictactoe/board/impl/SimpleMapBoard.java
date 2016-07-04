@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class SimpleMapBoard implements Board {
-    Map<Field, Mark> board;
+    private final Map<Field, Mark> board;
 
     public SimpleMapBoard(Map<Field, Mark> board) {
         this.board = board;

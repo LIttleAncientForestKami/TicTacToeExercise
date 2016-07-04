@@ -1,7 +1,15 @@
 package com.tictac;
 
+import com.tictac.field.Board;
+import com.tictac.field.Cell;
+import com.tictac.field.CellFactoryList;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -10,35 +18,19 @@ import static org.testng.Assert.assertTrue;
  */
 
 public class TestBoard {
-    @Test
-    public void applyForOInCentre() {
-        // given
-        Board board = new Board(5);
-        // when
-        Symbol toTest = board.getCentralPositionSymbol();
-        // then
-        assertTrue(toTest.equals(Symbol.O));
-    }
 
-    @Test
-    public void applyForCellsAnywhere() {
-        // given
-        Board board = new Board(5);
-        board.createCell(5);
-        // when
-        Cell toTest1 = board.getCellOnPosition(5);
-        Cell toTest2 = board.getCellOnPosition(3);
-        // then
-        assertTrue(toTest1.position == 5);
-        assertEquals(toTest2.position, null);
+    List<List<Cell>> cells = new ArrayList<List<Cell>>();
 
-    }
 
     @Test
     public void ifCellHasDiagonal() {
         // given
-        Board board = new Board(5);
-        Cell cellTotest = board.getCellOnPosition(5);
+        Board board = new Board(3);
+        CellFactoryList mockFactory = mock(CellFactoryList.class);
+        when(mockFactory.createCells(3)).thenReturn(getMockFactoryEmptyField(3));
+        board.setCells(mockFactory.createCells(3));
+
+        Cell cellTotest = board.getCellOnPosition(3);
         // when
         Boolean isDiagonal = cellTotest.hasDiagonal();
         Boolean isCentral = cellTotest.isCentral();
@@ -47,31 +39,70 @@ public class TestBoard {
         assertTrue(isCentral);
 
     }
+    @Test
+    public void TestEmptyField() {
+        // given
+        Board board = new Board(5);
+
+        CellFactoryList mockFactory = mock(CellFactoryList.class);
+        when(mockFactory.createCells(3)).thenReturn(getMockFactoryEmptyField(3));
+        board.setCells(mockFactory.createCells(3));
+
+        // when
+        int position1 = board.getCellOnPosition(1).position;
+        Symbol symbol1 = board.getCellOnPosition(1).getSymbol();
+        int position3 = board.getCellOnPosition(3).position;
+        Symbol symbol3 = board.getCellOnPosition(3).getSymbol();
+        // then
+        assertEquals(position1,1);
+        assertEquals( null,symbol1);
+        assertEquals(position3, 3);
+        assertEquals(null,symbol3);
+    }
 
     @Test
     public void TestSequenceOfInputs() {
         // given
         Board board = new Board(5);
-        board.createCell(1);
-        board.getCellOnPosition(1).setSymbol(Symbol.O);
-        board.createCell(2);
-        board.getCellOnPosition(2).setSymbol(Symbol.X);
-        board.createCell(3);
-        board.getCellOnPosition(3).setSymbol(Symbol.O);
-        board.createCell(4);
-        board.getCellOnPosition(4).setSymbol(Symbol.X);
+        CellFactoryList mockFactory = mock(CellFactoryList.class);
+        when(mockFactory.createCells(3)).thenReturn(getMockFactory_O_X_O_X_Field(3));
+        board.setCells(mockFactory.createCells(3));
+
         // when
         Symbol symbol1 = board.getCellOnPosition(1).getSymbol();
-        Symbol symbol2 = board.getCellOnPosition(2).getSymbol();
         Symbol symbol3 = board.getCellOnPosition(3).getSymbol();
-        Symbol symbol4 = board.getCellOnPosition(4).getSymbol();
         // then
-        assertEquals(symbol1,Symbol.O);
-        assertEquals(symbol2,Symbol.X);
-        assertEquals(symbol3,Symbol.O);
-        assertEquals(symbol4,Symbol.X);
+        assertEquals(symbol1, Symbol.O);
+        assertEquals(symbol3, Symbol.X);
+
     }
 
+    private List<List<Cell>> getMockFactoryEmptyField(int size){
+        for (int i = 0; i < size; i++) {
+            ArrayList<Cell> internalArray = new ArrayList<Cell>();
+            for (int j = 0; j < size; j++) {
+                Cell cell = new Cell(i*size + j +1);
+                internalArray.add(cell);
+            }
+            cells.add(internalArray);
+        }
+        return cells;
+    }
+    private List<List<Cell>> getMockFactory_O_X_O_X_Field(int size){
+        for (int i = 0; i < size; i++) {
+            ArrayList<Cell> internalArray = new ArrayList<Cell>();
+            for (int j = 0; j < size; j++) {
+                Cell cell = new Cell(i*size + j +1);
+                internalArray.add(cell);
+            }
+            cells.add(internalArray);
+        }
+        // position 1
+        cells.get(0).get(0).setSymbol(Symbol.O);
+        // position == size
+        cells.get(0).get(size-1).setSymbol(Symbol.X);
+        return cells;
+    }
 }
 
 

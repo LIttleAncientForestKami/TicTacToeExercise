@@ -1,10 +1,12 @@
-package com.tictac;
+package com.tictac.field;
+
+import com.tictac.Symbol;
 
 /**
  * Created by olgaermolaeva on 30.06.16.
  */
 public class Cell {
-    Integer position;
+    public Integer position;
     private Symbol symbol;
 
     public Cell(Integer position) {

@@ -1,12 +1,10 @@
 package com.tictac.field;
 
-import com.tictac.field.Cell;
-
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by olgaermolaeva on 04.07.16.
  */
 public interface CellFactory {
-    List<List<Cell>> createCells(int size);
+    Map<Integer, Cell> createCells(int size);
 }

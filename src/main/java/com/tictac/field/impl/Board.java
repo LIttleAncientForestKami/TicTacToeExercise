@@ -1,10 +1,8 @@
-package com.tictac.field;
+package com.tictac.field.impl;
 
 
 import com.tictac.Symbol;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -43,7 +41,7 @@ public class Board {
             if (cells.get(i).getSymbol() != null) {
                 System.out.print(cells.get(i).getSymbol());
             } else {
-                System.out.print(cells.get(i).position);
+                System.out.print(cells.get(i).getPosition());
             }
         }
     }

@@ -1,7 +1,8 @@
 package com.tictac;
 
-import com.tictac.field.Board;
-import com.tictac.field.CellFactoryMap;
+import com.tictac.field.impl.Board;
+import com.tictac.field.impl.CellFactoryMap;
+import com.tictac.field.impl.EventRegistrator;
 
 /**
  * Created by olgaermolaeva on 04.07.16.
@@ -9,7 +10,10 @@ import com.tictac.field.CellFactoryMap;
 public class TictactoeStarter {
     public static void main(String[] args) {
         Board board = new Board(3);
-        board.setCells(new CellFactoryMap().createCells(3));
+        EventRegistrator eventRegistrator = new EventRegistrator(3);
+        CellFactoryMap cellFactoryMap = new CellFactoryMap(3);
+        cellFactoryMap.setEventRegistrator(eventRegistrator);
+        board.setCells(cellFactoryMap.createCells());
         board.printBoard();
     }
 

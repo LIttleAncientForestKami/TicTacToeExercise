@@ -1,8 +1,9 @@
-package com.tictac;
+package com.tictac.field.impl;
 
-import com.tictac.field.Board;
-import com.tictac.field.Cell;
-import com.tictac.field.CellFactoryMap;
+import com.tictac.Symbol;
+import com.tictac.field.impl.Board;
+import com.tictac.field.impl.Cell;
+import com.tictac.field.impl.CellFactoryMap;
 import org.testng.annotations.Test;
 
 import java.util.Map;
@@ -17,7 +18,7 @@ import static org.testng.Assert.assertTrue;
 
 public class TestBoard {
 
-    Map<Integer,Cell> cells = new CellFactoryMap().createCells(3);
+    Map<Integer,Cell> cells = new CellFactoryMap(3).createCells();
 
     @Test
     public void TestEmptyField() {
@@ -26,9 +27,9 @@ public class TestBoard {
         board.setCells(cells);
 
         // when
-        int position1 = board.getCellOnPosition(1).position;
+        int position1 = board.getCellOnPosition(1).getPosition();
         Symbol symbol1 = board.getCellOnPosition(1).getSymbol();
-        int position3 = board.getCellOnPosition(3).position;
+        int position3 = board.getCellOnPosition(3).getPosition();
         Symbol symbol3 = board.getCellOnPosition(3).getSymbol();
         // then
         assertEquals(position1, 1);
@@ -43,34 +44,14 @@ public class TestBoard {
         Board board = new Board(3);
         board.setCells(cells);
         board.updateCell(1,Symbol.O);
-        board.updateCell(3,Symbol.X);
+        board.updateCell(8,Symbol.X);
 
         // when
         Symbol symbol1 = board.getCellOnPosition(1).getSymbol();
-        Symbol symbol3 = board.getCellOnPosition(3).getSymbol();
+        Symbol symbol8 = board.getCellOnPosition(8).getSymbol();
         // then
         assertEquals(symbol1, Symbol.O);
-        assertEquals(symbol3, Symbol.X);
+        assertEquals(symbol8, Symbol.X);
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

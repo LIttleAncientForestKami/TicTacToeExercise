@@ -7,6 +7,5 @@ import com.tictac.Symbol;
  */
 public interface SymbolStorage {
     void update(Symbol symbol);
-    void goToCheck ();
 
 }

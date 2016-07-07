@@ -5,7 +5,7 @@ import com.tictac.Symbol;
 import java.util.List;
 
 /**
- * Created by olgaermolaeva on 30.06.16.
+ * Created by Olga Ermolaeva on 30.06.16.
  */
 public class Cell {
 

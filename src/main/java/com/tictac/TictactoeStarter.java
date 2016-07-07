@@ -5,7 +5,7 @@ import com.tictac.field.impl.CellFactoryMap;
 import com.tictac.field.impl.EventRegistrator;
 
 /**
- * Created by olgaermolaeva on 04.07.16.
+ * Created by Olga Ermolaeva on 04.07.16.
  */
 public class TictactoeStarter {
     public static void main(String[] args) {

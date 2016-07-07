@@ -23,13 +23,10 @@ public class Board {
 
     public Cell getCellOnPosition(int position) {
         return cells.get(position);
-
     }
 
     public void updateCell(int cellPosition, Symbol symbol) {
         getCellOnPosition(cellPosition).update(symbol);
-
-
     }
 
     // do not test this method. It is just for console representation

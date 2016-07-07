@@ -1,5 +1,4 @@
 package com.tictac.field.impl;
-
 import com.tictac.Symbol;
 import com.tictac.field.SymbolStorage;
 
@@ -8,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by olgaermolaeva on 05.07.16.
+ * Created by Olga Ermolaeva on 05.07.16.
  */
 public class SymbolStorageWithRegistration implements SymbolStorage {
 

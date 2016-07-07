@@ -17,11 +17,13 @@ public class EventRegistratorTest {
         EventRegistrator eventRegistrator = new EventRegistrator(3);
         CellFactoryMap cellFactoryMap = new CellFactoryMap(3);
         cellFactoryMap.setEventRegistrator(eventRegistrator);
+
         // when
         board.setCells(cellFactoryMap.createCells());
         board.updateCell(1, Symbol.O);
         board.updateCell(2, Symbol.O);
         board.updateCell(3, Symbol.O);
+
         // then
         assertEquals(eventRegistrator.isWinner(),true);
     }

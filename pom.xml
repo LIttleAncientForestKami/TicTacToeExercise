@@ -61,8 +61,6 @@
                     <argument>-XX:+PrintGCDetails</argument>
                     <argument>-Xloggc:gc.log</argument>
                     <argument>-classpath</argument>
-                    <classpath/>
-                    <argument>com.redstack.App</argument>
                 </arguments>
             </configuration>
         </plugin>

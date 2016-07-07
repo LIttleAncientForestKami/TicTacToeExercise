@@ -1,7 +1,5 @@
 package com.tictac.field.impl;
-
 import com.tictac.Symbol;
-
 import java.util.List;
 
 /**

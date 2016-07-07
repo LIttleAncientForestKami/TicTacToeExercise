@@ -11,6 +11,12 @@ public class CellFactoryMap implements CellFactory {
 
     private int size;
     private EventRegistrator eventRegistrator;
+    private Map<Integer, Cell> cells = new HashMap<>();
+    private List<SymbolStorageWithRegistration> rows = new LinkedList<>();
+    private List<SymbolStorageWithRegistration> columns = new LinkedList<>();
+    private SymbolStorageWithRegistration leftDiagonal = new SymbolStorageWithRegistration();
+    private SymbolStorageWithRegistration rightDiagonal = new SymbolStorageWithRegistration();
+    private Diagonalscreator diagonals;
 
     public CellFactoryMap(int size) {
         this.size = size;
@@ -20,13 +26,6 @@ public class CellFactoryMap implements CellFactory {
         this.eventRegistrator = eventRegistrator;
     }
 
-    private Map<Integer, Cell> cells = new HashMap<>();
-
-    private List<SymbolStorageWithRegistration> rows = new LinkedList<>();
-    private List<SymbolStorageWithRegistration> columns = new LinkedList<>();
-    private SymbolStorageWithRegistration leftDiagonal = new SymbolStorageWithRegistration();
-    private SymbolStorageWithRegistration rightDiagonal = new SymbolStorageWithRegistration();
-    private Diagonalscreator diagonals;
 
     public Map<Integer, Cell> createCells() {
         prepareForCreatingCells();
@@ -78,7 +77,6 @@ public class CellFactoryMap implements CellFactory {
     }
 
     private class Diagonalscreator {
-
         Set<Integer> cellsWithLeftDiagonal = new HashSet<>();
         Set<Integer> cellsWithRightDiagonal = new HashSet<>();
 

@@ -4,24 +4,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tictac</groupId>
+    <groupId>ja.tictactoe</groupId>
     <artifactId>TddMavenTictac</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.9.10</version>
-
+            <version>RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.9.5</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -42,29 +43,12 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.5.1</version>
+            <version>RELEASE</version>
             <configuration>
                 <source>1.8</source>
                 <target>1.8</target>
             </configuration>
         </plugin>
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <configuration>
-                <executable>java</executable>
-                <arguments>
-                    <argument>-Xms512m</argument>
-                    <argument>-Xmx512m</argument>
-                    <argument>-XX:NewRatio=3</argument>
-                    <argument>-XX:+PrintGCTimeStamps</argument>
-                    <argument>-XX:+PrintGCDetails</argument>
-                    <argument>-Xloggc:gc.log</argument>
-                    <argument>-classpath</argument>
-                </arguments>
-            </configuration>
-        </plugin>
     </plugins>
     </build>
-
 </project>

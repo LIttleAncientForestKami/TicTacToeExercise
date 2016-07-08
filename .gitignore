@@ -1,4 +1,35 @@
-*.class
+
+# Created by https://www.gitignore.io/api/linux,intellij,java
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+### Intellij ###
+
+# User-specific stuff:
+.idea/
 *.iml
-.idea
+/out/
+
+### Java ###
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+#maven output
 target

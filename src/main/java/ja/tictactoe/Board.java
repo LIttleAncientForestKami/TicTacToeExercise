@@ -15,6 +15,6 @@ public class Board {
     }
 
     public Symbol whatSymbolIsOnThePosition(Position position) {
-        return Symbol.O;
+        return fieldState.get(position);
     }
 }

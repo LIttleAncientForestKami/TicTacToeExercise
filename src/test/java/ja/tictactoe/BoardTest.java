@@ -1,6 +1,7 @@
 package ja.tictactoe;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.Map;
 
@@ -27,6 +28,21 @@ public class BoardTest {
         assertEquals(symbolInTheCentre, O);
     }
 
+    @Test
+    public void TestIfOtherCellsAreEmpty() {
 
+        // given
+        Map<Position, Symbol> fieldstate = FieldFactory.createField();
+        Board board = new Board(fieldstate);
+        SoftAssert softAssert = new SoftAssert();
+
+        // when and then
+        softAssert.assertEquals(board.whatSymbolIsOnThePosition(ONE), EMPTY);
+        softAssert.assertEquals(board.whatSymbolIsOnThePosition(TWO), EMPTY);
+        softAssert.assertEquals(board.whatSymbolIsOnThePosition(FOUR), EMPTY);
+        softAssert.assertEquals(board.whatSymbolIsOnThePosition(SEVEN), EMPTY);
+        softAssert.assertEquals(board.whatSymbolIsOnThePosition(NINE), EMPTY);
+        softAssert.assertAll();
+    }
 
 }

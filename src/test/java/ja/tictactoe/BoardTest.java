@@ -2,6 +2,8 @@ package ja.tictactoe;
 
 import org.testng.annotations.Test;
 
+import java.util.Map;
+
 import static ja.tictactoe.Symbol.*;
 import static ja.tictactoe.Position.*;
 import static org.testng.Assert.*;
@@ -15,7 +17,8 @@ public class BoardTest {
     public void TestIfOisInTheCentre() {
 
         // given
-        Board board = new Board();
+        Map<Position, Symbol> fieldstate = FieldFactory.createField();
+        Board board = new Board(fieldstate);
 
         // when
         Symbol symbolInTheCentre = board.whatSymbolIsOnThePosition(FIVE);
@@ -23,5 +26,7 @@ public class BoardTest {
         // then
         assertEquals(symbolInTheCentre, O);
     }
+
+
 
 }

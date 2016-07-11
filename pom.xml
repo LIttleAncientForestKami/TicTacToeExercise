@@ -8,6 +8,7 @@
     <artifactId>TddMavenTictac</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
+    <description>develop_tictactoe_step_by_step_scenario_by_scenario</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

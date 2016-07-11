@@ -8,7 +8,11 @@ import java.util.Map;
  */
 public class Board {
 
-    private Map<Position, Symbol> fieldState = new HashMap<>();
+    private Map<Position, Symbol> fieldState;
+
+    public Board(Map<Position, Symbol> fieldState) {
+        this.fieldState = fieldState;
+    }
 
     public Symbol whatSymbolIsOnThePosition(Position position) {
         return Symbol.O;
